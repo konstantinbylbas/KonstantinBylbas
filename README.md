@@ -26,7 +26,7 @@ SKILLS AND AWARDS:
  Design Tools
 </h3>
 
-<img src='./assets/photoshop.svg' /> &nbsp;&nbsp; <img src='./assets/illustrator.svg' />
+<img src='./assets/figma.svg' /> &nbsp;&nbsp; <img src='./assets/photoshop.svg' /> &nbsp;&nbsp; <img src='./assets/illustrator.svg' />
 
 <h2>
 📈 Stats
@@ -38,3 +38,20 @@ SKILLS AND AWARDS:
   <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&layout=compact&langs_count=8&theme=radical"/>
 </a>
 </p>
+
+<h2>
+🔗 Links
+</h2>
+
+<a href="https://www.linkedin.com/in/konstantinbylbas/">
+ <img src='./assets/linkedin.svg' />
+</a> &nbsp;&nbsp; 
+<a href="mailto:KonstantinBylbas@gmail.com">
+ <img src='./assets/gmail.svg' />
+</a> &nbsp;&nbsp; 
+<a href="https://t.me/KonstantinBylbas">
+ <img src='./assets/telegram.svg' />
+</a> &nbsp;&nbsp; 
+<a href="#">
+ <img src='./assets/instagram.svg' />
+</a>
