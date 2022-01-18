@@ -16,15 +16,15 @@ SKILLS AND AWARDS:
  Front-End Development 
 </h2>
 <div>
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/react.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
+<img style='width:1.5rem' src='https://github.com/KonstantinBylbas/SVG-icons/blob/2e4f317f87dcb4e5cfdae32b7f70d5fdb39d01f3/react.svg' />
  REACT
 </div>
 <div>
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/sass.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
+<img style='width:1.5rem' src='https://github.com/KonstantinBylbas/SVG-icons/blob/2e4f317f87dcb4e5cfdae32b7f70d5fdb39d01f3/sass.svg' />
  SASS
 </div>
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/css3.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/html5.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
+<img style='width:1.5rem' src='https://github.com/KonstantinBylbas/SVG-icons/blob/2e4f317f87dcb4e5cfdae32b7f70d5fdb39d01f3/css3.svg' />
+<img style='width:1.5rem' src='https://github.com/KonstantinBylbas/SVG-icons/blob/2e4f317f87dcb4e5cfdae32b7f70d5fdb39d01f3/html5.svg' />
 
 <hr/>
 <!-- 
