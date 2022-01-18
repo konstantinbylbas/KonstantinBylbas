@@ -13,30 +13,28 @@ SKILLS AND AWARDS:
 <hr/>
 
 <h2>
- Front-End Development 
+🛠️ Skills
 </h2>
 
-<img src='./assets/react.svg' />
-<img src='./assets/sass.svg' />
-<img src='./assets/css.svg' />
-<img src='./assets/html.svg' />
+<h3>
+ Front-End Development 
+</h3>
 
-<hr/>
+<img src='./assets/react.svg' /> &nbsp;&nbsp; <img src='./assets/sass.svg' /> &nbsp;&nbsp; <img src='./assets/css.svg' /> &nbsp;&nbsp; <img src='./assets/html.svg' />
+
+<h3>
+ Design Tools
+</h3>
+
+<img src='./assets/photoshop.svg' /> &nbsp;&nbsp; <img src='./assets/illustrator.svg' />
 
 <h2>
- Design Tools
+📈 Stats
 </h2>
-<!-- 
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/figma.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobephotoshop.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobeillustrator.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
- -->
-
-### ⚙️ &nbsp;GitHub Analytics
 
 <p align="center">
 <a href="https://github.com/KonstantinBylbas">
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&layout=compact&langs_count=8&theme=highcontrast"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&layout=compact&langs_count=8&theme=radical"/>
 </a>
 </p>
