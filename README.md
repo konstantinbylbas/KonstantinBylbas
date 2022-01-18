@@ -15,8 +15,8 @@ SKILLS AND AWARDS:
 <h2>
  Front-End Development 
 </h2>
-<div style='height:1.5rem;width:max-content;padding:0.5rem'>
-<img src='./assets/react.svg' />
+<div style='padding:0.5rem;display:flex;align-items:center;'>
+<img style:'max-width:1.2rem' src='./assets/react.svg' />
  REACT
 </div>
 <div>
