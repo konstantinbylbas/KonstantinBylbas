@@ -15,28 +15,29 @@ SKILLS AND AWARDS:
 <h2>
  Front-End Development 
 </h2>
-<div style='padding:0.5rem;display:flex;align-items:center;'>
-<img style:'max-width:1.2rem' src='./assets/react.svg' />
+<!-- <div style='padding:0.5rem;display:inline-block;align-items:center;'> -->
+<img src='./assets/react.svg' />
  REACT
-</div>
-<div>
+<!-- </div> -->
+<!-- <div> -->
 <img src='./assets/sass.svg' />
  SASS
-</div>
-<div>
+<!-- </div> -->
+<!-- <div> -->
 <img src='./assets/css3.svg' />
  CSS
-</div>
-<div>
+<!-- </div> -->
+<!-- <div> -->
 <img src='./assets/html5.svg' />
  HTML
-</div>
+<!-- </div> -->
 
 <hr/>
-<!-- 
+
 <h2>
  Design Tools
 </h2>
+<!-- 
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/figma.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobephotoshop.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobeillustrator.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
