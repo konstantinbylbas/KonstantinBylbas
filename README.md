@@ -15,22 +15,11 @@ SKILLS AND AWARDS:
 <h2>
  Front-End Development 
 </h2>
-<!-- <div style='padding:0.5rem;display:inline-block;align-items:center;'> -->
+
 <img src='./assets/react.svg' />
- REACT
-<!-- </div> -->
-<!-- <div> -->
 <img src='./assets/sass.svg' />
- SASS
-<!-- </div> -->
-<!-- <div> -->
-<img src='./assets/css3.svg' />
- CSS
-<!-- </div> -->
-<!-- <div> -->
-<img src='./assets/html5.svg' />
- HTML
-<!-- </div> -->
+<img src='./assets/css.svg' />
+<img src='./assets/html.svg' />
 
 <hr/>
 
