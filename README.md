@@ -16,21 +16,22 @@ SKILLS AND AWARDS:
  Front-End Development 
 </h2>
 <div>
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/react.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
+<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/react.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
  REACT
 </div>
 <div>
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/sass.svg?token=GHSAT0AAAAAABPTVQK7ZMA3MG7ZJ3OR762OYPGSN5Q' />
+<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/sass.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
  SASS
 </div>
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/css3.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
-<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/html5.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
+<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/css3.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
+<img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/html5.svg?token=GHSAT0AAAAAABPTVQK76AZ4WWWBN7UYOHAQYPGSWOQ' />
 
 <hr/>
-
+<!-- 
 <h2>
  Design Tools
 </h2>
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/figma.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobephotoshop.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobeillustrator.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
+ -->
