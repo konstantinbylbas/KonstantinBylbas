@@ -9,4 +9,4 @@ SKILLS AND AWARDS:
 −	Version Control Systems: GitHub, Bitbucket;  
 −	IDEs: Visual Studio, VS code;  
 −	Other: Adobe Photoshop, Figma, FileZilla, XAMPP.  
-![logo](https://raw.githubusercontent.com/KonstantinBylbas/light_start/master/favicon.ico)
+![logo](https://raw.githubusercontent.com/KonstantinBylbas/CapitalHomeFinance/master/public/icon.png?token=GHSAT0AAAAAABPTVQK6E6OPYNQFAU4ZQQV4YPGR7FQ)
