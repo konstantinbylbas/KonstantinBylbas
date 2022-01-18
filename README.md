@@ -31,3 +31,12 @@ SKILLS AND AWARDS:
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobephotoshop.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
 <img style='width:1.5rem' src='https://raw.githubusercontent.com/KonstantinBylbas/SVG-icons/main/adobeillustrator.svg?token=GHSAT0AAAAAABPTVQK7DXWZR2RDNW2QQSGSYPGSNJQ' />
  -->
+
+### ⚙️ &nbsp;GitHub Analytics
+
+<p align="center">
+<a href="https://github.com/KonstantinBylbas">
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&layout=compact&langs_count=8&theme=algolia"/>
+</a>
+</p>
