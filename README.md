@@ -1,8 +1,8 @@
 Konstantin Bylbas 
  
 ADDRESS: Dnipro  
-E-MAIL: KonstantinBylbas@gmail.com 
-SKYPE: KonstantinBylbas@gmail.com
+E-MAIL: KonstantinBylbas@gmail.com  
+SKYPE: KonstantinBylbas@gmail.com  
 TELEGRAM: https://t.me/KonstantinBylbas 
  
 PURPOSE: Junior React.js Developer 
