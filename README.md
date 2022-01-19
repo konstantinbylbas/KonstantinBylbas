@@ -25,8 +25,8 @@ Two days a week I am going to take a course on web development at the “ШАГ�
 
 <p align="center">
 <a href="https://github.com/KonstantinBylbas">
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&layout=compact&langs_count=8&theme=radical"/>
+  <img height="150px" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&layout=compact&include_all_commits=true&show_icons=true&border_color=eee&bg_color=0d1117&text_color=cecece&langs_count=8count_private=true&icon_color=f1e05a&title_color=eee&"/>
+  <img height="150px" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&hide=html,css,less&custom_title=Languages&layout=compact&border_radius=0&border_color=eee&bg_color=0d1117&title_color=eee&text_color=cecece&langs_count=8&custom_title=Languages"/>
 </a>
 </p>
 
