@@ -11,22 +11,40 @@ Two days a week I am going to take a course on web development at the “ШАГ�
  Front-End Development 
 </h3>
 
+![React](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&labelColor=white)
+&nbsp;&nbsp;
+![Sass](https://img.shields.io/badge/sass-0d1117?style=for-the-badge&logo=sass&label=&labelColor=white)
+&nbsp;&nbsp;
+![CSS](https://img.shields.io/badge/css-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=white)
+&nbsp;&nbsp;
+![HTNL](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=white)
+
+<!--
 <img src='./assets/react.svg' /> &nbsp;&nbsp; <img src='./assets/sass.svg' /> &nbsp;&nbsp; <img src='./assets/css.svg' /> &nbsp;&nbsp; <img src='./assets/html.svg' />
+-->
 
 <h3>
  Design Tools
 </h3>
 
+![Figma](https://img.shields.io/badge/figma-0d1117?style=for-the-badge&logo=figma&label=&labelColor=white)
+&nbsp;&nbsp;
+![Photoshop](https://img.shields.io/badge/photoshop-0d1117?style=for-the-badge&logo=adobe-photoshop&label=&labelColor=white)
+&nbsp;&nbsp;
+![Illustrator](https://img.shields.io/badge/illustrator-0d1117?style=for-the-badge&logo=adobe-illustrator&label=&labelColor=white)
+
+<!--  
 <img src='./assets/figma.svg' /> &nbsp;&nbsp; <img src='./assets/photoshop.svg' /> &nbsp;&nbsp; <img src='./assets/illustrator.svg' />
+-->
 
 <h2>
 📈 Stats
 </h2>
 
-<p align="center">
+<p>
 <a href="https://github.com/KonstantinBylbas">
-  <img height="150px" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&layout=compact&include_all_commits=true&show_icons=true&border_color=eee&bg_color=0d1117&text_color=cecece&langs_count=8count_private=true&icon_color=f1e05a&title_color=eee&"/>
-  <img height="150px" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&hide=html,css,less&custom_title=Languages&layout=compact&border_radius=0&border_color=eee&bg_color=0d1117&title_color=eee&text_color=cecece&langs_count=8&custom_title=Languages"/>
+  <img height="180px" src="https://github-readme-stats-eight-theta.vercel.app/api?username=KonstantinBylbas&layout=compact&include_all_commits=true&show_icons=true&border_color=eee&bg_color=0d1117&text_color=cecece&langs_count=8count_private=true&icon_color=f1e05a&title_color=eee&"/>
+  <img align='right' height="180px" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=KonstantinBylbas&hide=html,css,less&custom_title=Languages&layout=compact&border_radius=0&border_color=eee&bg_color=0d1117&title_color=eee&text_color=cecece&langs_count=8&custom_title=Languages"/>
 </a>
 </p>
 
@@ -34,6 +52,15 @@ Two days a week I am going to take a course on web development at the “ШАГ�
 🔗 Links
 </h2>
 
+[![Linkedin](https://img.shields.io/badge/linkedin-0d1117?style=for-the-badge&logo=linkedin&logoColor=blue&label=&labelColor=white)](https://www.linkedin.com/in/konstantinbylbas/)
+&nbsp;&nbsp;
+[![GMAIL](https://img.shields.io/badge/gmail-0d1117?style=for-the-badge&logo=gmail&label=&labelColor=white)](mailto:KonstantinBylbas@gmail.com)
+&nbsp;&nbsp;
+[![Telegram](https://img.shields.io/badge/telegram-0d1117?style=for-the-badge&logo=telegram&label=&labelColor=white)](https://t.me/KonstantinBylbas)
+&nbsp;&nbsp;
+[![Instagram](https://img.shields.io/badge/instagram-0d1117?style=for-the-badge&logo=instagram&label=&labelColor=white)](https://www.instagram.com/zluka._.bubuka/)
+
+<!--
 <a href="https://www.linkedin.com/in/konstantinbylbas/">
  <img src='./assets/linkedin.svg' />
 </a> &nbsp;&nbsp; 
@@ -43,6 +70,7 @@ Two days a week I am going to take a course on web development at the “ШАГ�
 <a href="https://t.me/KonstantinBylbas">
  <img src='./assets/telegram.svg' />
 </a> &nbsp;&nbsp; 
-<a href="#">
+<a href="https://www.instagram.com/zluka._.bubuka/">
  <img src='./assets/instagram.svg' />
 </a>
+-->
