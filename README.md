@@ -11,31 +11,28 @@ Two days a week I am going to take a course on web development at the “ШАГ�
  Front-End Development 
 </h3>
 
-![React](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&labelColor=white)
+![CSS](https://img.shields.io/badge/css-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
-![Sass](https://img.shields.io/badge/sass-0d1117?style=for-the-badge&logo=sass&label=&labelColor=white)
-&nbsp;&nbsp;
-![CSS](https://img.shields.io/badge/css-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=white)
-&nbsp;&nbsp;
-![HTNL](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=white)
+![HTNL](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=black)
 
-<!--
-<img src='./assets/react.svg' /> &nbsp;&nbsp; <img src='./assets/sass.svg' /> &nbsp;&nbsp; <img src='./assets/css.svg' /> &nbsp;&nbsp; <img src='./assets/html.svg' />
--->
+<h3>
+ Back-End Development 
+</h3>
+
+![PHP](https://img.shields.io/badge/php-0d1117?style=for-the-badge&logo=php&label=&labelColor=black)
+&nbsp;&nbsp;
+![.NET](https://img.shields.io/badge/.net-0d1117?style=for-the-badge&logo=.net&label=&labelColor=black)
+&nbsp;&nbsp;
 
 <h3>
  Design Tools
 </h3>
 
-![Figma](https://img.shields.io/badge/figma-0d1117?style=for-the-badge&logo=figma&label=&labelColor=white)
+![Figma](https://img.shields.io/badge/figma-0d1117?style=for-the-badge&logo=figma&label=&labelColor=black)
 &nbsp;&nbsp;
-![Photoshop](https://img.shields.io/badge/photoshop-0d1117?style=for-the-badge&logo=adobe-photoshop&label=&labelColor=white)
+![Photoshop](https://img.shields.io/badge/photoshop-0d1117?style=for-the-badge&logo=adobe-photoshop&label=&labelColor=black)
 &nbsp;&nbsp;
-![Illustrator](https://img.shields.io/badge/illustrator-0d1117?style=for-the-badge&logo=adobe-illustrator&label=&labelColor=white)
-
-<!--  
-<img src='./assets/figma.svg' /> &nbsp;&nbsp; <img src='./assets/photoshop.svg' /> &nbsp;&nbsp; <img src='./assets/illustrator.svg' />
--->
+![Illustrator](https://img.shields.io/badge/illustrator-0d1117?style=for-the-badge&logo=adobe-illustrator&label=&labelColor=black)
 
 <h2>
 📈 Stats
@@ -52,13 +49,13 @@ Two days a week I am going to take a course on web development at the “ШАГ�
 🔗 Links
 </h2>
 
-[![Linkedin](https://img.shields.io/badge/linkedin-0d1117?style=for-the-badge&logo=linkedin&logoColor=blue&label=&labelColor=white)](https://www.linkedin.com/in/konstantinbylbas/)
+[![Linkedin](https://img.shields.io/badge/linkedin-0d1117?style=for-the-badge&logo=linkedin&logoColor=blue&label=&labelColor=black)](https://www.linkedin.com/in/konstantinbylbas/)
 &nbsp;&nbsp;
-[![GMAIL](https://img.shields.io/badge/gmail-0d1117?style=for-the-badge&logo=gmail&label=&labelColor=white)](mailto:KonstantinBylbas@gmail.com)
+[![GMAIL](https://img.shields.io/badge/gmail-0d1117?style=for-the-badge&logo=gmail&label=&labelColor=black)](mailto:KonstantinBylbas@gmail.com)
 &nbsp;&nbsp;
-[![Telegram](https://img.shields.io/badge/telegram-0d1117?style=for-the-badge&logo=telegram&label=&labelColor=white)](https://t.me/KonstantinBylbas)
+[![Telegram](https://img.shields.io/badge/telegram-0d1117?style=for-the-badge&logo=telegram&label=&labelColor=black)](https://t.me/KonstantinBylbas)
 &nbsp;&nbsp;
-[![Instagram](https://img.shields.io/badge/instagram-0d1117?style=for-the-badge&logo=instagram&label=&labelColor=white)](https://www.instagram.com/zluka._.bubuka/)
+[![Instagram](https://img.shields.io/badge/instagram-0d1117?style=for-the-badge&logo=instagram&label=&labelColor=black)](https://www.instagram.com/zluka._.bubuka/)
 
 <!--
 <a href="https://www.linkedin.com/in/konstantinbylbas/">
