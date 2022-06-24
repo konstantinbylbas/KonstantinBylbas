@@ -1,5 +1,6 @@
-I am studying computer science at Oles Honchar Dnipro National University. I have been developing and supporting a site for image studio “ZEBRA” since February 2020 to June 2021 in my free time. I`m working at the young, but fast growing company since August 2021.
-Two days a week I am going to take a course on web development at the “ШАГ”
+I have been developing and supporting a site for image studio “ZEBRA” since February 2020 to June 2021 in my free time. Later (March 2022), I started redesign the application and transferring to another technology stack. <br/>
+I am graduated course on web development at the “IT Step” academy and I have a bachelor's degree in computer science. <br/>
+I`m working at the young, but fast growing company since August 2021.
 
 <hr/>
 
@@ -11,7 +12,9 @@ Two days a week I am going to take a course on web development at the “ШАГ�
  Front-End Development 
 </h3>
 
-![CSS](https://img.shields.io/badge/css-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
+![REACT](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&logoColor=blue&labelColor=black)
+&nbsp;&nbsp;
+![](https://img.shields.io/badge/scss-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
 ![HTNL](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=black)
 
