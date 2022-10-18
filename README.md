@@ -1,5 +1,5 @@
 I have been developing and supporting a site for image studio “ZEBRA” since February 2020 to June 2021 in my free time. Later (March 2022), I started redesign the application and transferring to another technology stack. <br/>
-I am graduated course on web development at the “IT Step” academy and I have a bachelor's degree in computer science. <br/>
+I am graduated course on web development at the “IT Step” academy and I have a bachelor's degree in computer science. Now I'm studying computer engineering at the NTU "Dniprovska Polytechnic". <br/>
 I`m working at the young, but fast growing company since August 2021.
 
 <hr/>
@@ -36,17 +36,6 @@ I`m working at the young, but fast growing company since August 2021.
 ![Photoshop](https://img.shields.io/badge/photoshop-0d1117?style=for-the-badge&logo=adobe-photoshop&label=&labelColor=black)
 &nbsp;&nbsp;
 ![Illustrator](https://img.shields.io/badge/illustrator-0d1117?style=for-the-badge&logo=adobe-illustrator&label=&labelColor=black)
-
-<h2>
-📈 Stats
-</h2>
-
-<p align='center'>
-<a href="https://github.com/KonstantinBylbas">
-  <img height="150px" src="https://github-readme-stats.vercel.app/api?username=KonstantinBylbas&layout=compact&include_all_commits=true&show_icons=true&border_color=eee&border_radius=0&bg_color=0d1117&text_color=cecece&langs_count=8count_private=true&icon_color=f1e05a&title_color=eee&custom_title=My stats"/>
-  <img height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=KonstantinBylbas&hide=html,css&layout=compact&border_color=eee&border_radius=0&bg_color=0d1117&title_color=eee&text_color=cecece&langs_count=6&count_private=true&custom_title=Languages"/>
-</a>
-</p>
 
 <h2>
 🔗 Links
