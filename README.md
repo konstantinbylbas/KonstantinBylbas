@@ -14,6 +14,8 @@ I`m working at the young, but fast growing company since August 2021.
 
 ![REACT](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
+![](https://img.shields.io/badge/javascript-0d1117?style=for-the-badge&logo=javascript&label=&logoColor=blue&labelColor=black)
+&nbsp;&nbsp;
 ![](https://img.shields.io/badge/scss-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
 ![HTNL](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=black)
