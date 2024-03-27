@@ -1,6 +1,14 @@
-I have been developing and supporting a site for image studio “ZEBRA” since February 2020 to June 2021 in my free time. Later (March 2022), I started redesign the application and transferring to another technology stack. <br/>
-I am graduated course on web development at the “IT Step” academy and I have a bachelor's degree in computer science. Now I'm studying computer engineering at the NTU "Dniprovska Polytechnic". <br/>
-I`m working at the young, but fast growing company since August 2021.
+I am a Full-stack developer with a great enthusiasm for creating innovative and efficient web applications. I have extensive experience with a variety of technologies and tools and am able to efficiently implement projects of any scale.
+
+My academic foundations were laid at Pavlograd College of the Dnipro National Technical University "Dnipro Polytechnic", then I received a Bachelor's degree in Computer Science from Dnipro National University and a Master's degree in Computer Engineering from Dnipro Technical University "Dnipro Polytechnic".
+In addition, I additionally studied at ITSTEP Computer Academy, specialising in the development and promotion of web projects.
+
+My professional journey started with working in ZEBRA image studio, where I developed web applications using ASP.NET MVC and JavaScript, providing full functionality and user-friendliness.
+I later joined the "Нова пошта" team as an admin where I learnt how to communicate effectively with customers. 
+At "Гросбі", I was heavily involved in the development of various projects using React.js and PHP, ensuring ease of use and attractive interface design.
+I currently work with Angular.js and Node.js, ensuring high quality and professionalism in every project.
+
+I strive for continuous growth and development in web development, ready for new challenges and opportunities. My skills, experience and education allow me to effectively turn the boldest ideas into reality, creating products that bring value and joy to users.
 
 <hr/>
 
@@ -12,6 +20,8 @@ I`m working at the young, but fast growing company since August 2021.
  Front-End Development 
 </h3>
 
+![ANGULAR](https://img.shields.io/badge/angular-0d1117?style=for-the-badge&logo=angular&label=&logoColor=blue&labelColor=black)
+&nbsp;&nbsp;
 ![REACT](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
 ![](https://img.shields.io/badge/javascript-0d1117?style=for-the-badge&logo=javascript&label=&logoColor=blue&labelColor=black)
@@ -24,6 +34,8 @@ I`m working at the young, but fast growing company since August 2021.
  Back-End Development 
 </h3>
 
+![NODE](https://img.shields.io/badge/node.js-0d1117?style=for-the-badge&logo=node.js&label=&labelColor=black)
+&nbsp;&nbsp;
 ![PHP](https://img.shields.io/badge/php-0d1117?style=for-the-badge&logo=php&label=&labelColor=black)
 &nbsp;&nbsp;
 ![.NET](https://img.shields.io/badge/.net-0d1117?style=for-the-badge&logo=.net&label=&labelColor=black)
