@@ -22,15 +22,17 @@ I strive for continuous growth and development in web development, ready for new
  Front-End Development 
 </h3>
 
-![ANGULAR](https://img.shields.io/badge/angular-0d1117?style=for-the-badge&logo=angular&label=&logoColor=blue&labelColor=black)
+![ANGULAR](https://img.shields.io/badge/angular-0d1117?style=for-the-badge&logo=angular&label=&logoColor=red&labelColor=black)
 &nbsp;&nbsp;
 ![REACT](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
-![](https://img.shields.io/badge/javascript-0d1117?style=for-the-badge&logo=javascript&label=&logoColor=blue&labelColor=black)
+![TS](https://img.shields.io/badge/typescript-0d1117?style=for-the-badge&logo=typescript&label=&logoColor=blue&labelColor=black)
 &nbsp;&nbsp;
-![](https://img.shields.io/badge/scss-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
+![JS](https://img.shields.io/badge/javascript-0d1317?style=for-the-badge&logo=javascript&label=&logoColor=yellow&labelColor=black)
 &nbsp;&nbsp;
-![HTNL](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=black)
+![SCSS](https://img.shields.io/badge/scss-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
+&nbsp;&nbsp;
+![HTML](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=black)
 
 <h3>
  Back-End Development 
@@ -64,18 +66,3 @@ I strive for continuous growth and development in web development, ready for new
 [![Telegram](https://img.shields.io/badge/telegram-0d1117?style=for-the-badge&logo=telegram&label=&labelColor=black)](https://t.me/KonstantinBylbas)
 &nbsp;&nbsp;
 [![Instagram](https://img.shields.io/badge/instagram-0d1117?style=for-the-badge&logo=instagram&label=&labelColor=black)](https://www.instagram.com/zluka._.bubuka/)
-
-<!--
-<a href="https://www.linkedin.com/in/konstantinbylbas/">
- <img src='./assets/linkedin.svg' />
-</a> &nbsp;&nbsp; 
-<a href="mailto:KonstantinBylbas@gmail.com">
- <img src='./assets/gmail.svg' />
-</a> &nbsp;&nbsp; 
-<a href="https://t.me/KonstantinBylbas">
- <img src='./assets/telegram.svg' />
-</a> &nbsp;&nbsp; 
-<a href="https://www.instagram.com/zluka._.bubuka/">
- <img src='./assets/instagram.svg' />
-</a>
--->
