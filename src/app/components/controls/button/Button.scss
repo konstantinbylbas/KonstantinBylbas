@@ -2,11 +2,116 @@
 
 @import '@app/index.scss';
 
+$borderWidth: 2px;
+
+$shortTransition: 0.1s;
+$longTransition: $transitionTime;
+
 .button {
     width: 120px;
     padding: 8px;
+    position: relative;
     background-color: transparent;
-    border: 2px solid $primary;
+    border: $borderWidth solid $primary;
     outline: none;
     cursor: pointer;
+
+    &:hover {
+        .verticalPseudoElement {
+            height: calc(100% + 16px);
+            top: -8px;
+
+            &::before,
+            &::after {
+                width: 50%;
+            }
+        }
+
+        .horizontalPseudoElement {
+            width: calc(100% + 16px);
+            left: -8px;
+
+            &::before,
+            &::after {
+                height: 50%;
+            }
+        }
+    }
+
+    .verticalPseudoElement,
+    .horizontalPseudoElement {
+        position: absolute;
+        transition: $shortTransition;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            transition: $longTransition $shortTransition;
+        }
+    }
+
+    .verticalPseudoElement,
+    .horizontalPseudoElement::before,
+    .horizontalPseudoElement::after {
+        border-right: $borderWidth solid $primary;
+        border-left: $borderWidth solid $primary;
+    }
+
+    .horizontalPseudoElement,
+    .verticalPseudoElement::before,
+    .verticalPseudoElement::after {
+        border-top: $borderWidth solid $primary;
+        border-bottom: $borderWidth solid $primary;
+    }
+
+    .verticalPseudoElement {
+        width: calc(100% + 4px);
+        left: -$borderWidth;
+
+        &,
+        &::before,
+        &::after {
+            height: 100%;
+            top: 0;
+        }
+
+        &::before,
+        &::after {
+            width: 0;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+    }
+
+    .horizontalPseudoElement {
+        height: calc(100% + 4px);
+        top: -$borderWidth;
+
+        &,
+        &::before,
+        &::after {
+            width: 100%;
+            left: 0;
+        }
+
+        &::before,
+        &::after {
+            height: 0;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
 }

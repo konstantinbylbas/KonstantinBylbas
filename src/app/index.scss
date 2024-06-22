@@ -116,11 +116,13 @@ body {
         }
 
         main {
+            padding: 0 0 16px 0;
             grid-area: main;
             overflow-y: auto;
         }
 
         footer {
+            margin: 0 0 16px 0;
             grid-area: footer;
         }
     }

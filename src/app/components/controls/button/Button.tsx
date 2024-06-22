@@ -11,6 +11,9 @@ export default function Button({
     return (
         <button className="button" disabled={isDisabled} onClick={handlerClick}>
             {label}
+
+            <div className="verticalPseudoElement"></div>
+            <div className="horizontalPseudoElement"></div>
         </button>
     );
 }
