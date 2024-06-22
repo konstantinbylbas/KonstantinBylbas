@@ -9,7 +9,7 @@ export default function Button({
     handlerClick,
 }: ButtonProps) {
     return (
-        <button disabled={isDisabled} onClick={handlerClick}>
+        <button className="button" disabled={isDisabled} onClick={handlerClick}>
             {label}
         </button>
     );

@@ -1,0 +1,12 @@
+/** @format */
+
+@import '@app/index.scss';
+
+.button {
+    width: 120px;
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid $primary;
+    outline: none;
+    cursor: pointer;
+}

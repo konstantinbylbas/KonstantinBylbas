@@ -3,5 +3,5 @@
 export interface ButtonProps {
     label: string;
     isDisabled?: boolean;
-    handlerClick: (event: any) => void;
+    handlerClick?: (event: any) => void;
 }
