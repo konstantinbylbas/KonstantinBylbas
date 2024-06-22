@@ -6,12 +6,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "paths": {
-      "@app/*": ["./src/app/*"],
-      "@components/*": ["./src/app/components*"],
-      "@services/*": ["./src/app/services*"],
-      "@types/*": ["./src/app/types*"],
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -26,10 +20,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "./"
+  "extends": [
+    "./tsconfig.app.json",
+    "./tsconfig.paths.json"
   ],
-  "exclude": [
-    "node_modules",
-  ]
 }

@@ -1,11 +1,16 @@
 /** @format */
 
+import Footer from './components/common/footer/Footer';
 import Router from './services/navigation.service';
 
 export default function App() {
     return (
-        <div className="App">
-            <Router />
+        <div className="app">
+            <main>
+                <Router />
+            </main>
+
+            <Footer />
         </div>
     );
 }

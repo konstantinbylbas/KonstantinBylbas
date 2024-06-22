@@ -1,0 +1,26 @@
+/** @format */
+
+@import '@app/index.scss';
+
+footer {
+    padding: 8px 0;
+    background-color: rgba($color: $light, $alpha: 0.1);
+
+    .name {
+        @include font-PpObject;
+        letter-spacing: 1px;
+    }
+
+    .links {
+        svg {
+            width: 32px;
+            height: 32px;
+            fill: $light;
+            transition: $transitionTime;
+
+            &:hover {
+                fill: $primary;
+            }
+        }
+    }
+}
