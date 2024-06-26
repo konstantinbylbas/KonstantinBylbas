@@ -5,8 +5,10 @@ import Home from '../components/pages/portfolio/home/Home';
 import Generator from '@app/components/pages/platform/generator/Generator';
 
 export default function Router() {
+    const ROOT = process.env.PUBLIC_URL;
+
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={ROOT}>
             <Routes>
                 <Route path="/" element={<Home />} />
 
