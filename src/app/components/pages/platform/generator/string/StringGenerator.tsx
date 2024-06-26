@@ -104,16 +104,20 @@ export default function StringGenerator() {
         return result;
     }
 
+    function copyToClipboard(): void {
+        navigator.clipboard.writeText(generatedString);
+    }
+
     return (
         <div className="stringGenerator">
             <div className="container">
                 <div className="row">
-                    <Input value={generatedString} />
+                    <Input value={generatedString} onFocus={copyToClipboard} />
 
                     <Button label="Generate" handlerClick={generate} />
                 </div>
 
-                <div className='row row_range'>
+                <div className="row row_range">
                     <InputRange value={length} onChange={setLength} />
 
                     <span>{length}</span>
