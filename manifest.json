@@ -1,0 +1,9 @@
+{
+  "short_name": "Konstantin Bylbas",
+  "name": "Konstantin Bylbas Portfolio",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#252525"
+}
