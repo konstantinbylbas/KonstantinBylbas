@@ -9,11 +9,13 @@ export default function Button({
     handlerClick,
 }: ButtonProps) {
     return (
-        <button className="button" disabled={isDisabled} onClick={handlerClick}>
-            {label}
+        <div className="button hoverable">
+            <button disabled={isDisabled} onClick={handlerClick}>
+                {label}
+            </button>
 
             <div className="verticalPseudoElement"></div>
             <div className="horizontalPseudoElement"></div>
-        </button>
+        </div>
     );
 }

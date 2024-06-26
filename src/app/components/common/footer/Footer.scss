@@ -1,10 +1,10 @@
 /** @format */
 
-@import '@app/index.scss';
+@import '@app/App.scss';
 
 footer {
     padding: 8px 0;
-    background-color: rgba($color: $light, $alpha: 0.1);
+    background-color: $lightDark;
 
     .name {
         @include font-PpObject;
@@ -16,7 +16,7 @@ footer {
             width: 32px;
             height: 32px;
             fill: $light;
-            transition: $transitionTime;
+            transition: $longTransition;
 
             &:hover {
                 fill: $primary;

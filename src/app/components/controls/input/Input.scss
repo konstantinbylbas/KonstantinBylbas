@@ -1,14 +1,13 @@
 /** @format */
 
-.button {
-    width: 120px;
+.input {
+    width: 100%;
 
-    button {
+    input {
         width: 100%;
         padding: 8px;
-        background-color: transparent;
+        background: transparent;
         border: none;
         outline: none;
-        cursor: pointer;
     }
 }

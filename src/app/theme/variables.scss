@@ -1,0 +1,14 @@
+/** @format */
+
+$dark: #252525;
+$light: #eee;
+$lightDark: rgba(
+    $color: $light,
+    $alpha: 0.1,
+);
+$primary: #eda200;
+
+$borderWidth: 2px;
+
+$shortTransition: 0.1s;
+$longTransition: 0.3s;
