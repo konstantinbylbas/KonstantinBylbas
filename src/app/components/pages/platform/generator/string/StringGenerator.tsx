@@ -112,8 +112,8 @@ export default function StringGenerator() {
         return result;
     }
 
-    function copyToClipboard(): void {
-        navigator.clipboard.writeText(generatedString);
+    function copyToClipboard(value: string): void {
+        navigator.clipboard.writeText(value);
     }
 
     function getHistoryFromStorage(): string[] {
@@ -156,7 +156,10 @@ export default function StringGenerator() {
         <div className="stringGenerator">
             <div className="container">
                 <div className="row">
-                    <Input value={generatedString} onFocus={copyToClipboard} />
+                    <Input
+                        value={generatedString}
+                        onFocus={() => copyToClipboard(generatedString)}
+                    />
 
                     <Button label="Generate" handlerClick={generate} />
                 </div>
@@ -187,7 +190,11 @@ export default function StringGenerator() {
                             <>
                                 <h5>History</h5>
                                 {history.map((string, index) => (
-                                    <p className="mt-2 history_row" key={index}>
+                                    <p
+                                        className="mt-2 history_row"
+                                        onClick={() => copyToClipboard(string)}
+                                        title={texts.copy}
+                                        key={index}>
                                         {string}
                                     </p>
                                 ))}

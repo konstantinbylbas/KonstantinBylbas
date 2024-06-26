@@ -5,6 +5,7 @@ const texts = Object.freeze({
     allowNumbers: 'Allow numbers',
     allowUppercase: 'Allow uppercase',
     excludeDuplication: 'Exclude characters duplication',
+    copy: 'Copy',
 });
 
 export default texts;
