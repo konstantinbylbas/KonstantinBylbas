@@ -5,13 +5,11 @@
     height: 0.8rem;
     background-color: $light;
 
-    /* ползунок скроллбара */
     &-thumb {
         border-radius: 0.2rem;
     }
 }
 
-/* Стрелки */
 ::-webkit-scrollbar-button:vertical:start:decrement {
     background: linear-gradient(120deg, $light 40%, rgba(0, 0, 0, 0) 41%),
         linear-gradient(240deg, $light 40%, rgba(0, 0, 0, 0) 41%),
@@ -46,16 +44,4 @@
     &:hover {
         background-color: $dark;
     }
-}
-
-//******************hide browser input buttons******************
-//******number******
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type='number'] {
-    -moz-appearance: textfield;
 }

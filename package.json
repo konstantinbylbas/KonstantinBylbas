@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/konstantinbylbas/KonstantinBylbas/",
+  "homepage": "https://konstantinbylbas.github.io/KonstantinBylbas/",
   "name": "konstantinbylbas",
   "version": "0.1.0",
   "private": true,
@@ -26,8 +26,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
