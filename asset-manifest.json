@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/KonstantinBylbas/static/css/main.eb4b326c.css",
-    "main.js": "/KonstantinBylbas/static/js/main.532a864e.js",
+    "main.js": "/KonstantinBylbas/static/js/main.736e719a.js",
     "static/media/object.ttf": "/KonstantinBylbas/static/media/object.74455d26f8698118f848.ttf",
     "index.html": "/KonstantinBylbas/index.html",
     "main.eb4b326c.css.map": "/KonstantinBylbas/static/css/main.eb4b326c.css.map",
-    "main.532a864e.js.map": "/KonstantinBylbas/static/js/main.532a864e.js.map"
+    "main.736e719a.js.map": "/KonstantinBylbas/static/js/main.736e719a.js.map"
   },
   "entrypoints": [
     "static/css/main.eb4b326c.css",
-    "static/js/main.532a864e.js"
+    "static/js/main.736e719a.js"
   ]
 }
