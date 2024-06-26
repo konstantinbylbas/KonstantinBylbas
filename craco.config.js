@@ -9,7 +9,7 @@ const resolvePath = dirPath => path.resolve(__dirname, dirPath);
 module.exports = {
     env: {
         production: {
-            PUBLIC_URL: '/konstantinbylbas/KonstantinBylbas/',
+            PUBLIC_URL: '/KonstantinBylbas/',
         },
     },
     plugins: [
