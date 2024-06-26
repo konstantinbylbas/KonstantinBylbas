@@ -10,7 +10,7 @@ import InputRange from '@app/components/controls/input-range/InputRange';
 
 export default function StringGenerator() {
     const [generatedString, setGeneratedString] = useState('');
-    const [history, setHistory] = useState([]);
+    const [history, setHistory] = useState<string[]>([]);
     const [length, setLength] = useState(20);
     const [checkboxes, setCheckboxes] = useState({
         allowSpecials: false,
@@ -18,6 +18,13 @@ export default function StringGenerator() {
         allowUppercase: false,
         excludeDuplication: false,
     });
+
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
+
+    const historyLength = 10;
+    const localStorageKey = 'StringGeneratorHistory';
 
     const handleCheckboxChange = (key: string) => (value: boolean) => {
         setCheckboxes(prev => ({
@@ -27,7 +34,8 @@ export default function StringGenerator() {
     };
 
     useEffect(() => {
-        setHistory([]);
+        const history = getHistoryFromStorage();
+        setHistory(history);
     }, []);
 
     function generate(): void {
@@ -47,7 +55,11 @@ export default function StringGenerator() {
             });
 
             setGeneratedString(newString);
-            setHistory([]);
+
+            const newHistory = squeezeFromArray(history, newString);
+
+            setHistory(newHistory);
+            setHistoryToStorage(newHistory);
         } catch (error: any) {
             console.error('String generation error: ', error);
         }
@@ -62,10 +74,6 @@ export default function StringGenerator() {
             excludeDuplication?: boolean;
         },
     ): string {
-        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-        const numbers = '0123456789';
-        const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
-
         let characters = lowercase;
         let result = '';
 
@@ -104,15 +112,54 @@ export default function StringGenerator() {
         return result;
     }
 
-    function copyToClipboard(): void {
-        navigator.clipboard.writeText(generatedString);
+    function copyToClipboard(value: string): void {
+        navigator.clipboard.writeText(value);
+    }
+
+    function getHistoryFromStorage(): string[] {
+        const storageData = localStorage.getItem(localStorageKey);
+
+        if (!storageData) {
+            return [];
+        }
+
+        const storageHistory = JSON.parse(storageData);
+
+        if (!Array.isArray(storageHistory) || !storageHistory.length) {
+            return [];
+        }
+
+        return storageHistory;
+    }
+
+    function setHistoryToStorage(history: string[]): void {
+        if (!history.length) {
+            return;
+        }
+
+        const formattedHistory = JSON.stringify(history);
+        localStorage.setItem(localStorageKey, formattedHistory);
+    }
+
+    function squeezeFromArray(history: string[], newValue: string): string[] {
+        const newHistory = history;
+
+        if (newHistory.length >= historyLength) {
+            history.shift();
+        }
+
+        history.push(newValue);
+        return history;
     }
 
     return (
         <div className="stringGenerator">
             <div className="container">
                 <div className="row">
-                    <Input value={generatedString} onFocus={copyToClipboard} />
+                    <Input
+                        value={generatedString}
+                        onFocus={() => copyToClipboard(generatedString)}
+                    />
 
                     <Button label="Generate" handlerClick={generate} />
                 </div>
@@ -143,7 +190,13 @@ export default function StringGenerator() {
                             <>
                                 <h5>History</h5>
                                 {history.map((string, index) => (
-                                    <p key={index}>{string}</p>
+                                    <p
+                                        className="mt-2 history_row"
+                                        onClick={() => copyToClipboard(string)}
+                                        title={texts.copy}
+                                        key={index}>
+                                        {string}
+                                    </p>
                                 ))}
                             </>
                         ) : (

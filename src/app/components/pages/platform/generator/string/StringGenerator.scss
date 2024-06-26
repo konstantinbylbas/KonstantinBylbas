@@ -30,4 +30,12 @@
         flex-direction: column;
         gap: 8px;
     }
+
+    .history {
+        overflow: hidden;
+
+        &_row {
+            word-wrap: break-word;
+        }
+    }
 }
