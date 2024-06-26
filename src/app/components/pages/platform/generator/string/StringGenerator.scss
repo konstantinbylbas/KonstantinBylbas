@@ -1,0 +1,33 @@
+/** @format */
+
+.stringGenerator {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .row {
+        gap: 16px;
+
+        &_range {
+            justify-content: space-between;
+
+            span {
+                width: 32px;
+                text-align: right;
+            }
+        }
+    }
+
+    .filter,
+    .history {
+        width: 48%;
+    }
+
+    .filter {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
