@@ -1,14 +1,14 @@
 /** @format */
 
 import App from '@app/App';
-import React from 'react';
+import NotificationContextProvider from '@app/contexts/notificationContext';
 import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement,
 );
 root.render(
-    <React.StrictMode>
+    <NotificationContextProvider>
         <App />
-    </React.StrictMode>,
+    </NotificationContextProvider>,
 );
