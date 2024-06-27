@@ -2,13 +2,18 @@
 
 import Input from '@app/components/controls/input/Input';
 import './StringGenerator.scss';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from '@app/components/controls/button/Button';
 import Checkbox from '@app/components/controls/checkbox/Checkbox';
 import texts from './StringGenerator.text';
 import InputRange from '@app/components/controls/input-range/InputRange';
+import { NotificationType } from '@app/types/notification.type';
+import { NotificationContext } from '@app/contexts/notificationContext';
 
 export default function StringGenerator() {
+    const { contextNotification, setContextNotification } =
+        useContext(NotificationContext);
+
     const [generatedString, setGeneratedString] = useState('');
     const [history, setHistory] = useState<string[]>([]);
     const [length, setLength] = useState(20);
@@ -114,6 +119,14 @@ export default function StringGenerator() {
 
     function copyToClipboard(value: string): void {
         navigator.clipboard.writeText(value);
+
+        setContextNotification([
+            ...contextNotification,
+            {
+                type: NotificationType.INFO,
+                message: 'String copied to clipboard',
+            },
+        ]);
     }
 
     function getHistoryFromStorage(): string[] {
@@ -189,12 +202,12 @@ export default function StringGenerator() {
                         {history.length ? (
                             <>
                                 <h5>History</h5>
-                                {history.map((string, index) => (
+                                {history.map((string, i) => (
                                     <p
                                         className="mt-2 history_row"
                                         onClick={() => copyToClipboard(string)}
                                         title={texts.copy}
-                                        key={index}>
+                                        key={i}>
                                         {string}
                                     </p>
                                 ))}

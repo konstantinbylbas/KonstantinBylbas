@@ -1,0 +1,21 @@
+/** @format */
+
+@import '@app/theme/index.scss';
+
+.notifications {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: fixed;
+    right: 8px;
+    bottom: 8px;
+    overflow-y: auto;
+
+    &_message {
+        max-height: 160px;
+        padding: 16px;
+        border: $borderWidth solid $primary;
+        background-color: $dark;
+    }
+}
