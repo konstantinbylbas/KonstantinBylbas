@@ -118,6 +118,10 @@ export default function StringGenerator() {
     }
 
     function copyToClipboard(value: string): void {
+        if (!value) {
+            return;
+        }
+
         navigator.clipboard.writeText(value);
 
         setContextNotification([
@@ -170,6 +174,7 @@ export default function StringGenerator() {
             <div className="container">
                 <div className="row">
                     <Input
+                        isReadOnly={true}
                         value={generatedString}
                         onFocus={() => copyToClipboard(generatedString)}
                     />
@@ -183,7 +188,7 @@ export default function StringGenerator() {
                     <span>{length}</span>
                 </div>
 
-                <div className="row">
+                <div className="row row_filter-history">
                     <div className="filter column">
                         {Object.keys(checkboxes).map((key, i) => (
                             <Checkbox

@@ -82,9 +82,6 @@ label,
 input,
 button {
     font-size: 1rem;
-    @media only screen and (max-width: 768px) {
-        font-size: 0.8rem;
-    }
 }
 
 body {
@@ -130,7 +127,7 @@ body {
     border: $borderWidth solid $primary;
 
     &:hover,
-    &:focus-within:has(input) {
+    &:focus-within:has(input:not(:read-only)) {
         .verticalPseudoElement {
             height: calc(100% + 16px);
             top: -8px;
