@@ -18,6 +18,18 @@
                 text-align: right;
             }
         }
+
+        &_filter-history {
+            @media (max-width: 767px) {
+                flex-wrap: wrap;
+                gap: 24px;
+
+                .filter,
+                .history {
+                    width: 100%;
+                }
+            }
+        }
     }
 
     .filter,
