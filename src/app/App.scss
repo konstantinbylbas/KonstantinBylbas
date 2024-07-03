@@ -29,6 +29,10 @@ p {
     margin: 0;
 }
 
+img {
+    width: 100%;
+}
+
 h1 {
     font-size: 5rem;
     @media only screen and (max-width: 1200px) {
@@ -93,16 +97,16 @@ body {
         height: 100vh;
         display: grid;
         grid-template:
-            'header'
+            'nav'
             'main' 1fr
             'footer' max-content;
 
-        header {
-            grid-area: header;
+        nav {
+            grid-area: nav;
         }
 
         main {
-            padding: 0 0 16px 0;
+            padding: calc(52px + 16px) 0 16px 0;
             grid-area: main;
             overflow-y: auto;
         }
