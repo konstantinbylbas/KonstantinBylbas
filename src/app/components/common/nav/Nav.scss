@@ -1,0 +1,47 @@
+@import '@app/theme/index.scss';
+
+nav {
+    padding: 12px 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: $lightDark;
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .logo {
+        width: 24px;
+        display: block;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 16px;
+
+        a {
+            position: relative;
+
+            &::after {
+                content: '';
+                width: 0;
+                height: 2px;
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                background-color: $primary;
+                transition: $shortTransition;
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
