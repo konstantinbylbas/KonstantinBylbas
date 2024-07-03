@@ -1,5 +1,7 @@
 /** @format */
 
-export enum ImageType {
-    LOGO = require('../../assets/images/logo.png'),
-}
+const ImageType: { [key: string]: string } = {
+    LOGO: require('../../assets/images/logo.png'),
+};
+
+export { ImageType };
