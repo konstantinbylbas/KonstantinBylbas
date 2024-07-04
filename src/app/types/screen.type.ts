@@ -1,8 +1,8 @@
 /** @format */
 
 export enum ScreenType {
-    PORTFOLIO,
-    PLATFORM,
+    PORTFOLIO = '',
+    PLATFORM = 'platform',
 }
 
 export enum ScreenPlatformPath {
