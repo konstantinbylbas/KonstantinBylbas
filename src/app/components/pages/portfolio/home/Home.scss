@@ -1,5 +1,74 @@
 /** @format */
 
+@import '@app/theme//variables.scss';
+
 .home {
-    height: 100%;
+    header {
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 20%;
+            height: 80%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: $primary;
+            clip-path: polygon(0% 0%, 15% 0%, 100% 100%, 0% 100%);
+            z-index: -1;
+        }
+    }
+
+    .home_header {
+        &_photo {
+            width: 30%;
+
+            img {
+                width: 80%;
+                margin: 0 0 32px 32px;
+                border-radius: 16px;
+            }
+        }
+
+        &_description {
+            width: 70%;
+
+            h2, p {
+                max-width: 800px;
+                margin: auto;
+            }
+
+            h2 {
+                display: grid;
+                grid-template-columns: max-content 1fr;
+                column-gap: 16px;
+                text-transform: uppercase;
+            }
+
+            p {
+                margin-top: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    section {
+        min-height: 50vh;
+        padding: 80px 0;
+
+        h2 {
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+
+            .section_header_background {
+                width: 50vw;
+                position: absolute;
+                left: 25vw;
+                text-align: center;
+                transform: scale(1.6);
+                opacity: 0.1;
+            }
+        }
+    }
 }
