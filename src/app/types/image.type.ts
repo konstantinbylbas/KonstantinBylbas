@@ -8,7 +8,7 @@ import PLATFORM from '../../assets/images/portfolio/platform.svg';
 
 const ImageType: { [key: string]: string } = {
     LOGO: require('../../assets/images/logo.png'),
-    AUTHOR: require('../../assets/images/author.JPG'),
+    AUTHOR: require('../../assets/images/author.png'),
     HOME,
     PERSON,
     BRIEFCASE,
