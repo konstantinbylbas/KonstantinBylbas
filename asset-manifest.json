@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/KonstantinBylbas/static/css/main.6c6a632f.css",
-    "main.js": "/KonstantinBylbas/static/js/main.24217e89.js",
-    "static/media/author.JPG": "/KonstantinBylbas/static/media/author.cdc63c0759170ff5048a.JPG",
+    "main.css": "/KonstantinBylbas/static/css/main.121e0eea.css",
+    "main.js": "/KonstantinBylbas/static/js/main.a3951781.js",
+    "static/media/author.png": "/KonstantinBylbas/static/media/author.233770384ef5a63bd7d2.png",
     "static/media/object.ttf": "/KonstantinBylbas/static/media/object.74455d26f8698118f848.ttf",
     "static/media/logo.png": "/KonstantinBylbas/static/media/logo.57c4e52021dc9ba901fc.png",
+    "static/media/platform.svg": "/KonstantinBylbas/static/media/platform.718740edb5e33c50f021cd9aa56ae98d.svg",
     "index.html": "/KonstantinBylbas/index.html",
-    "main.6c6a632f.css.map": "/KonstantinBylbas/static/css/main.6c6a632f.css.map",
-    "main.24217e89.js.map": "/KonstantinBylbas/static/js/main.24217e89.js.map"
+    "static/media/briefcase.svg": "/KonstantinBylbas/static/media/briefcase.7b9f887f56d3f4ebf4e6ec921e7b40cb.svg",
+    "static/media/home.svg": "/KonstantinBylbas/static/media/home.aa3558d322eb0abd2394c2880a64b8f2.svg",
+    "static/media/person.svg": "/KonstantinBylbas/static/media/person.90db6c37eda5c94d328cfa09e0c5a603.svg",
+    "static/media/generator_string.svg": "/KonstantinBylbas/static/media/generator_string.56a16ac3cb49267be9aeeff73a1e089e.svg",
+    "main.121e0eea.css.map": "/KonstantinBylbas/static/css/main.121e0eea.css.map",
+    "main.a3951781.js.map": "/KonstantinBylbas/static/js/main.a3951781.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c6a632f.css",
-    "static/js/main.24217e89.js"
+    "static/css/main.121e0eea.css",
+    "static/js/main.a3951781.js"
   ]
 }
