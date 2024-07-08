@@ -1,12 +1,5 @@
 /** @format */
 
-const texts = Object.freeze({
-    portfolio: 'Portfolio',
-    summary: 'Summary',
-    skills: 'Skills',
-    examples: 'Examples',
-    platform: 'Platform',
-    generatorString: 'String generator',
-});
+const texts = Object.freeze({});
 
 export default texts;

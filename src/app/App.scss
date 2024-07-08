@@ -88,6 +88,12 @@ button {
     font-size: 1rem;
 }
 
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
 body {
     width: 100%;
     overflow-x: hidden;
@@ -95,25 +101,17 @@ body {
 
     .app {
         height: 100vh;
-        display: grid;
-        grid-template:
-            'nav'
-            'main' 1fr
-            'footer' max-content;
-
-        nav {
-            grid-area: nav;
-        }
+        
 
         main {
             padding: calc(52px + 16px) 0 16px 0;
-            grid-area: main;
             overflow-y: auto;
         }
 
         footer {
-            margin: 0 0 16px 0;
-            grid-area: footer;
+            width: 100%;
+            position: fixed;
+            bottom: 16px;
         }
     }
 }
