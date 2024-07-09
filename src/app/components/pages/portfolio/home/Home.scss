@@ -3,7 +3,7 @@
 @import '@app/theme//variables.scss';
 
 .home {
-    header {
+    &_header {
         position: relative;
 
         &::before {
@@ -17,23 +17,28 @@
             clip-path: polygon(0% 0%, 15% 0%, 100% 100%, 0% 100%);
             z-index: -1;
         }
-    }
 
-    .home_header {
         &_photo {
             width: 30%;
 
-            img {
-                width: 80%;
-                margin: 0 0 32px 32px;
-                border-radius: 16px;
+            &_container {
+                max-width: 400px;
+                max-height: 600px;
+                overflow: hidden;
+
+                img {
+                    width: 80%;
+                    margin: 0 0 32px 32px;
+                    border-radius: 16px;
+                }
             }
         }
 
         &_description {
             width: 70%;
 
-            h2, p {
+            h2,
+            p {
                 max-width: 800px;
                 margin: auto;
             }
@@ -68,6 +73,66 @@
                 text-align: center;
                 transform: scale(1.6);
                 opacity: 0.1;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1024px) {
+        &_header {
+            &_description {
+                width: 65%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        &_header {
+            flex-wrap: wrap;
+
+            &_photo {
+                width: 40%;
+            }
+
+            &_description {
+                width: 90%;
+                margin: -160px 0 8px auto;
+                padding: 16px;
+                background-color: rgba($color: $dark, $alpha: 0.6);
+                border-radius: 16px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        &_header {
+            &::before {
+                background: none;
+            }
+
+            &_photo {
+                width: max-content;
+                margin: auto;
+                padding: 16px;
+
+                &_container {
+                    max-width: 100%;
+                    max-height: 400px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 16px;
+
+                    img {
+                        width: 100%;
+                        margin: 48px 0 0 0;
+                    }
+                }
+            }
+
+            &_description {
+                width: 90%;
+                margin: 0 auto;
+                padding: 8px;
             }
         }
     }
