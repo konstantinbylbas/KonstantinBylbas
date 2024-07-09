@@ -15,6 +15,7 @@ interface iTab {
 export default function Nav() {
     const location = useLocation();
 
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenSubmenu, setIsOpenSubmenu] = useState(false);
 
     const subtabsRef = useRef<HTMLDivElement | null>(null);
@@ -49,9 +50,7 @@ export default function Nav() {
             if (anchor) {
                 document.getElementById(anchor)?.scrollIntoView();
             } else {
-                console.log('No anchor, scrolling to top');
-            window.scrollTo(0, 0);
-            console.log('Scrolled to top');
+                window.scrollTo(0, 0);
             }
         }, 0);
     }, [location]);
@@ -93,45 +92,57 @@ export default function Nav() {
 
     return (
         <nav>
-            {tabs.map((tab, i) =>
-                tab.link ? (
-                    <Link to={tab.link} key={`portfolio tab #${i}`}>
-                        <img src={tab.img} />
-                    </Link>
-                ) : tab.tabs ? (
-                    <div className="tabs_subTabs" key={`portfolio tab #${i}`}>
-                        <button
-                            className={`tabs_subTabs_button ${isOpenSubmenu ? 'active' : ''}`}
-                            onClick={() => toggleSubtabs(subtabsRef.current)}>
-                            <img src={tab.img} />
-                        </button>
+            <div className="burger">
+                <img src={ImageType.BURGER} alt="burger" onClick={() => setIsOpenMenu(!isOpenMenu)} />
+            </div>
 
+            <div className={`tabs column ${isOpenMenu ? 'active' : ''}`}>
+                {tabs.map((tab, i) =>
+                    tab.link ? (
+                        <Link to={tab.link} key={`portfolio tab #${i}`}>
+                            <img src={tab.img} />
+                        </Link>
+                    ) : tab.tabs ? (
                         <div
-                            className={`tabs_subTabs_menu ${isOpenSubmenu ? 'active' : ''}`}
-                            onClick={event => {
-                                event.stopPropagation();
-                            }}
-                            ref={subtabsRef}>
-                            {tab.tabs.map((subTab, k) =>
-                                subTab.link ? (
-                                    <Link
-                                        to={subTab.link}
-                                        onClick={() => {
-                                            setIsOpenSubmenu(!isOpenSubmenu);
-                                        }}
-                                        key={`portfolio subTab #${k}`}>
-                                        <img src={subTab.img} />
-                                    </Link>
-                                ) : (
-                                    ''
-                                ),
-                            )}
+                            className="tabs_subTabs column"
+                            key={`portfolio tab #${i}`}>
+                            <button
+                                className={`tabs_subTabs_button ${isOpenSubmenu ? 'active' : ''}`}
+                                onClick={() =>
+                                    toggleSubtabs(subtabsRef.current)
+                                }>
+                                <img src={tab.img} />
+                            </button>
+
+                            <div
+                                className={`tabs_subTabs_menu column ${isOpenSubmenu ? 'active' : ''}`}
+                                onClick={event => {
+                                    event.stopPropagation();
+                                }}
+                                ref={subtabsRef}>
+                                {tab.tabs.map((subTab, k) =>
+                                    subTab.link ? (
+                                        <Link
+                                            to={subTab.link}
+                                            onClick={() => {
+                                                setIsOpenSubmenu(
+                                                    !isOpenSubmenu,
+                                                );
+                                            }}
+                                            key={`portfolio subTab #${k}`}>
+                                            <img src={subTab.img} />
+                                        </Link>
+                                    ) : (
+                                        ''
+                                    ),
+                                )}
+                            </div>
                         </div>
-                    </div>
-                ) : (
-                    ''
-                ),
-            )}
+                    ) : (
+                        ''
+                    ),
+                )}
+            </div>
         </nav>
     );
 }
