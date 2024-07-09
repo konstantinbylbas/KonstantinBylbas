@@ -6,9 +6,15 @@ import './Home.scss';
 export default function Home() {
     return (
         <div className="home">
-            <header className="row align-items-center justify-content-between">
+            <header className="row align-items-center justify-content-between home_header">
                 <div className="home_header_photo">
-                    <img src={ImageType.AUTHOR} alt="author" />
+                    <div className="home_header_photo_container">
+                        <img
+                            src={ImageType.AUTHOR}
+                            alt="author"
+                            loading="lazy"
+                        />
+                    </div>
                 </div>
 
                 <div className="home_header_description">
