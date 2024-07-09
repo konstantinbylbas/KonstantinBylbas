@@ -3,38 +3,75 @@
 @import '@app/theme/index.scss';
 
 nav {
+    padding: 24px 0;
+    display: grid;
+    grid-template-rows: 24px 1fr 24px;
     position: fixed;
-    top: 20vh;
+    top: 0;
+    bottom: 0;
     right: 24px;
     z-index: 1;
 
-    &,
-    .tabs_subTabs,
-    .tabs_subTabs_menu {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+    .burger {
+        width: 24px;
+        margin-left: auto;
+        cursor: pointer;
 
-    .tabs_subTabs_button,
-    a {
-        width: 36px;
-        height: 36px;
-        padding: 6px;
-        display: flex;
-        align-items: center;
-        border-radius: 50%;
-        background-color: $lightDark;
-        transition: $shortTransition;
-    }
+        img {
+            display: none;
 
-    a {
-        &:hover {
-            background-color: $primary;
+            @media only screen and (max-width: 768px) {
+                display: block;
+            }
         }
     }
 
     .tabs {
+        justify-content: center;
+
+        &,
+        &_subTabs,
+        &_subTabs_menu {
+            gap: 8px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            margin-top: 0;
+            justify-content: start;
+            opacity: 0;
+            pointer-events: none;
+            transition: $shortTransition;
+
+            &.active {
+                margin-top: 16px;
+                opacity: 1;
+                pointer-events: unset;
+
+                .tabs_subTabs_button,
+                a {
+                    box-shadow: 0 0 12px rgba($color: $light, $alpha: 0.3);
+                }
+            }
+        }
+
+        &_subTabs_button,
+        a {
+            width: 36px;
+            height: 36px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            background-color: $lightDark;
+            transition: $shortTransition;
+        }
+
+        a {
+            &:hover {
+                background-color: $primary;
+            }
+        }
+
         &_subTabs {
             &_button {
                 &:hover,
