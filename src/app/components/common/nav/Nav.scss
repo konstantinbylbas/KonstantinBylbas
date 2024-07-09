@@ -10,7 +10,7 @@ nav {
     top: 0;
     bottom: 0;
     right: 24px;
-    z-index: 1;
+    z-index: 10;
 
     .burger {
         width: 24px;
@@ -30,7 +30,6 @@ nav {
         justify-content: center;
 
         &,
-        &_subTabs,
         &_subTabs_menu {
             gap: 8px;
         }
@@ -49,7 +48,7 @@ nav {
 
                 .tabs_subTabs_button,
                 a {
-                    box-shadow: 0 0 12px rgba($color: $light, $alpha: 0.3);
+                    box-shadow: 0 0 8px rgba($color: $light, $alpha: 0.3);
                 }
             }
         }
@@ -85,6 +84,10 @@ nav {
                 align-items: center;
                 overflow: hidden;
                 transition: $longTransition;
+
+                &.active {
+                    padding: 8px 0;
+                }
 
                 a {
                     width: 28px;

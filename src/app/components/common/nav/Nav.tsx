@@ -63,9 +63,9 @@ export default function Nav() {
         if (isOpenSubmenu) {
             subtabsMenu.style.height = '0px';
         } else {
-            subtabsMenu.style.height = subtabsMenu.scrollHeight + 'px';
+            subtabsMenu.style.height = subtabsMenu.scrollHeight + 16 + 'px';
         }
-
+        
         setIsOpenSubmenu(!isOpenSubmenu);
     }
 
@@ -125,6 +125,7 @@ export default function Nav() {
                                         <Link
                                             to={subTab.link}
                                             onClick={() => {
+                                                setIsOpenMenu(!isOpenMenu);
                                                 setIsOpenSubmenu(
                                                     !isOpenSubmenu,
                                                 );
