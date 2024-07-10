@@ -1,13 +1,11 @@
 /** @format */
 
-export const InjectorServiceProvider: iInjectorServiceProvider = {
-    
-};
-
-export interface iInjectorServiceProvider {
-    
+export interface iInjectorProvider {
+    NaughtsAndCrosses: iNaughtsAndCrosses
 }
 
-export interface Inectable {
-    injector: iInjectorServiceProvider;
+export interface iNaughtsAndCrosses {
+    playersNumber: 1 | 2;
+
+    init(): void;
 }
