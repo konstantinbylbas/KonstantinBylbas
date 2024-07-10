@@ -1,0 +1,14 @@
+@import '@app/theme/variables.scss';
+
+.socialMediaLinks {
+    svg {
+        width: 32px;
+        height: 32px;
+        fill: $light;
+        transition: $longTransition;
+
+        &:hover {
+            fill: $primary;
+        }
+    }
+}

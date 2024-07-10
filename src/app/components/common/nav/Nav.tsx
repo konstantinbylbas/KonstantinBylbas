@@ -33,6 +33,10 @@ export default function Nav() {
             img: ImageType.BRIEFCASE,
             link: `/${ScreenType.PORTFOLIO}#examples`,
         },
+        {
+            img: ImageType.MAIL,
+            link: `/${ScreenType.PORTFOLIO}#contacts`,
+        },
     ];
     const platformTabs: iTab[] = [
         {

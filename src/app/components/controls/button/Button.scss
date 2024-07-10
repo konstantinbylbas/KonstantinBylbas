@@ -1,7 +1,17 @@
 /** @format */
 
 .button {
-    width: 120px;
+    width: 200px;
+
+    &.size {
+        &-small {
+            width: 120px;
+        }
+
+        &-full {
+            width: 100%;
+        }
+    }
 
     button {
         width: 100%;

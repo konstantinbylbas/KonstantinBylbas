@@ -1,0 +1,24 @@
+/** @format */
+
+.sectionTitle {
+    margin-bottom: 64px;
+
+    h2,
+    &_background {
+        text-align: center;
+    }
+
+    h2 {
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    &_background {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        letter-spacing: 4px;
+        transform: scale(1.6);
+        opacity: 0.1;
+    }
+}
