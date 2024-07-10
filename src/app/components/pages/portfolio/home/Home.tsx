@@ -1,64 +1,26 @@
 /** @format */
 
-import { ImageType } from '@app/types/image.type';
 import './Home.scss';
+import Header from './header/Header';
+import Examples from './examples/Examples';
+import Skills from './skills/Skills';
+import Summary from './summary/Summary';
+import Contacts from './contacts/Contacts';
 
 export default function Home() {
     return (
         <div className="home">
-            <header className="row align-items-center justify-content-between home_header">
-                <div className="home_header_photo">
-                    <div className="home_header_photo_container">
-                        <img
-                            src={ImageType.AUTHOR}
-                            alt="author"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
+            <Header />
 
-                <div className="home_header_description">
-                    <h2>
-                        <span className="text-primary">—</span>
-                        <span className="text-primary">
-                            I'm Konstantin Bylbas
-                        </span>
-                        <span></span>
-                        <span>Full-stack developer</span>
-                    </h2>
+            <div className="container">
+                <Summary />
 
-                    <p>
-                        I am a Full-stack developer with a great enthusiasm for
-                        creating innovative and efficient web applications. I
-                        have extensive experience with a variety of technologies
-                        and tools and I am able to efficiently implement
-                        projects of any scale.
-                    </p>
-                </div>
-            </header>
+                <Skills />
 
-            <section id="summary">
-                <h2>
-                    About <span className="text-primary">me</span>
-                    <span className="section_header_background">Resume</span>
-                </h2>
-            </section>
+                <Examples />
 
-            <section id="skills">
-                <h2>
-                    My <span className="text-primary">skills</span>
-                    <span className="section_header_background">
-                        Expirience
-                    </span>
-                </h2>
-            </section>
-
-            <section id="examples">
-                <h2>
-                    My <span className="text-primary">portfolio</span>
-                    <span className="section_header_background">Works</span>
-                </h2>
-            </section>
+                <Contacts />
+            </div>
         </div>
     );
 }

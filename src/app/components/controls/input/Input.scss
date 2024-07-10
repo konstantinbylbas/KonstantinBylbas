@@ -9,5 +9,9 @@
         background: transparent;
         border: none;
         outline: none;
+
+        &::placeholder {
+            color: #9f9f9f;
+        }
     }
 }

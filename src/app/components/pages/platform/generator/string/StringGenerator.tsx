@@ -9,6 +9,7 @@ import texts from './StringGenerator.text';
 import InputRange from '@app/components/controls/input-range/InputRange';
 import { NotificationType } from '@app/types/notification.type';
 import { NotificationContext } from '@app/contexts/notificationContext';
+import { ButtonSize } from '@app/types/button.type';
 
 export default function StringGenerator() {
     const { contextNotification, setContextNotification } =
@@ -179,7 +180,7 @@ export default function StringGenerator() {
                         onFocus={() => copyToClipboard(generatedString)}
                     />
 
-                    <Button label="Generate" handlerClick={generate} />
+                    <Button size={ButtonSize.SMALL} label="Generate" handlerClick={generate} />
                 </div>
 
                 <div className="row row_range">

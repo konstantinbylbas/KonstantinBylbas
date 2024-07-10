@@ -97,7 +97,6 @@ button {
 
 body {
     width: 100%;
-    overflow-x: hidden;
     background-color: $dark;
 
     .app {
@@ -107,6 +106,7 @@ body {
         main {
             padding: calc(52px + 16px) 0 16px 0;
             overflow-y: auto;
+            overflow-x: hidden;
         }
 
         footer {

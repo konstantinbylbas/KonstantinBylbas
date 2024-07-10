@@ -3,7 +3,12 @@
 import { InputProps } from '@app/types/input.type';
 import './Input.scss';
 
-export default function Input({ isReadOnly, value, onFocus }: InputProps) {
+export default function Input({
+    isReadOnly,
+    placeholder,
+    value,
+    onFocus,
+}: InputProps) {
     function handlerFocus(): void {
         if (onFocus) {
             onFocus();
@@ -15,6 +20,7 @@ export default function Input({ isReadOnly, value, onFocus }: InputProps) {
             <input
                 readOnly={isReadOnly}
                 type="text"
+                placeholder={placeholder}
                 defaultValue={value}
                 onFocus={handlerFocus}
             />
