@@ -6,5 +6,6 @@ export enum ScreenType {
 }
 
 export enum ScreenPlatformPath {
-    GENERATOR = 'generator'
+    GENERATOR = 'generator',
+    GAME = 'game',
 }

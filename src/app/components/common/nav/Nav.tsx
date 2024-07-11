@@ -43,6 +43,10 @@ export default function Nav() {
             img: ImageType.GENERATOR_STRING,
             link: `/${ScreenType.PLATFORM}/${ScreenPlatformPath.GENERATOR}/`,
         },
+        {
+            img: ImageType.NAUGHTS_AND_CROSSES,
+            link: `/${ScreenType.PLATFORM}/${ScreenPlatformPath.GAME}/`,
+        },
     ];
 
     const tabs = useMemo(() => updateTabs(), [location]);
