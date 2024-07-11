@@ -9,3 +9,8 @@ export enum CellType {
 export interface iCell {
     value: CellType;
 }
+
+export interface iCheckIsGameEndedResult {
+    status: boolean;
+    winner?: CellType;
+}

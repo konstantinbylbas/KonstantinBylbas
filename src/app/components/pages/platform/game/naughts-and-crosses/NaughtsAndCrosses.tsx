@@ -2,23 +2,45 @@
 
 import injectorService from '@app/services/injector.service';
 import './NaughtsAndCrosses.scss';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CellType, iCell } from '@app/types/game/naughts-and-crosses.type';
+import { NotificationContext } from '@app/contexts/notificationContext';
+import { NotificationType } from '@app/types/notification.type';
 
 export default function NaughtsAndCrosses() {
+    const { contextNotification, setContextNotification } =
+        useContext(NotificationContext);
+
     const [board, setBoard] = useState<iCell[]>([]);
     const [isPreviousFirstPlayer, setIsPreviousFirstPlayer] = useState(false);
+    const [gameFinished, setGameFinished] = useState(false);
 
     const NaughtsAndCrossesService = injectorService.get('NaughtsAndCrosses');
+
+    const minFilledCellsForEnd = 5;
+    const finishTimeout = 3;
 
     useEffect(() => {
         initGame();
     }, []);
 
+    useEffect(() => {
+        const filledCellsCount = board.filter(
+            cell => cell.value !== CellType.DEFAULT,
+        ).length;
+
+        if (filledCellsCount < minFilledCellsForEnd) {
+            return;
+        }
+
+        checkResult();
+    }, [board]);
+
     function initGame(): void {
         const board = NaughtsAndCrossesService.init();
         setBoard(board);
         setIsPreviousFirstPlayer(false);
+        setGameFinished(false);
     }
 
     function selectCell(cell: iCell): void {
@@ -40,14 +62,34 @@ export default function NaughtsAndCrosses() {
 
         setBoard(updatedBoard);
         setIsPreviousFirstPlayer(!isPreviousFirstPlayer);
-        checkResult();
     }
 
-    function checkResult(): void {}
+    function checkResult(): void {
+        const result = NaughtsAndCrossesService.checkIsGameEnded(board);
+
+        if (!result.status) {
+            return;
+        }
+
+        setGameFinished(true);
+
+        setContextNotification([
+            ...contextNotification,
+            {
+                type: NotificationType.INFO,
+                message: `Winner: ${result.winner === CellType.CROSS ? 'X' : 'O'}`,
+            },
+        ]);
+
+        setTimeout(() => {
+            initGame();
+        }, finishTimeout * 1000);
+    }
 
     return (
         <div className="naughtsAndCrosses">
-            <div className="naughtsAndCrosses_board">
+            <div
+                className={`naughtsAndCrosses_board ${gameFinished ? 'finished' : ''}`}>
                 {board.map((cell, i) => (
                     <div
                         className={`naughtsAndCrosses_board_cell ${cell.value !== CellType.DEFAULT ? cell.value : ''}`}

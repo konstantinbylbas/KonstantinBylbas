@@ -17,6 +17,10 @@
         border-radius: 16px;
         background-color: $lightDark;
 
+        &.finished {
+            pointer-events: none;
+        }
+
         &_cell {
             overflow: hidden;
             cursor: pointer;
@@ -95,7 +99,7 @@
                     height: 0;
                     position: absolute;
                     left: calc(8px - $borderWidth);
-                    background: $primary;
+                    background: $secondary;
                     transform: rotate(45deg);
                     animation: draw-cross $longTransition linear forwards;
                 }
