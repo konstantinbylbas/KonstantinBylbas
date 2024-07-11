@@ -11,6 +11,7 @@
     right: 8px;
     bottom: 8px;
     overflow-y: auto;
+    z-index: 10;
 
     &_message {
         max-height: 160px;

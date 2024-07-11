@@ -1,11 +1,12 @@
 /** @format */
 
-import HOME from '../../assets/images/portfolio/home.svg';
-import PERSON from '../../assets/images/portfolio/person.svg';
-import BRIEFCASE from '../../assets/images/portfolio/briefcase.svg';
-import MAIL from '../../assets/images/portfolio/mail.svg';
-import GENERATOR_STRING from '../../assets/images/portfolio/generator_string.svg';
-import PLATFORM from '../../assets/images/portfolio/platform.svg';
+import HOME from '../../assets/images/nav/home.svg';
+import PERSON from '../../assets/images/nav/person.svg';
+import BRIEFCASE from '../../assets/images/nav/briefcase.svg';
+import MAIL from '../../assets/images/nav/mail.svg';
+import GENERATOR_STRING from '../../assets/images/nav/generator-string.svg';
+import NAUGHTS_AND_CROSSES from '../../assets/images/nav/naughts-and-crosses.svg';
+import PLATFORM from '../../assets/images/nav/platform.svg';
 import BURGER from '../../assets/images/burger.svg';
 
 const ImageType: { [key: string]: string } = {
@@ -16,6 +17,7 @@ const ImageType: { [key: string]: string } = {
     BRIEFCASE,
     MAIL,
     GENERATOR_STRING,
+    NAUGHTS_AND_CROSSES,
     PLATFORM,
     BURGER,
 };
