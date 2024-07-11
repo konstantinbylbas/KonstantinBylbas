@@ -67,17 +67,25 @@ export default function NaughtsAndCrosses() {
     function checkResult(): void {
         const result = NaughtsAndCrossesService.checkIsGameEnded(board);
 
+        let message = '';
+
         if (!result.status) {
             return;
         }
 
         setGameFinished(true);
 
+        if (result.winner) {
+            message = `Winner: ${result.winner === CellType.CROSS ? 'X' : 'O'}`;
+        } else {
+            message = 'No winner';
+        }
+
         setContextNotification([
             ...contextNotification,
             {
                 type: NotificationType.INFO,
-                message: `Winner: ${result.winner === CellType.CROSS ? 'X' : 'O'}`,
+                message,
             },
         ]);
 
