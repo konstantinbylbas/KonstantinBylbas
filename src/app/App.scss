@@ -2,6 +2,32 @@
 
 @import './theme/index.scss';
 
+@font-face {
+    font-family: 'PP Object';
+    src:
+        local(''),
+        url('../assets/fonts/PP_Object_Sans/object.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src:
+        local(''),
+        url('../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf')
+            format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src:
+        local(''),
+        url('../assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf')
+            format('truetype');
+    font-style: italic;
+}
+
 *,
 *::before,
 *::after {
@@ -79,6 +105,18 @@ h6 {
     }
 }
 
+h1,
+h2,
+h3 {
+    font-weight: 900;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
 p,
 a,
 td,
@@ -87,6 +125,7 @@ label,
 input,
 button {
     font-size: 1rem;
+    font-weight: 500;
 }
 
 button {
@@ -101,7 +140,7 @@ body {
 
     .app {
         height: 100vh;
-        
+
         main {
             height: 100%;
             padding: 16px 0 16px 0;

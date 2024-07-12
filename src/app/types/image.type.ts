@@ -10,8 +10,8 @@ import PLATFORM from '../../assets/images/nav/platform.svg';
 import BURGER from '../../assets/images/burger.svg';
 
 const ImageType: { [key: string]: string } = {
-    LOGO: require('../../assets/images/logo.png'),
-    AUTHOR: require('../../assets/images/author.png'),
+    LOGO: require('../../assets/images/logo.webp'),
+    AUTHOR: require('../../assets/images/author.webp'),
     HOME,
     PERSON,
     BRIEFCASE,

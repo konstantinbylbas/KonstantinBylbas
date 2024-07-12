@@ -13,16 +13,14 @@ nav {
     z-index: 10;
 
     .burger {
-        width: 24px;
         margin-left: auto;
+        background-color: $lightDark;
+        box-shadow: 0 0 8px $lightDark;
+        border-radius: 50%;
         cursor: pointer;
 
         img {
             display: none;
-
-            @media only screen and (max-width: 768px) {
-                display: block;
-            }
         }
     }
 
@@ -32,25 +30,6 @@ nav {
         &,
         &_subTabs_menu {
             gap: 8px;
-        }
-
-        @media only screen and (max-width: 768px) {
-            margin-top: 0;
-            justify-content: start;
-            opacity: 0;
-            pointer-events: none;
-            transition: $shortTransition;
-
-            &.active {
-                margin-top: 16px;
-                opacity: 1;
-                pointer-events: unset;
-
-                .tabs_subTabs_button,
-                a {
-                    box-shadow: 0 0 8px rgba($color: $light, $alpha: 0.3);
-                }
-            }
         }
 
         &_subTabs_button,
@@ -93,6 +72,39 @@ nav {
                     width: 28px;
                     height: 28px;
                     padding: 6px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .burger {
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+
+            img {
+                display: block;
+            }
+        }
+
+        .tabs {
+            margin-top: 0;
+            align-items: center;
+            justify-content: start;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transition: $shortTransition;
+
+            &.active {
+                margin-top: 24px;
+                opacity: 1;
+                pointer-events: unset;
+
+                .tabs_subTabs_button,
+                a {
+                    box-shadow: 0 0 8px rgba($color: $light, $alpha: 0.3);
                 }
             }
         }
