@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import { CellType, iCell } from '@app/types/game/naughts-and-crosses.type';
 import { NotificationContext } from '@app/contexts/notificationContext';
 import { NotificationType } from '@app/types/notification.type';
+import Button from '@app/components/controls/button/Button';
 
 export default function NaughtsAndCrosses() {
     const { contextNotification, setContextNotification } =
@@ -96,6 +97,10 @@ export default function NaughtsAndCrosses() {
 
     return (
         <div className="naughtsAndCrosses">
+            <div className="naughtsAndCrosses_controls">
+                <Button label='Restart' handlerClick={initGame} />
+            </div>
+
             <div
                 className={`naughtsAndCrosses_board ${gameFinished ? 'finished' : ''}`}>
                 {board.map((cell, i) => (
