@@ -1,13 +1,1 @@
 /** @format */
-
-@mixin font-PpObject {
-    @font-face {
-        font-family: 'PP Object';
-        src:
-            local(''),
-            url('../../assets/fonts/PP_Object_Sans/object.ttf')
-                format('truetype');
-        font-style: normal;
-    }
-    font-family: 'PP Object', sans-serif;
-}
