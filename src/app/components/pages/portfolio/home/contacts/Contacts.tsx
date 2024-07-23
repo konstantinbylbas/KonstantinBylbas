@@ -6,9 +6,14 @@ import SocialMediaLinks from '@app/components/common/socialMedia-links/SocialMed
 import Input from '@app/components/controls/input/Input';
 import Button from '@app/components/controls/button/Button';
 import { ButtonSize } from '@app/types/button.type';
+import injectorService from '@app/services/injector.service';
 
 export default function Contacts() {
-    function sendMessage(): void {}
+    const TelegramService = injectorService.get('TelegramService');    
+
+    async function sendMessage(): Promise<void> {        
+        await TelegramService.sendMessage('test');
+    }
 
     return (
         <section id="contacts" className="contacts">
@@ -37,7 +42,7 @@ export default function Contacts() {
                     <Input value="" placeholder="Your email" />
                     <Input value="" placeholder="Email subject" />
 
-                    <Button size={ButtonSize.FULL} label="Send message" />
+                    <Button size={ButtonSize.FULL} label="Send message" handlerClick={sendMessage} />
                 </form>
             </div>
         </section>
