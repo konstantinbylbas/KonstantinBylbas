@@ -123,7 +123,8 @@ td,
 li,
 label,
 input,
-button {
+button,
+textarea {
     font-size: 1rem;
     font-weight: 500;
 }
@@ -171,7 +172,8 @@ body {
     border: $borderWidth solid $primary;
 
     &:hover,
-    &:focus-within:has(input:not(:read-only)) {
+    &:focus-within:has(input:not(:read-only)),
+    &:focus-within:has(textarea:not(:read-only)) {
         .verticalPseudoElement {
             height: calc(100% + 16px);
             top: -8px;
@@ -194,6 +196,7 @@ body {
     }
 
     input,
+    textarea,
     button {
         position: relative;
         z-index: 1;
