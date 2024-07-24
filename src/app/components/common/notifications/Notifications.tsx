@@ -60,7 +60,7 @@ export default function Notifications() {
                 .slice(0, notificationsMaxNumber)
                 .map((notification, i) => (
                     <div
-                        className={`notifications_message ${notification}`}
+                        className={`notifications_message notifications_type-${notification.type}`}
                         key={`message #${i}`}>
                         {notification.message}
                     </div>

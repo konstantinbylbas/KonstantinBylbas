@@ -1,15 +1,15 @@
 /** @format */
 
-import { InputProps } from '@app/types/input.type';
-import './Input.scss';
+import './Textarea.scss';
+import { TextareaProps } from '@app/types/textarea.type';
 
-export default function Input({
+export default function Textarea({
     isReadOnly,
     placeholder,
     value,
     onChange,
     onFocus,
-}: InputProps) {
+}: TextareaProps) {
     function handlerChange(value: string): void {
         if (onChange) {
             onChange(value);
@@ -23,15 +23,13 @@ export default function Input({
     }
 
     return (
-        <div className="input hoverable">
-            <input
+        <div className="textarea hoverable">
+            <textarea
                 readOnly={isReadOnly}
-                type="text"
                 placeholder={placeholder}
                 defaultValue={value}
                 onChange={({ target }) => handlerChange(target.value)}
-                onFocus={handlerFocus}
-            />
+                onFocus={handlerFocus}></textarea>
 
             <div className="verticalPseudoElement"></div>
             <div className="horizontalPseudoElement"></div>

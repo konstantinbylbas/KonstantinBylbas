@@ -19,6 +19,9 @@ export class TelegramService implements iTelegramService {
     public async sendMessage(message: string): Promise<void> {
         const method = 'TelegramSendMessage';
         const formData = new FormData();
+
+        message = encodeURI(message);
+
         formData.append('data', JSON.stringify({ message }));
 
         try {
