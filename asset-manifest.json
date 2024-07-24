@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/KonstantinBylbas/static/css/main.81abfe48.css",
-    "main.js": "/KonstantinBylbas/static/js/main.ffeaf587.js",
+    "main.css": "/KonstantinBylbas/static/css/main.7fbd1d97.css",
+    "main.js": "/KonstantinBylbas/static/js/main.e69229e9.js",
     "static/media/author.webp": "/KonstantinBylbas/static/media/author.48e8eb2dfbf3daa1f1a1.webp",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
@@ -20,11 +20,11 @@
     "static/media/burger.svg": "/KonstantinBylbas/static/media/burger.194b6bb205c34547dd001dfee759e272.svg",
     "static/media/generator-string.svg": "/KonstantinBylbas/static/media/generator-string.56a16ac3cb49267be9aeeff73a1e089e.svg",
     "static/media/mail.svg": "/KonstantinBylbas/static/media/mail.7f9003840545704ac0e527d502bcacdf.svg",
-    "main.81abfe48.css.map": "/KonstantinBylbas/static/css/main.81abfe48.css.map",
-    "main.ffeaf587.js.map": "/KonstantinBylbas/static/js/main.ffeaf587.js.map"
+    "main.7fbd1d97.css.map": "/KonstantinBylbas/static/css/main.7fbd1d97.css.map",
+    "main.e69229e9.js.map": "/KonstantinBylbas/static/js/main.e69229e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.81abfe48.css",
-    "static/js/main.ffeaf587.js"
+    "static/css/main.7fbd1d97.css",
+    "static/js/main.e69229e9.js"
   ]
 }
