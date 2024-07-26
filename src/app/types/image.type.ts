@@ -8,6 +8,8 @@ import GENERATOR_STRING from '../../assets/images/nav/generator-string.svg';
 import NAUGHTS_AND_CROSSES from '../../assets/images/nav/naughts-and-crosses.svg';
 import PLATFORM from '../../assets/images/nav/platform.svg';
 import BURGER from '../../assets/images/burger.svg';
+import ARROW_LEFT from '../../assets/images/left.svg';
+import ARROW_RIGHT from '../../assets/images/right.svg';
 
 const ImageType: { [key: string]: string } = {
     LOGO: require('../../assets/images/logo.webp'),
@@ -20,6 +22,8 @@ const ImageType: { [key: string]: string } = {
     NAUGHTS_AND_CROSSES,
     PLATFORM,
     BURGER,
+    ARROW_LEFT,
+    ARROW_RIGHT,
 };
 
 export { ImageType };

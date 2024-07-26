@@ -19,10 +19,12 @@ export default function Contacts() {
 
     const TelegramService = injectorService.get('TelegramService');
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
 
     const nameMinLength = 5;
     const nameMaxLength = 50;
@@ -31,11 +33,21 @@ export default function Contacts() {
     const messageMinLength = 5;
     const messageMaxLength = 1000;
 
+    const handleChange = (event: any) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
     async function handlerSubmit(): Promise<void> {
         try {
             validateFields();
 
             await sendMessage();
+
+            clearFields();
 
             setContextNotification([
                 ...contextNotification,
@@ -56,6 +68,8 @@ export default function Contacts() {
     }
 
     function validateFields(): void {
+        const { name, email, subject, message } = formData;
+
         if (
             name.trim().length < nameMinLength ||
             name.trim().length > nameMaxLength
@@ -83,6 +97,7 @@ export default function Contacts() {
     }
 
     async function sendMessage(): Promise<void> {
+        const { name, email, subject, message } = formData;
         const formattedMessage = `${name} (${email})
 
 <b>Subject</b>: ${subject}
@@ -90,6 +105,15 @@ ${message}
 `;
 
         await TelegramService.sendMessage(formattedMessage);
+    }
+
+    function clearFields(): void {
+        setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+        });
     }
 
     return (
@@ -119,24 +143,27 @@ ${message}
                         handlerSubmit();
                     }}>
                     <Input
-                        value={name}
-                        onChange={setName}
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Your name"
                     />
                     <Input
-                        value={email}
-                        onChange={setEmail}
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="Your email"
                     />
                     <Input
-                        value={subject}
-                        onChange={setSubject}
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
                         placeholder="Email subject"
                     />
-
                     <Textarea
-                        value={message}
-                        onChange={setMessage}
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         placeholder="Message"
                     />
 
