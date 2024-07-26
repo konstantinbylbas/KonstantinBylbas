@@ -7,6 +7,8 @@ import NaughtsAndCrosses from './services/game/naughtsAndCrosses.service';
 import injectorService from './services/injector.service';
 import Router from './services/navigation.service';
 import { TelegramService } from './services/telegram.service';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 injectorService.register('NaughtsAndCrosses', NaughtsAndCrosses);
 injectorService.register('TelegramService', TelegramService);
