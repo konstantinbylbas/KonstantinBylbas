@@ -1,0 +1,90 @@
+/** @format */
+
+@import '@app/theme/variables.scss';
+
+.select {
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+    &.open {
+        .select_options-list {
+            max-height: 300px;
+            top: calc(100% + $borderWidth);
+            z-index: 0;
+        }
+    }
+
+    &,
+    &_options-list_option {
+        padding: 8px;
+    }
+
+    &,
+    &_options-list {
+        border: solid $borderWidth $primary;
+    }
+
+    &_selected-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .arrow {
+            display: flex;
+
+            &::before,
+            &::after {
+                content: '';
+                width: 12px;
+                height: $borderWidth;
+                position: relative;
+                background-color: $primary;
+                transition: transform $shortTransition;
+            }
+
+            &::before {
+                position: relative;
+                left: 4px;
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+
+            &.open {
+                &::before {
+                    transform: rotate(-45deg);
+                }
+
+                &::after {
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+
+    &_options-list {
+        width: calc(100% + $borderWidth * 2);
+        max-height: 0;
+        position: absolute;
+        top: 100%;
+        left: calc(0px - $borderWidth);
+        border-top-width: 0;
+        overflow: hidden;
+        transition: max-height $shortTransition;
+        z-index: -1;
+
+        &_option {
+            transition: $shortTransition;
+
+            &.active,
+            &:hover {
+                background-color: rgba($color: $lightDark, $alpha: 1);
+            }
+        }
+    }
+}
