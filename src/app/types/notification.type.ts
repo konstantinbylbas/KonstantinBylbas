@@ -1,10 +1,10 @@
 /** @format */
 
 export enum NotificationType {
-    INFO,
-    SUCCESS,
-    WARNING,
-    ERROR,
+    INFO = 'info',
+    SUCCESS = 'success',
+    WARNING = 'warning',
+    ERROR = 'error',
 }
 
 export interface iNotification {

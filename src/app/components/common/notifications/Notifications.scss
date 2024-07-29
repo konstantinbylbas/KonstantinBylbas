@@ -16,7 +16,24 @@
     &_message {
         max-height: 160px;
         padding: 16px;
-        border: $borderWidth solid $primary;
         background-color: $dark;
+    }
+
+    &_type-{
+        &info{
+            border: $borderWidth solid $primary;
+        }
+
+        &success {
+            border: $borderWidth solid $success;
+        }
+
+        &warning{
+            border: $borderWidth solid $warning;
+        }
+
+        &error{
+            border: $borderWidth solid $danger;
+        }
     }
 }

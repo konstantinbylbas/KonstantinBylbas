@@ -25,25 +25,31 @@
             grid-template-areas:
                 'name email'
                 'subject subject'
+                'message message'
                 'button .';
             gap: 12px;
             border-radius: 16px;
             background-color: $lightDark;
             box-shadow: 0 0 16px $lightDark;
 
-            :nth-of-type(1) {
+            & > :nth-of-type(1) {
                 grid-area: name;
             }
 
-            :nth-of-type(2) {
+            & > :nth-of-type(2) {
                 grid-area: email;
             }
 
-            :nth-of-type(3) {
+            & > :nth-of-type(3) {
                 grid-area: subject;
             }
 
-            :nth-of-type(4) {
+            & > :nth-of-type(4) {
+                height: 80px;
+                grid-area: message;
+            }
+
+            & > :nth-of-type(5) {
                 grid-area: button;
             }
         }
@@ -70,6 +76,7 @@
                 'name'
                 'email'
                 'subject'
+                'message'
                 'button';
             }
         }

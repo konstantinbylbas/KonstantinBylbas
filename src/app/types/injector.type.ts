@@ -7,6 +7,7 @@ import {
 
 export interface iInjectorProvider {
     NaughtsAndCrosses: iNaughtsAndCrosses;
+    TelegramService: iTelegramService;
 }
 
 export interface iNaughtsAndCrosses {
@@ -15,4 +16,8 @@ export interface iNaughtsAndCrosses {
     init(): iCell[];
 
     checkIsGameEnded(board: iCell[]): iCheckIsGameEndedResult;
+}
+
+export interface iTelegramService {
+    sendMessage(message: string): Promise<void>;
 }
