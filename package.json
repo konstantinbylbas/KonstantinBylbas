@@ -1,7 +1,7 @@
 {
   "homepage": "https://konstantinbylbas.github.io/KonstantinBylbas/",
   "name": "konstantinbylbas",
-  "version": "1.4.31",
+  "version": "1.4.32",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
