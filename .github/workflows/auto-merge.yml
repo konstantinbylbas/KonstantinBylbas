@@ -12,14 +12,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up GitHub CLI
-        uses: cli/cli-action@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          version: '2.21.0'
+          node-version: '18.20.1'
+
+      - name: Install GitHub CLI
+        run: npm install -g @githubnext/github-cli
 
       - name: Auto merge if checks pass
         run: |
           gh pr review ${{ github.event.pull_request.number }} --approve
-          gh pr merge ${{ github.event.pull_request.number }} --merge --delete-branch
+          gh pr merge ${{ github.event.pull_request.number }} --merge
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
