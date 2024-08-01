@@ -2,7 +2,7 @@
 
 import injectorService from '@app/services/injector.service';
 import './NaughtsAndCrosses.scss';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { CellType, iCell } from '@app/types/game/naughts-and-crosses.type';
 import { NotificationContext } from '@app/contexts/notificationContext';
 import { NotificationType } from '@app/types/notification.type';
@@ -20,9 +20,14 @@ export default function NaughtsAndCrosses() {
 
     const minFilledCellsForEnd = 5;
     const finishTimeout = 3;
+    const newGameTimeoutRef = useRef<NodeJS.Timeout | undefined>();
 
     useEffect(() => {
         initGame();
+
+        return () => {
+            handlerClearTimeout();
+        };
     }, []);
 
     useEffect(() => {
@@ -90,15 +95,26 @@ export default function NaughtsAndCrosses() {
             },
         ]);
 
-        setTimeout(() => {
+        newGameTimeoutRef.current = setTimeout(() => {
             initGame();
         }, finishTimeout * 1000);
+    }
+
+    function restart(): void {
+        handlerClearTimeout();
+        initGame();
+    }
+
+    function handlerClearTimeout(): void {
+        if (newGameTimeoutRef.current) {
+            clearTimeout(newGameTimeoutRef.current);
+        }
     }
 
     return (
         <div className="naughtsAndCrosses">
             <div className="naughtsAndCrosses_controls">
-                <Button label='Restart' handlerClick={initGame} />
+                <Button label="Restart" handlerClick={restart} />
             </div>
 
             <div
