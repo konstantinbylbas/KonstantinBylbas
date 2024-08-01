@@ -3,10 +3,16 @@
 import injectorService from '@app/services/injector.service';
 import './NaughtsAndCrosses.scss';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { CellType, iCell } from '@app/types/game/naughts-and-crosses.type';
+import {
+    CellType,
+    DifficultyType,
+    iCell,
+    PlayersCount,
+} from '@app/types/game/naughts-and-crosses.type';
 import { NotificationContext } from '@app/contexts/notificationContext';
 import { NotificationType } from '@app/types/notification.type';
 import Button from '@app/components/controls/button/Button';
+import Select from '@app/components/controls/select/Select';
 
 export default function NaughtsAndCrosses() {
     const { contextNotification, setContextNotification } =
@@ -17,6 +23,11 @@ export default function NaughtsAndCrosses() {
     const [gameFinished, setGameFinished] = useState(false);
 
     const NaughtsAndCrossesService = injectorService.get('NaughtsAndCrosses');
+
+    const playersCountList = Object.keys(PlayersCount);
+    const difficultsList = Object.keys(DifficultyType).filter(key =>
+        isNaN(Number(key)),
+    );
 
     const minFilledCellsForEnd = 5;
     const finishTimeout = 3;
@@ -111,9 +122,39 @@ export default function NaughtsAndCrosses() {
         }
     }
 
+    function changePlayersCount(value: keyof typeof PlayersCount): void {
+        NaughtsAndCrossesService.playersCount = PlayersCount[value];
+
+        initGame();
+    }
+
+    function changeDifficulty(value: keyof DifficultyType): void {
+        NaughtsAndCrossesService.dificulty =
+            DifficultyType[value as keyof typeof DifficultyType];
+
+        initGame();
+    }
+
     return (
         <div className="naughtsAndCrosses">
             <div className="naughtsAndCrosses_controls">
+                <div className="column">
+                    <Select
+                        itemsList={playersCountList}
+                        onChange={changePlayersCount}
+                    />
+
+                    {NaughtsAndCrossesService.playersCount ===
+                    PlayersCount.ONE ? (
+                        <Select
+                            itemsList={difficultsList}
+                            onChange={changeDifficulty}
+                        />
+                    ) : (
+                        ''
+                    )}
+                </div>
+
                 <Button label="Restart" handlerClick={restart} />
             </div>
 

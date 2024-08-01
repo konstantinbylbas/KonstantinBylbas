@@ -13,8 +13,13 @@
         .select_options-list {
             max-height: 300px;
             top: calc(100% + $borderWidth);
-            z-index: 0;
+            z-index: 2;
         }
+    }
+
+    &.disabled {
+        cursor: default;
+        pointer-events: none;
     }
 
     &,
@@ -73,6 +78,7 @@
         position: absolute;
         top: 100%;
         left: calc(0px - $borderWidth);
+        background-color: $dark;
         border-top-width: 0;
         overflow: hidden;
         transition: max-height $shortTransition;

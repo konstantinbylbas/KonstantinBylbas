@@ -1,8 +1,10 @@
 /** @format */
 
 import {
+    DifficultyType,
     iCell,
     iCheckIsGameEndedResult,
+    PlayersCount,
 } from './game/naughts-and-crosses.type';
 
 export interface iInjectorProvider {
@@ -11,7 +13,8 @@ export interface iInjectorProvider {
 }
 
 export interface iNaughtsAndCrosses {
-    playersNumber: 1 | 2;
+    playersCount: PlayersCount;
+    dificulty: DifficultyType;
 
     init(): iCell[];
 

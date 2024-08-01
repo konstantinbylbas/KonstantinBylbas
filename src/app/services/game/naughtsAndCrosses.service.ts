@@ -2,13 +2,16 @@
 
 import {
     CellType,
+    DifficultyType,
     iCell,
     iCheckIsGameEndedResult,
+    PlayersCount,
 } from '@app/types/game/naughts-and-crosses.type';
 import { iNaughtsAndCrosses } from '@app/types/injector.type';
 
 export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
-    public playersNumber: 1 | 2 = 1;
+    public playersCount: PlayersCount = PlayersCount.ONE;
+    public dificulty: DifficultyType = DifficultyType.EASY;
 
     private readonly boardInstance = new Board();
     private readonly winningCombinations = [

@@ -10,9 +10,19 @@
     position: relative;
 
     &_controls {
+        width: 300px;
+        display: flex;
+        align-items: start;
+        justify-content: end;
+        gap: 8px;
         position: absolute;
         top: 0;
         right: 0;
+
+        .column {
+            width: 100%;
+            gap: 4px;
+        }
     }
 
     &_board {
