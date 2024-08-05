@@ -24,7 +24,7 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
         [0, 4, 8],
         [2, 4, 6],
     ];
-    
+
     public init(): iCell[] {
         const board = this.boardInstance.get();
         return board;
@@ -54,19 +54,21 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
         const difficultyMap: Record<DifficultyType, Function> = {
             [DifficultyType.EASY]: () => this.aiEasyDifficultyChoise(board),
             [DifficultyType.MEDIUM]: () => this.aiEasyDifficultyChoise(board),
-            [DifficultyType.HARD]: () => this.aiEasyDifficultyChoise(board),
-        }
+            [DifficultyType.HARD]: () => this.aiHardDifficultyChoise(board),
+        };
 
         return difficultyMap[this.dificulty]();
     }
 
     private aiEasyDifficultyChoise(board: iCell[]): number {
         const emptyCells = board
-            .map((cell, index) => (cell.value === CellType.DEFAULT ? index : -1))
+            .map((cell, index) =>
+                cell.value === CellType.DEFAULT ? index : -1,
+            )
             .filter(index => index !== -1);
         const randomIndex = Math.floor(Math.random() * emptyCells.length);
         const randomCellIndex = emptyCells[randomIndex];
-        
+
         return randomCellIndex;
     }
 
@@ -75,7 +77,88 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
     }
 
     private aiHardDifficultyChoise(board: iCell[]): number {
+        const bestStart = 4;
+        const goodStart = [0, 2, 6, 8];
+
+        const filledCellsByAi = this.getFilledCellsByType(board, CellType.ZERO);
+        const filledCellsByUser = this.getFilledCellsByType(board, CellType.CROSS);
+
+        if (filledCellsByAi.length === 0) {
+            const emptyCells = board
+                .map((cell, index) =>
+                    cell.value === CellType.DEFAULT ? index : -1,
+                )
+                .filter(index => index !== -1);
+
+            if (emptyCells.includes(bestStart)) {
+                return bestStart;
+            } else {
+                const randomIndex = Math.floor(
+                    Math.random() * goodStart.length,
+                );
+                return goodStart[randomIndex];
+            }
+        }
+
+        if (filledCellsByAi.length > 1) {
+            const checkResult = this.checkMatchingCombinations(board, filledCellsByAi, CellType.CROSS);
+            console.log(checkResult);
+
+            if (checkResult) {
+                return (
+                    checkResult.find(
+                        index => !filledCellsByAi.includes(index),
+                    ) || 0
+                );
+            }
+        }
+
+        if (filledCellsByUser.length > 1) {
+            const checkResult =
+                this.checkMatchingCombinations(board, filledCellsByUser, CellType.ZERO);
+            console.log(checkResult);
+            if (checkResult) {
+                return (
+                    checkResult.find(
+                        index => !filledCellsByUser.includes(index),
+                    ) || 0
+                );
+            }
+        }
+
+        console.log('no sol');
+
         return 0;
+    }
+
+    private getFilledCellsByType(board: iCell[], type: CellType): number[] {
+        return board
+            .map((cell, index) => (cell.value === type ? index : -1))
+            .filter(index => index !== -1);
+    }
+
+    private checkMatchingCombinations(board: iCell[], values: number[], type: CellType): number[] | undefined {
+        const filledCells = this.getFilledCellsByType(board, type);
+        const possibleCombinations = this.winningCombinations
+            .filter(combination => !combination.every(index => !filledCells.includes(index)))
+
+        console.log(possibleCombinations);
+        
+
+        for (const combination of possibleCombinations) {
+            let matches = 0;
+
+            for (const value of values) {
+                if (combination.includes(value)) {
+                    matches++;
+                }
+
+                if (matches === 2) {
+                    return combination;
+                }
+            }
+        }
+        return;
     }
 }
 
