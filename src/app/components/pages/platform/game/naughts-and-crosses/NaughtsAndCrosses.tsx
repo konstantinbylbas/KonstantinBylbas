@@ -20,7 +20,7 @@ export default function NaughtsAndCrosses() {
 
     const [board, setBoard] = useState<iCell[]>([]);
     const [isPreviousFirstPlayer, setIsPreviousFirstPlayer] = useState(false);
-    const [gameFinished, setGameFinished] = useState(false);
+    const [isGameFinished, setIsGameFinished] = useState(false);
 
     const NaughtsAndCrossesService = injectorService.get('NaughtsAndCrosses');
 
@@ -30,6 +30,7 @@ export default function NaughtsAndCrosses() {
     );
 
     const minFilledCellsForEnd = 5;
+    const aiStepDuration = 0.5;
     const finishTimeout = 3;
     const newGameTimeoutRef = useRef<NodeJS.Timeout | undefined>();
 
@@ -42,22 +43,33 @@ export default function NaughtsAndCrosses() {
     }, []);
 
     useEffect(() => {
-        const filledCellsCount = board.filter(
-            cell => cell.value !== CellType.DEFAULT,
-        ).length;
-
-        if (filledCellsCount < minFilledCellsForEnd) {
-            return;
-        }
-
         checkResult();
     }, [board]);
+
+    useEffect(() => {
+        if (checkIsAiNextStep()) {
+            aiMove();
+        }
+    }, [isPreviousFirstPlayer]);
+
+    function getFilledCellsCount(): number {
+        return board.filter(cell => cell.value !== CellType.DEFAULT).length;
+    }
+
+    function checkIsAiNextStep(): boolean {
+        return (
+            !isGameFinished &&
+            getFilledCellsCount() > 0 &&
+            isPreviousFirstPlayer &&
+            NaughtsAndCrossesService.playersCount === PlayersCount.ONE
+        );
+    }
 
     function initGame(): void {
         const board = NaughtsAndCrossesService.init();
         setBoard(board);
         setIsPreviousFirstPlayer(false);
-        setGameFinished(false);
+        setIsGameFinished(false);
     }
 
     function selectCell(cell: iCell): void {
@@ -78,10 +90,16 @@ export default function NaughtsAndCrosses() {
         }
 
         setBoard(updatedBoard);
-        setIsPreviousFirstPlayer(!isPreviousFirstPlayer);
+        setTimeout(() => {
+            setIsPreviousFirstPlayer(!isPreviousFirstPlayer);
+        }, 0);
     }
 
     function checkResult(): void {
+        if (getFilledCellsCount() < minFilledCellsForEnd) {
+            return;
+        }
+
         const result = NaughtsAndCrossesService.checkIsGameEnded(board);
 
         let message = '';
@@ -90,7 +108,7 @@ export default function NaughtsAndCrosses() {
             return;
         }
 
-        setGameFinished(true);
+        setIsGameFinished(true);
 
         if (result.winner) {
             message = `Winner: ${result.winner === CellType.CROSS ? 'X' : 'O'}`;
@@ -135,6 +153,13 @@ export default function NaughtsAndCrosses() {
         initGame();
     }
 
+    function aiMove(): void {
+        setTimeout(() => {
+            const cellIndex = NaughtsAndCrossesService.aiStep(board);
+            selectCell(board[cellIndex]);
+        }, aiStepDuration * 1000);
+    }
+
     return (
         <div className="naughtsAndCrosses">
             <div className="naughtsAndCrosses_controls">
@@ -159,7 +184,7 @@ export default function NaughtsAndCrosses() {
             </div>
 
             <div
-                className={`naughtsAndCrosses_board ${gameFinished ? 'finished' : ''}`}>
+                className={`naughtsAndCrosses_board ${isGameFinished ? 'finished' : ''}`}>
                 {board.map((cell, i) => (
                     <div
                         className={`naughtsAndCrosses_board_cell ${cell.value !== CellType.DEFAULT ? cell.value : ''}`}

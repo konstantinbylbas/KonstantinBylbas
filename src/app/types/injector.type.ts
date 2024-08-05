@@ -19,6 +19,8 @@ export interface iNaughtsAndCrosses {
     init(): iCell[];
 
     checkIsGameEnded(board: iCell[]): iCheckIsGameEndedResult;
+
+    aiStep(board: iCell[]): number;
 }
 
 export interface iTelegramService {

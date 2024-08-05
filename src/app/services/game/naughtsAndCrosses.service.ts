@@ -24,7 +24,7 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
         [0, 4, 8],
         [2, 4, 6],
     ];
-
+    
     public init(): iCell[] {
         const board = this.boardInstance.get();
         return board;
@@ -48,6 +48,34 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
         }
 
         return { status: false };
+    }
+
+    public aiStep(board: iCell[]): number {
+        const difficultyMap: Record<DifficultyType, Function> = {
+            [DifficultyType.EASY]: () => this.aiEasyDifficultyChoise(board),
+            [DifficultyType.MEDIUM]: () => this.aiEasyDifficultyChoise(board),
+            [DifficultyType.HARD]: () => this.aiEasyDifficultyChoise(board),
+        }
+
+        return difficultyMap[this.dificulty]();
+    }
+
+    private aiEasyDifficultyChoise(board: iCell[]): number {
+        const emptyCells = board
+            .map((cell, index) => (cell.value === CellType.DEFAULT ? index : -1))
+            .filter(index => index !== -1);
+        const randomIndex = Math.floor(Math.random() * emptyCells.length);
+        const randomCellIndex = emptyCells[randomIndex];
+        
+        return randomCellIndex;
+    }
+
+    private aiMediumDifficultyChoise(board: iCell[]): number {
+        return 0;
+    }
+
+    private aiHardDifficultyChoise(board: iCell[]): number {
+        return 0;
     }
 }
 
