@@ -1,8 +1,12 @@
 /** @format */
 
 export interface SelectProps {
-    name: string;
     isDisabled?: boolean;
-    itemsList: any[];
+    itemsList: SelectItem[] | string[] | number[];
     onChange?: Function;
+}
+
+export interface SelectItem {
+    name: string;
+    value: any;
 }
