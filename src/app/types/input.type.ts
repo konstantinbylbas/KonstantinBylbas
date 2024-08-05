@@ -1,7 +1,7 @@
 /** @format */
 
 export interface InputProps {
-    name: string;
+    name?: string;
     isReadOnly?: boolean;
     placeholder?: string;
     value: string;

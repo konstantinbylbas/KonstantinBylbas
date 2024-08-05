@@ -100,7 +100,15 @@ export default function StringGenerator() {
 
         if (options.excludeDuplication) {
             if (characters.length < length) {
-                throw 'Not enough unique characters to generate the desired length';
+                const message = 'Not enough unique characters to generate the desired length';
+                setContextNotification([
+                    ...contextNotification,
+                    {
+                        type: NotificationType.ERROR,
+                        message,
+                    },
+                ]);
+                throw message;
             }
 
             while (result.length < length) {
