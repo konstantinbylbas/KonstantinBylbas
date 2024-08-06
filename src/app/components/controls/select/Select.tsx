@@ -1,16 +1,25 @@
 /** @format */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Select.scss';
 import { SelectItem, SelectProps } from '@app/types/select.type';
 
 export default function Select({
     isDisabled,
     itemsList,
+    selectedItem,
     onChange,
 }: SelectProps) {
-    const [selectedValue, setSelectedValue] = useState(itemsList[0]);
+    const [selectedValue, setSelectedValue] = useState(
+        selectedItem || itemsList[0],
+    );
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (selectedItem !== undefined) {
+            setSelectedValue(selectedItem);
+        }
+    }, [selectedItem]);
 
     function getOptionLabel(option: SelectItem | string | number): string {
         if (typeof option === 'string' || typeof option === 'number') {
@@ -25,7 +34,7 @@ export default function Select({
             onChange(option);
         }
 
-        setSelectedValue(option);
+        setSelectedValue(selectedItem || option);
         setIsOpen(false);
     }
 

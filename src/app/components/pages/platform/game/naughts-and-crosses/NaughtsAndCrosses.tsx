@@ -2,7 +2,7 @@
 
 import injectorService from '@app/services/injector.service';
 import './NaughtsAndCrosses.scss';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import {
     CellType,
     DifficultyType,
@@ -14,6 +14,11 @@ import { NotificationType } from '@app/types/notification.type';
 import Button from '@app/components/controls/button/Button';
 import Select from '@app/components/controls/select/Select';
 
+interface iSettings {
+    playersCount: PlayersCount;
+    difficulty: DifficultyType;
+}
+
 export default function NaughtsAndCrosses() {
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
@@ -23,18 +28,29 @@ export default function NaughtsAndCrosses() {
     const [isGameFinished, setIsGameFinished] = useState(false);
 
     const NaughtsAndCrossesService = injectorService.get('NaughtsAndCrosses');
-
+    
     const playersCountList = Object.keys(PlayersCount);
     const difficultsList = Object.keys(DifficultyType).filter(key =>
         isNaN(Number(key)),
     );
 
+    const lsSettingsKey = 'Tic tac toe - settings';
     const minFilledCellsForEnd = 5;
     const aiStepDuration = 0.5;
     const finishTimeout = 3;
     const newGameTimeoutRef = useRef<NodeJS.Timeout | undefined>();
 
     useEffect(() => {
+        const settings = getSettingsFromLS();
+
+        if (settings?.playersCount) {
+            NaughtsAndCrossesService.playersCount = settings.playersCount;
+        }
+
+        if (settings?.difficulty) {
+            NaughtsAndCrossesService.dificulty = settings.difficulty;
+        }
+
         initGame();
 
         return () => {
@@ -51,6 +67,35 @@ export default function NaughtsAndCrosses() {
             aiMove();
         }
     }, [isPreviousFirstPlayer]);
+
+    function getSettingsFromLS(): iSettings | undefined {
+        let settings: any = localStorage.getItem(lsSettingsKey);
+
+        if (!settings) {
+            return;
+        }
+
+        settings = JSON.parse(settings) as iSettings;
+
+        return settings;
+    }
+
+    function setSettingsToLS(newParams: {
+        playersCount?: PlayersCount;
+        difficulty?: DifficultyType;
+    }): void {
+        let params = getSettingsFromLS() || {
+            playersCount: PlayersCount.ONE,
+            difficulty: DifficultyType.EASY,
+        };
+
+        params = {
+            ...params,
+            ...newParams,
+        };
+
+        localStorage.setItem(lsSettingsKey, JSON.stringify(params));
+    }
 
     function getFilledCellsCount(): number {
         return board.filter(cell => cell.value !== CellType.DEFAULT).length;
@@ -140,18 +185,27 @@ export default function NaughtsAndCrosses() {
         }
     }
 
-    function changePlayersCount(value: keyof typeof PlayersCount): void {
-        NaughtsAndCrossesService.playersCount = PlayersCount[value];
+    const changePlayersCount = useCallback(
+        (value: keyof typeof PlayersCount) => {
+            const playersCount = PlayersCount[value];
+            NaughtsAndCrossesService.playersCount = playersCount;
+
+            setSettingsToLS({ playersCount });
+
+            initGame();
+        },
+        [],
+    );
+
+    const changeDifficulty = useCallback((value: keyof DifficultyType) => {
+        const difficulty = DifficultyType[value as keyof typeof DifficultyType];
+
+        NaughtsAndCrossesService.dificulty = difficulty;
+
+        setSettingsToLS({ difficulty });
 
         initGame();
-    }
-
-    function changeDifficulty(value: keyof DifficultyType): void {
-        NaughtsAndCrossesService.dificulty =
-            DifficultyType[value as keyof typeof DifficultyType];
-
-        initGame();
-    }
+    }, []);
 
     function aiMove(): void {
         setTimeout(() => {
@@ -166,6 +220,11 @@ export default function NaughtsAndCrosses() {
                 <div className="column">
                     <Select
                         itemsList={playersCountList}
+                        selectedItem={
+                            playersCountList[
+                                +NaughtsAndCrossesService.playersCount - 1
+                            ]
+                        }
                         onChange={changePlayersCount}
                     />
 
@@ -173,6 +232,11 @@ export default function NaughtsAndCrosses() {
                     PlayersCount.ONE ? (
                         <Select
                             itemsList={difficultsList}
+                            selectedItem={
+                                difficultsList[
+                                    NaughtsAndCrossesService.dificulty
+                                ]
+                            }
                             onChange={changeDifficulty}
                         />
                     ) : (
