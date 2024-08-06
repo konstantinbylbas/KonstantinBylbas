@@ -144,4 +144,11 @@
             }
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        &_controls {
+            top: 68px;
+            right: calc(50% - 300px / 2);
+        }
+    }
 }
