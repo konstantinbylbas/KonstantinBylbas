@@ -13,6 +13,7 @@ export default function Skills() {
                 }}
                 backgroundText="Expirience"
             />
+            <div data-aos="fade-left"></div>
         </section>
     );
 }

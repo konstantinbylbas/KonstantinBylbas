@@ -7,13 +7,20 @@ import NaughtsAndCrosses from './services/game/naughtsAndCrosses.service';
 import injectorService from './services/injector.service';
 import Router from './services/navigation.service';
 import { TelegramService } from './services/telegram.service';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 injectorService.register('NaughtsAndCrosses', NaughtsAndCrosses);
 injectorService.register('TelegramService', TelegramService);
 
 export default function App() {
+    useEffect(() => {
+        Aos.init();        
+    }, []);
+
     return (
         <div className="app">
             <main>

@@ -50,7 +50,7 @@ export default function Examples() {
         }
     };
 
-    const examples: { img: any, description: string }[] = [
+    const examples: { img: any; description: string }[] = [
         {
             img: '',
             description: 'Example 1',
@@ -83,10 +83,18 @@ export default function Examples() {
                 backgroundText="Works"
             />
 
-            <div className="examples_slider">
+            <div className="examples_slider" data-aos="fade-left">
                 <div className="examples_slider_controls">
-                    <img src={ImageType.ARROW_LEFT} alt="arrow left" onClick={prevSlide} />
-                    <img src={ImageType.ARROW_RIGHT} alt="arrow right" onClick={nextSlide} />
+                    <img
+                        src={ImageType.ARROW_LEFT}
+                        alt="arrow left"
+                        onClick={prevSlide}
+                    />
+                    <img
+                        src={ImageType.ARROW_RIGHT}
+                        alt="arrow right"
+                        onClick={nextSlide}
+                    />
                 </div>
 
                 <Slider {...settings} ref={sliderRef}>
@@ -94,11 +102,11 @@ export default function Examples() {
                         <div
                             className="examples_slider_block"
                             key={`example #${i}`}>
-                                <figure></figure>
-                                <div className='examples_slider_block_description'>
-                                    {example.description}
-                                </div>
+                            <figure></figure>
+                            <div className="examples_slider_block_description">
+                                {example.description}
                             </div>
+                        </div>
                     ))}
                 </Slider>
             </div>

@@ -3,6 +3,6 @@
 .game {
     &,
     .container {
-        height: 100%;
+        height: calc(100vh - 16px * 2);
     }
 }

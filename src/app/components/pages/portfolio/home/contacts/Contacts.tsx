@@ -126,7 +126,9 @@ ${message}
                 backgroundText="Contact"
             />
 
-            <div className="contacts_row row justify-content-between">
+            <div
+                className="contacts_row row justify-content-between"
+                data-aos="fade-left">
                 <div className="contacts_row_info">
                     <h5>Don't be shy</h5>
                     <p>
