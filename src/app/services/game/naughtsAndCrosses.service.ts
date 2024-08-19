@@ -100,6 +100,12 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
             return bestStart;
         }
 
+        // shuffle goodStart array
+        for (let i = goodStart.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [goodStart[i], goodStart[j]] = [goodStart[j], goodStart[i]];
+        }
+
         return goodStart.find(index => board[index].value === CellType.DEFAULT) || 0;
     }
 
