@@ -24,6 +24,8 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
         [0, 4, 8],
         [2, 4, 6],
     ];
+    private bestStart = 4;
+    private goodStart = [0, 2, 6, 8];
 
     public init(): iCell[] {
         return this.boardInstance.get();
@@ -67,7 +69,13 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
         if (this.isFirstAiMove(board)) {
             return this.aiRandomMove(board);
         }
-        return this.aiHardDifficultyMove(board);
+
+        const bestChoise = this.getWinningMove(board);
+        if (bestChoise !== -1) {
+            return bestChoise;
+        }
+
+        return this.aiRandomMove(board);
     }
 
     private aiHardDifficultyMove(board: iCell[]): number {
@@ -75,14 +83,27 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
             return this.getBestStartMove(board);
         }
 
-        const aiWinningMove = this.findWinningMove(board, CellType.ZERO);
-        if (aiWinningMove !== -1) {
-            return aiWinningMove;
+        const bestChoise = this.getWinningMove(board);
+        if (bestChoise !== -1) {
+            return bestChoise;
         }
 
-        const userWinningMove = this.findWinningMove(board, CellType.CROSS);
-        if (userWinningMove !== -1) {
-            return userWinningMove;
+        for (let cell of this.goodStart) {
+            if (board[cell].value === CellType.DEFAULT) {
+                return cell;
+            }
+        }
+
+        for (const combination of this.winningCombinations) {
+            const [a, b, c] = combination;
+            const values = [board[a].value, board[b].value, board[c].value];
+
+            if (
+                values.filter(value => value === CellType.ZERO).length === 1 &&
+                values.includes(CellType.DEFAULT)
+            ) {
+                return combination[values.indexOf(CellType.DEFAULT)];
+            }
         }
 
         return this.aiRandomMove(board);
@@ -93,20 +114,38 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
     }
 
     private getBestStartMove(board: iCell[]): number {
-        const bestStart = 4;
-        const goodStart = [0, 2, 6, 8];
-
-        if (board[bestStart].value === CellType.DEFAULT) {
-            return bestStart;
+        if (board[this.bestStart].value === CellType.DEFAULT) {
+            return this.bestStart;
         }
 
         // shuffle goodStart array
-        for (let i = goodStart.length - 1; i > 0; i--) {
+        for (let i = this.goodStart.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [goodStart[i], goodStart[j]] = [goodStart[j], goodStart[i]];
+            [this.goodStart[i], this.goodStart[j]] = [
+                this.goodStart[j],
+                this.goodStart[i],
+            ];
         }
 
-        return goodStart.find(index => board[index].value === CellType.DEFAULT) || 0;
+        return (
+            this.goodStart.find(
+                index => board[index].value === CellType.DEFAULT,
+            ) || 0
+        );
+    }
+
+    private getWinningMove(board: iCell[]): number {
+        const aiWinningMove = this.findWinningMove(board, CellType.ZERO);
+        if (aiWinningMove !== -1) {
+            return aiWinningMove;
+        }
+
+        const userWinningMove = this.findWinningMove(board, CellType.CROSS);
+        if (userWinningMove !== -1) {
+            return userWinningMove;
+        }
+
+        return -1;
     }
 
     private findWinningMove(board: iCell[], type: CellType): number {
@@ -127,7 +166,9 @@ export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
 
     private getEmptyCells(board: iCell[]): number[] {
         return board
-            .map((cell, index) => (cell.value === CellType.DEFAULT ? index : -1))
+            .map((cell, index) =>
+                cell.value === CellType.DEFAULT ? index : -1,
+            )
             .filter(index => index !== -1);
     }
 

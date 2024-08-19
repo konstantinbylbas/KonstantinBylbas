@@ -1,7 +1,7 @@
 /** @format */
 
 export enum CellType {
-    DEFAULT,
+    DEFAULT = 'default',
     ZERO = 'zero',
     CROSS = 'cross',
 }
