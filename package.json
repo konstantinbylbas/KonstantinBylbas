@@ -1,7 +1,7 @@
 {
   "homepage": "https://konstantinbylbas.github.io/KonstantinBylbas/",
   "name": "konstantinbylbas",
-  "version": "1.4.42",
+  "version": "1.4.43",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,6 +11,7 @@
     "@types/node": "^16.18.97",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "aos": "^2.3.4",
     "craco-alias": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -51,6 +52,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
+    "@types/aos": "^3.0.7",
     "@types/react-slick": "^0.23.13",
     "@types/validator": "^13.12.0",
     "gh-pages": "^6.1.1",

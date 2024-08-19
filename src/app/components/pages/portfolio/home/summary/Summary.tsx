@@ -13,6 +13,8 @@ export default function Summary() {
                 }}
                 backgroundText="Resume"
             />
+
+            <div data-aos="fade-left"></div>
         </section>
     );
 }
