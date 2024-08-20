@@ -87,12 +87,14 @@ export default function Examples() {
                 <div className="examples_slider_controls">
                     <img
                         src={ImageType.ARROW_LEFT}
-                        alt="arrow left"
+                        alt="portfolio slider arrow left"
+                        title='Go previous'
                         onClick={prevSlide}
                     />
                     <img
                         src={ImageType.ARROW_RIGHT}
-                        alt="arrow right"
+                        alt="portfolio slider arrow right"
+                        title='Go next'
                         onClick={nextSlide}
                     />
                 </div>

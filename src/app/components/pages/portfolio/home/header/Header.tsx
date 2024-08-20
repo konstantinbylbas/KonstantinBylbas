@@ -8,7 +8,11 @@ export default function Header() {
         <header className="row align-items-center justify-content-between home_header">
             <div className="home_header_photo">
                 <div className="home_header_photo_container">
-                    <img src={ImageType.AUTHOR} alt="author" loading="lazy" />
+                    <img
+                        src={ImageType.AUTHOR}
+                        alt="Konstantin Bylbas (Full-stack developer)"
+                        title="Konstantin Bylbas"
+                    />
                 </div>
             </div>
 
