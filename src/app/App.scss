@@ -139,6 +139,7 @@ button {
 body {
     width: 100%;
     background-color: $dark;
+    user-select: none;
 
     .app {
         height: 100vh;
