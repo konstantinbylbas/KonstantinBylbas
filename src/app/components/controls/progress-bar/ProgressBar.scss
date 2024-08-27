@@ -5,7 +5,7 @@
 @property --progress-value {
     syntax: '<percentage>';
     inherits: false;
-    initial-value: 0%;
+    initial-value: 0.01%;
 }
 
 .progress-bar {
