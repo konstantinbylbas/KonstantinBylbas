@@ -3,11 +3,57 @@
 import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Examples.scss';
 import Slider from 'react-slick';
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { ImageType } from '@app/types/image.type';
 
 export default function Examples() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     const sliderRef = useRef<Slider>(null);
+
+    const examples: { img: any; description: string }[] = [
+        {
+            img: '',
+            description: 'Example 1',
+        },
+        {
+            img: '',
+            description: 'Example 2',
+        },
+        {
+            img: '',
+            description: 'Example 3',
+        },
+        {
+            img: '',
+            description: 'Example 4',
+        },
+        {
+            img: '',
+            description: 'Example 5',
+        },
+    ];
+
+    const isPrevDisabled = useMemo(() => currentSlide === 0, [currentSlide]);
+    const isNextDisabled = useMemo(() => {
+        const currentSettings: any = sliderRef.current?.props.responsive?.find(
+            param => param.breakpoint < window.innerWidth,
+        );
+
+        if (!currentSettings || !currentSettings.settings) {
+            return false;
+        }
+
+        if (
+            currentSettings &&
+            currentSettings.settings &&
+            currentSlide + 1 + currentSettings.settings.slidesToShow >=
+                examples.length
+        ) {
+            return true;
+        }
+        return false;
+    }, [currentSlide]);
 
     const settings = {
         infinite: false,
@@ -15,6 +61,7 @@ export default function Examples() {
         speed: 300,
         slidesToShow: 4,
         slidesToScroll: 2,
+        afterChange: (current: any) => setCurrentSlide(current),
         responsive: [
             {
                 breakpoint: 1024,
@@ -50,29 +97,6 @@ export default function Examples() {
         }
     };
 
-    const examples: { img: any; description: string }[] = [
-        {
-            img: '',
-            description: 'Example 1',
-        },
-        {
-            img: '',
-            description: 'Example 2',
-        },
-        {
-            img: '',
-            description: 'Example 3',
-        },
-        {
-            img: '',
-            description: 'Example 4',
-        },
-        {
-            img: '',
-            description: 'Example 5',
-        },
-    ];
-
     return (
         <section id="examples">
             <SectionTitle
@@ -88,13 +112,15 @@ export default function Examples() {
                     <img
                         src={ImageType.ARROW_LEFT}
                         alt="portfolio slider arrow left"
-                        title='Go previous'
+                        title="Go previous"
+                        className={isPrevDisabled ? 'disabled' : ''}
                         onClick={prevSlide}
                     />
                     <img
                         src={ImageType.ARROW_RIGHT}
                         alt="portfolio slider arrow right"
-                        title='Go next'
+                        title="Go next"
+                        className={isNextDisabled ? 'disabled' : ''}
                         onClick={nextSlide}
                     />
                 </div>

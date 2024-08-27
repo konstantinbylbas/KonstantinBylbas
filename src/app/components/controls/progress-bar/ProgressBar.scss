@@ -1,0 +1,33 @@
+/** @format */
+
+@import '@app/theme/variables.scss';
+
+@property --progress-value {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+.progress-bar {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background: conic-gradient($primary var(--progress-value), $lightDark 0);
+    --progress-value: 0%;
+    transition: --progress-value 1s;
+
+    &,
+    &::after {
+        border-radius: 50%;
+    }
+
+    &::after {
+        content: '';
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        background-color: $dark;
+    }
+}
