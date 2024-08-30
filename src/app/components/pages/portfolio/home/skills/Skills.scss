@@ -2,8 +2,8 @@
 
 @import '@app/theme/variables.scss';
 
-#skills {
-    .skills-line {
+.skills {
+    &-line {
         max-height: 40vh;
         display: flex;
         flex-wrap: wrap;
@@ -33,7 +33,7 @@
     }
 
     @media only screen and (max-width: 550px) {
-        .skills-line {
+        &-line {
             &.open {
                 max-height: 70vh;
             }

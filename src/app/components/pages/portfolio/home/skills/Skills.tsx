@@ -3,9 +3,11 @@
 import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Skills.scss';
 import ProgressBar from '@app/components/controls/progress-bar/ProgressBar';
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import texts from './Skills.text';
 import Button from '@app/components/controls/button/Button';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@app/firebaseConfig';
 
 interface iSkill {
     title: string;
@@ -13,73 +15,77 @@ interface iSkill {
 }
 
 export default function Skills() {
+    const [dbData, setDbData] = useState<iSkill[]>([]);
+    const [skills, setSkills] = useState<iSkill[]>([]);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     const skillsToShowLength = window.innerWidth > 550 ? 8 : 4;
-    const skillsData: iSkill[] = [
-        { title: 'HTML', value: 90 },
-        { title: 'SCSS', value: 90 },
-        { title: 'Angular.js', value: 75 },
-        { title: 'React.js', value: 75 },
-        { title: 'React Native', value: 55 },
-        { title: 'TypeScript', value: 80 },
-        { title: 'Node.js', value: 70 },
-        { title: 'PHP', value: 40 },
-        { title: 'Next.js', value: 35 },
-        { title: 'C++', value: 20 },
-        { title: 'WordPress', value: 30 },
-        { title: 'Docker', value: 20 },
-        { title: 'Prisma', value: 25 },
-        { title: 'Git', value: 78 },
-        { title: '.NET', value: 30 },
-        { title: 'Photoshop', value: 27 },
-        { title: 'Figma', value: 34 },
-        { title: 'Illustrator', value: 40 },
-    ];
-    const [skills, setSkills] = useState<iSkill[]>(
-        sortByProgress(sliceData(skillsData, skillsToShowLength)),
-    );
+
+    useLayoutEffect(() => {
+        fetchSkills();
+    }, []);
+
+    useLayoutEffect(() => {
+        if (!dbData?.length) {
+            return;
+        }
+
+        setSkills(sliceData(sortByProgress(dbData), skillsToShowLength));
+    }, [dbData]);
+
+    async function fetchSkills() {
+        const skillsRef = doc(db, 'portfolio', 'skills');
+
+        try {
+            const docSnap = await getDoc(skillsRef);
+
+            if (!docSnap.exists()) {
+                throw 'No such document';
+            }
+
+            const dbData = docSnap.data();
+
+            if (dbData?.data) {
+                setDbData(dbData.data);
+            }
+        } catch (error) {
+            console.error('Error getting document:', error);
+        }
+    }
 
     function sortByProgress(data: iSkill[]): iSkill[] {
         return data.sort((a, b) => b.value - a.value);
     }
 
     function sliceData(data: iSkill[], length: number): iSkill[] {
-        return skillsData.slice(0, length);
+        return data.slice(0, length);
     }
 
     function toggleMenu(): void {
         setIsOpenMenu(!isOpenMenu);
 
-        const tmpSkills = sortByProgress(skillsData);
+        const tmpSkills = sortByProgress(dbData);
 
         if (isOpenMenu) {
             setTimeout(() => {
                 setSkills(sliceData(tmpSkills, skillsToShowLength));
             }, 300);
         } else {
-            setSkills(sliceData(tmpSkills, skillsData.length));
+            setSkills(sliceData(tmpSkills, dbData.length));
         }
     }
 
     return (
-        <section id="skills">
-            <SectionTitle
-                title={{
-                    defaultColorText: 'My',
-                    primaryColorText: 'skills',
-                }}
-                backgroundText="Expirience"
-            />
-
+        <div className="skills">
             <div className={`skills-line ${isOpenMenu ? 'open' : ''}`}>
-                {skills.length &&
-                    skills.map(skill => (
-                        <div className="skills-line_block" key={skill.title}>
-                            <ProgressBar value={skill.value} />
-                            <p>{skill.title}</p>
-                        </div>
-                    ))}
+                {skills.length
+                    ? skills.map(skill => (
+                          <div className="skills-line_block" key={skill.title}>
+                              <ProgressBar value={skill.value} />
+                              <p>{skill.title}</p>
+                          </div>
+                      ))
+                    : ''}
             </div>
 
             {skills.length >= skillsToShowLength ? (
@@ -92,6 +98,6 @@ export default function Skills() {
             ) : (
                 ''
             )}
-        </section>
+        </div>
     );
 }

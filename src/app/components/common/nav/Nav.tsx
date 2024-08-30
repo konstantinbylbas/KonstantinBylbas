@@ -100,12 +100,8 @@ export default function Nav() {
 
     return (
         <nav>
-            <div className="burger">
-                <img
-                    src={ImageType.BURGER}
-                    alt="Burger menu button"
-                    onClick={() => setIsOpenMenu(!isOpenMenu)}
-                />
+            <div className="burger" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+                <img src={ImageType.BURGER} alt="Burger menu button" />
             </div>
 
             <div className={`tabs column ${isOpenMenu ? 'active' : ''}`}>
