@@ -3,9 +3,11 @@
 @import '@app/theme/variables.scss';
 
 .contacts {
+    padding-bottom: 80px !important;
+
     &_row {
         align-items: center;
-        
+
         &_info {
             width: 40%;
 
@@ -60,7 +62,8 @@
             flex-wrap: wrap;
             gap: 32px;
 
-            &_info, &_form {
+            &_info,
+            &_form {
                 width: 100%;
             }
         }
@@ -73,11 +76,11 @@
             &_form {
                 width: 100%;
                 grid-template-areas:
-                'name'
-                'email'
-                'subject'
-                'message'
-                'button';
+                    'name'
+                    'email'
+                    'subject'
+                    'message'
+                    'button';
             }
         }
     }

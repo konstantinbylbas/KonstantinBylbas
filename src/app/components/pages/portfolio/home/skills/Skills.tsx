@@ -30,7 +30,7 @@ export default function Skills() {
             return;
         }
 
-        setSkills(sortByProgress(sliceData(dbData, skillsToShowLength)));
+        setSkills(sliceData(sortByProgress(dbData), skillsToShowLength));
     }, [dbData]);
 
     async function fetchSkills() {
@@ -76,15 +76,7 @@ export default function Skills() {
     }
 
     return (
-        <section id="skills">
-            <SectionTitle
-                title={{
-                    defaultColorText: 'My',
-                    primaryColorText: 'skills',
-                }}
-                backgroundText="Expirience"
-            />
-
+        <div className="skills">
             <div className={`skills-line ${isOpenMenu ? 'open' : ''}`}>
                 {skills.length
                     ? skills.map(skill => (
@@ -106,6 +98,6 @@ export default function Skills() {
             ) : (
                 ''
             )}
-        </section>
+        </div>
     );
 }
