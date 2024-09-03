@@ -12,9 +12,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { FirebaseService } from './services/firebase.service';
 
 injectorService.register('NaughtsAndCrosses', NaughtsAndCrosses);
 injectorService.register('TelegramService', TelegramService);
+injectorService.register('FirebaseService', FirebaseService);
 
 export default function App() {
     useEffect(() => {
