@@ -1,13 +1,15 @@
 /** @format */
 
-import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Skills.scss';
 import ProgressBar from '@app/components/controls/progress-bar/ProgressBar';
 import { useLayoutEffect, useState } from 'react';
 import texts from './Skills.text';
 import Button from '@app/components/controls/button/Button';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '@app/firebaseConfig';
+import injectorService from '@app/services/injector.service';
+import {
+    FirebaseCollection,
+    FirebaseTable,
+} from '@app/types/portfolio/data.type';
 
 interface iSkill {
     title: string;
@@ -18,6 +20,8 @@ export default function Skills() {
     const [dbData, setDbData] = useState<iSkill[]>([]);
     const [skills, setSkills] = useState<iSkill[]>([]);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+    const FirebaseService = injectorService.get('FirebaseService');
 
     const skillsToShowLength = window.innerWidth > 550 ? 8 : 4;
 
@@ -34,23 +38,11 @@ export default function Skills() {
     }, [dbData]);
 
     async function fetchSkills() {
-        const skillsRef = doc(db, 'portfolio', 'skills');
-
-        try {
-            const docSnap = await getDoc(skillsRef);
-
-            if (!docSnap.exists()) {
-                throw 'No such document';
-            }
-
-            const dbData = docSnap.data();
-
-            if (dbData?.data) {
-                setDbData(dbData.data);
-            }
-        } catch (error) {
-            console.error('Error getting document:', error);
-        }
+        const data = await FirebaseService.getTableData(
+            FirebaseCollection.PORTFOLIO,
+            FirebaseTable.SKILLS,
+        );
+        setDbData(data);
     }
 
     function sortByProgress(data: iSkill[]): iSkill[] {

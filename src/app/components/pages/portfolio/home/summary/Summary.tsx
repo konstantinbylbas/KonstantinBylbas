@@ -3,16 +3,35 @@
 import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Summary.scss';
 import Skills from '../skills/Skills';
+import { useLayoutEffect, useState } from 'react';
+import injectorService from '@app/services/injector.service';
+import {
+    FirebaseCollection,
+    FirebaseTable,
+} from '@app/types/portfolio/data.type';
+import texts from './Summary.text';
 
 export default function Summary() {
-    const infoItemsList: { title: string; value: string }[] = [
+    const [infoItemsList, setInfoItemsList] = useState([
         { title: 'First name', value: 'Konstantin' },
         { title: 'Last name', value: 'Bylbas' },
         { title: 'Age', value: getAge() },
         { title: 'Nationality', value: 'Ukrainian' },
-        { title: 'Address', value: 'Dnipro' },
-        { title: 'Languages', value: 'English, Ukrainian' },
-    ];
+    ]);
+
+    const FirebaseService = injectorService.get('FirebaseService');
+
+    useLayoutEffect(() => {
+        fetchSummary();
+    }, []);
+
+    async function fetchSummary() {
+        const data = await FirebaseService.getTableData(
+            FirebaseCollection.PORTFOLIO,
+            FirebaseTable.SUMMARY,
+        );
+        setInfoItemsList([...infoItemsList, ...data]);
+    }
 
     function getAge(): string {
         const startDate = new Date('2001-10-01');
@@ -42,7 +61,7 @@ export default function Summary() {
             />
 
             <div className="personal-info" data-aos="fade-left">
-                <h4 className="personal-info_title">Personal info</h4>
+                <h4 className="personal-info_title">{texts.title}</h4>
                 <div className="personal-info_row">
                     <div>
                         {infoItemsList.map(item => (
