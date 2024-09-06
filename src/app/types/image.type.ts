@@ -10,6 +10,7 @@ import PLATFORM from '../../assets/images/nav/platform.svg';
 import BURGER from '../../assets/images/burger.svg';
 import ARROW_LEFT from '../../assets/images/left.svg';
 import ARROW_RIGHT from '../../assets/images/right.svg';
+import LANGUAGE from '../../assets/images/language.svg';
 
 const ImageType: { [key: string]: string } = {
     LOGO: require('../../assets/images/logo.webp'),
@@ -24,6 +25,7 @@ const ImageType: { [key: string]: string } = {
     BURGER,
     ARROW_LEFT,
     ARROW_RIGHT,
+    LANGUAGE,
 };
 
 export { ImageType };

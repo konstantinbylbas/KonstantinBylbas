@@ -2,8 +2,14 @@
 
 import { ImageType } from '@app/types/image.type';
 import './Header.scss';
+import { TranslationContext } from '@app/contexts/translationContext';
+import { useContext, useMemo } from 'react';
 
 export default function Header() {
+    const { contextTranslation } = useContext(TranslationContext);
+
+    const texts = useMemo(() => contextTranslation['Header'], [contextTranslation]);
+
     return (
         <header className="row align-items-center justify-content-between home_header">
             <div className="home_header_photo">
@@ -19,18 +25,12 @@ export default function Header() {
             <div className="home_header_description">
                 <h2>
                     <span className="text-primary">—</span>
-                    <span className="text-primary">I'm Konstantin Bylbas</span>
+                    <span className="text-primary">{texts.title[0]}</span>
                     <span></span>
-                    <span>Full-stack developer</span>
+                    <span>{texts.title[1]}</span>
                 </h2>
 
-                <p>
-                    I am a Full-stack developer with a great enthusiasm for
-                    creating innovative and efficient web applications. I have
-                    extensive experience with a variety of technologies and
-                    tools and I am able to efficiently implement projects of any
-                    scale.
-                </p>
+                <p>{texts.description}</p>
             </div>
         </header>
     );

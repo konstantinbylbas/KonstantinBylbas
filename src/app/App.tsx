@@ -13,10 +13,12 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import { FirebaseService } from './services/firebase.service';
+import { TranslationService } from './services/translation.service';
 
 injectorService.register('NaughtsAndCrosses', NaughtsAndCrosses);
 injectorService.register('TelegramService', TelegramService);
 injectorService.register('FirebaseService', FirebaseService);
+injectorService.register('TranslationService', TranslationService);
 
 export default function App() {
     useEffect(() => {
