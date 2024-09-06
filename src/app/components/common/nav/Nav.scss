@@ -4,8 +4,6 @@
 
 nav {
     padding: 24px 0;
-    display: grid;
-    grid-template-rows: 24px 1fr 24px;
     position: fixed;
     top: 0;
     right: 24px;
@@ -13,13 +11,61 @@ nav {
 
     .burger {
         margin-left: auto;
-        background-color: $lightDark;
-        box-shadow: 0 0 8px $lightDark;
         border-radius: 50%;
         cursor: pointer;
 
         img {
             display: none;
+        }
+    }
+
+    .languageSelector {
+        padding: 4px;
+        position: relative;
+        border: solid $borderWidth transparent;
+        border-radius: 4px;
+
+        figure {
+            width: 36px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        &:has(.languageSelector_list.active) {
+            background-color: $dark;
+            border-top-color: $lightDark;
+            border-right-color: $lightDark;
+            border-left-color: $lightDark;
+        }
+
+        &_list {
+            width: calc(100% + $borderWidth * 2);
+            max-height: 0;
+            position: absolute;
+            left: calc(0px - $borderWidth);
+            text-align: center;
+            border: solid $borderWidth transparent;
+            overflow: hidden;
+            transition: $shortTransition;
+
+            &.active {
+                max-height: unset;
+                padding: 8px 0 0 0;
+                background-color: $dark;
+                border-right-color: $lightDark;
+                border-bottom-color: $lightDark;
+                border-left-color: $lightDark;
+            }
+
+            p {
+                padding: 4px;
+                transition: $shortTransition;
+
+                &.active,
+                &:hover {
+                    background-color: $lightDark;
+                }
+            }
         }
     }
 
@@ -29,7 +75,7 @@ nav {
 
         &,
         &_subTabs_menu {
-            gap: 8px;
+            gap: 12px;
         }
 
         &_subTabs_button,
@@ -78,8 +124,23 @@ nav {
     }
 
     @media only screen and (max-width: 768px) {
+        .languageSelector,
+        .languageSelector_list,
         .burger {
+            background-color: $lightDark;
+            box-shadow: 0 0 8px $lightDark;
+        }
+
+        .languageSelector {
+            margin: 0 0 12px 0;
+        }
+
+        .burger,
+        .tabs {
             width: 40px;
+        }
+
+        .burger {
             height: 40px;
             padding: 8px;
 
@@ -92,6 +153,7 @@ nav {
             height: unset;
             max-height: 0;
             margin-top: 0;
+            margin-left: auto;
             align-items: center;
             justify-content: start;
             border-radius: 50%;

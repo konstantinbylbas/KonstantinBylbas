@@ -3,8 +3,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Nav.scss';
 import { ImageType } from '@app/types/image.type';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { ScreenPlatformPath, ScreenType } from '@app/types/screen.type';
+import { LanguageType } from '@app/types/language.type';
+import injectorService from '@app/services/injector.service';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 interface iTab {
     img?: string;
@@ -13,13 +16,21 @@ interface iTab {
 }
 
 export default function Nav() {
+    const { setContextTranslation } = useContext(TranslationContext);
+
     const location = useLocation();
 
+    const [isOpenLanguageSelector, setIsOpenLanguageSelector] = useState(false);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenSubmenu, setIsOpenSubmenu] = useState(false);
 
     const subtabsRef = useRef<HTMLDivElement | null>(null);
 
+    const TranslationService = injectorService.get('TranslationService');
+
+    const languages = Object.values(LanguageType).filter(
+        value => typeof value === 'string',
+    );
     const portfolioTabs: iTab[] = [
         {
             img: ImageType.HOME,
@@ -63,6 +74,16 @@ export default function Nav() {
         }, 0);
     }, [location]);
 
+    function changeLanguage(value: keyof LanguageType): void {
+        TranslationService.language =
+            LanguageType[value as keyof typeof LanguageType];
+        updateLanguageContext();
+    }
+
+    function updateLanguageContext(): void {
+        setContextTranslation(TranslationService.translation);
+    }
+
     function toggleSubtabs(subtabsMenu: HTMLDivElement | null): void {
         if (!subtabsMenu) {
             return;
@@ -100,6 +121,31 @@ export default function Nav() {
 
     return (
         <nav>
+            <div
+                className="languageSelector"
+                onClick={() =>
+                    setIsOpenLanguageSelector(!isOpenLanguageSelector)
+                }>
+                <figure>
+                    <img
+                        src={ImageType.LANGUAGE}
+                        alt="language selector"
+                        title="Language selector"
+                    />
+                </figure>
+                <div
+                    className={`languageSelector_list ${isOpenLanguageSelector ? 'active' : ''}`}>
+                    {languages.map(listItem => (
+                        <p
+                            key={listItem}
+                            className={listItem === LanguageType[TranslationService.language] ? 'active' : ''}
+                            onClick={() => changeLanguage(listItem as any)}>
+                            {listItem}
+                        </p>
+                    ))}
+                </div>
+            </div>
+
             <div className="burger" onClick={() => setIsOpenMenu(!isOpenMenu)}>
                 <img src={ImageType.BURGER} alt="Burger menu button" />
             </div>
@@ -152,6 +198,8 @@ export default function Nav() {
                     ),
                 )}
             </div>
+
+            <span></span>
         </nav>
     );
 }
