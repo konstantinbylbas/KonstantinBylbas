@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/KonstantinBylbas/static/css/main.90d997e5.css",
-    "main.js": "/KonstantinBylbas/static/js/main.6a2f0c3a.js",
+    "main.css": "/KonstantinBylbas/static/css/main.da2dfc87.css",
+    "main.js": "/KonstantinBylbas/static/js/main.3410a7d5.js",
     "static/media/author.webp": "/KonstantinBylbas/static/media/author.48e8eb2dfbf3daa1f1a1.webp",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
@@ -17,6 +17,7 @@
     "static/media/slick.eot": "/KonstantinBylbas/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/KonstantinBylbas/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/naughts-and-crosses.svg": "/KonstantinBylbas/static/media/naughts-and-crosses.d7c37227c48509695b3447881419a2cf.svg",
+    "static/media/language.svg": "/KonstantinBylbas/static/media/language.715ee72b5b31583c82ce7fd20807ce19.svg",
     "static/media/slick.woff": "/KonstantinBylbas/static/media/slick.295183786cd8a1389865.woff",
     "static/media/briefcase.svg": "/KonstantinBylbas/static/media/briefcase.7b9f887f56d3f4ebf4e6ec921e7b40cb.svg",
     "static/media/home.svg": "/KonstantinBylbas/static/media/home.aa3558d322eb0abd2394c2880a64b8f2.svg",
@@ -26,11 +27,11 @@
     "static/media/mail.svg": "/KonstantinBylbas/static/media/mail.7f9003840545704ac0e527d502bcacdf.svg",
     "static/media/right.svg": "/KonstantinBylbas/static/media/right.d9736fd471acea3fcbeb5daaac74eb8b.svg",
     "static/media/left.svg": "/KonstantinBylbas/static/media/left.73b34308dc1fb37827e6d55eeea620e8.svg",
-    "main.90d997e5.css.map": "/KonstantinBylbas/static/css/main.90d997e5.css.map",
-    "main.6a2f0c3a.js.map": "/KonstantinBylbas/static/js/main.6a2f0c3a.js.map"
+    "main.da2dfc87.css.map": "/KonstantinBylbas/static/css/main.da2dfc87.css.map",
+    "main.3410a7d5.js.map": "/KonstantinBylbas/static/js/main.3410a7d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.90d997e5.css",
-    "static/js/main.6a2f0c3a.js"
+    "static/css/main.da2dfc87.css",
+    "static/js/main.3410a7d5.js"
   ]
 }
