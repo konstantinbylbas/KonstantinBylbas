@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/KonstantinBylbas/static/css/main.da2dfc87.css",
+    "main.css": "/KonstantinBylbas/static/css/main.120597f9.css",
     "main.js": "/KonstantinBylbas/static/js/main.3410a7d5.js",
     "static/media/author.webp": "/KonstantinBylbas/static/media/author.48e8eb2dfbf3daa1f1a1.webp",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
@@ -27,11 +27,11 @@
     "static/media/mail.svg": "/KonstantinBylbas/static/media/mail.7f9003840545704ac0e527d502bcacdf.svg",
     "static/media/right.svg": "/KonstantinBylbas/static/media/right.d9736fd471acea3fcbeb5daaac74eb8b.svg",
     "static/media/left.svg": "/KonstantinBylbas/static/media/left.73b34308dc1fb37827e6d55eeea620e8.svg",
-    "main.da2dfc87.css.map": "/KonstantinBylbas/static/css/main.da2dfc87.css.map",
+    "main.120597f9.css.map": "/KonstantinBylbas/static/css/main.120597f9.css.map",
     "main.3410a7d5.js.map": "/KonstantinBylbas/static/js/main.3410a7d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.da2dfc87.css",
+    "static/css/main.120597f9.css",
     "static/js/main.3410a7d5.js"
   ]
 }
