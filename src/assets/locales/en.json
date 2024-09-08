@@ -5,5 +5,33 @@
             "Full-stack developer"
         ],
         "description": "I am a Full-stack developer with a great enthusiasm for creating innovative and efficient web applications. I have extensive experience with a variety of technologies and tools and I am able to efficiently implement projects of any scale."
+    },
+    "Summary": {
+        "title": {
+            "foregraund": [
+                "About",
+                "me"
+            ],
+            "background": "Resume"
+        },
+        "personalInfo": {
+            "title": "Personal info"
+        },
+        "skills": {
+            "title": "Skills"
+        }
+    },
+    "Skills": {
+        "open": "Open",
+        "close": "Close"
+    },
+    "Examples": {
+        "title": {
+            "foregraund": [
+                "My",
+                "portfolio"
+            ],
+            "background": "Works"
+        }
     }
 }

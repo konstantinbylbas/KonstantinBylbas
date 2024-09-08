@@ -2,14 +2,14 @@
 
 import './Skills.scss';
 import ProgressBar from '@app/components/controls/progress-bar/ProgressBar';
-import { useLayoutEffect, useState } from 'react';
-import texts from './Skills.text';
+import { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import Button from '@app/components/controls/button/Button';
 import injectorService from '@app/services/injector.service';
 import {
     FirebaseCollection,
     FirebaseTable,
 } from '@app/types/portfolio/data.type';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 interface iSkill {
     title: string;
@@ -17,9 +17,16 @@ interface iSkill {
 }
 
 export default function Skills() {
+    const { contextTranslation } = useContext(TranslationContext);
+
     const [dbData, setDbData] = useState<iSkill[]>([]);
     const [skills, setSkills] = useState<iSkill[]>([]);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+    const texts = useMemo(
+        () => contextTranslation['Skills'],
+        [contextTranslation],
+    );
 
     const FirebaseService = injectorService.get('FirebaseService');
 
@@ -83,7 +90,7 @@ export default function Skills() {
             {skills.length >= skillsToShowLength ? (
                 <div className="openSkillsMenuButton">
                     <Button
-                        label={isOpenMenu ? texts.closeMenu : texts.openMenu}
+                        label={isOpenMenu ? texts.close : texts.open}
                         handlerClick={toggleMenu}
                     />
                 </div>

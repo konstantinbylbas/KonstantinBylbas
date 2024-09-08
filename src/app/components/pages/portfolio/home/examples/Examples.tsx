@@ -3,11 +3,19 @@
 import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Examples.scss';
 import Slider from 'react-slick';
-import { useMemo, useRef, useState } from 'react';
+import { useContext, useMemo, useRef, useState } from 'react';
 import { ImageType } from '@app/types/image.type';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 export default function Examples() {
+    const { contextTranslation } = useContext(TranslationContext);
+
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    const texts = useMemo(
+        () => contextTranslation['Examples'],
+        [contextTranslation],
+    );
 
     const sliderRef = useRef<Slider>(null);
 
@@ -101,10 +109,10 @@ export default function Examples() {
         <section id="examples">
             <SectionTitle
                 title={{
-                    defaultColorText: 'My',
-                    primaryColorText: 'portfolio',
+                    defaultColorText: texts.title.foregraund[0],
+                    primaryColorText: texts.title.foregraund[1],
                 }}
-                backgroundText="Works"
+                backgroundText={texts.title.background}
             />
 
             <div className="examples_slider" data-aos="fade-left">
