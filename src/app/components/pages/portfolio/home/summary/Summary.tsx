@@ -3,20 +3,27 @@
 import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Summary.scss';
 import Skills from '../skills/Skills';
-import { useLayoutEffect, useState } from 'react';
+import { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import injectorService from '@app/services/injector.service';
 import {
     FirebaseCollection,
     FirebaseTable,
 } from '@app/types/portfolio/data.type';
-import texts from './Summary.text';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 export default function Summary() {
+    const { contextTranslation } = useContext(TranslationContext);
+
+    const texts = useMemo(
+        () => contextTranslation.Portfolio.summary,
+        [contextTranslation],
+    );
+
     const [infoItemsList, setInfoItemsList] = useState([
-        { title: 'First name', value: 'Konstantin' },
-        { title: 'Last name', value: 'Bylbas' },
-        { title: 'Age', value: getAge() },
-        { title: 'Nationality', value: 'Ukrainian' },
+        { title: texts.personalInfo.fields['first name'], value: 'Konstantin' },
+        { title: texts.personalInfo.fields['last name'], value: 'Bylbas' },
+        { title: texts.personalInfo.fields['age'], value: getAge() },
+        { title: texts.personalInfo.fields['nationality'], value: 'Ukrainian' },
     ]);
 
     const FirebaseService = injectorService.get('FirebaseService');
@@ -30,19 +37,36 @@ export default function Summary() {
             FirebaseCollection.PORTFOLIO,
             FirebaseTable.SUMMARY,
         );
+
+        data.forEach(
+            field =>
+                (field.title =
+                    texts.personalInfo.fields[field.title.toLowerCase()]),
+        );
+
         setInfoItemsList([...infoItemsList, ...data]);
     }
 
     function getAge(): string {
         const startDate = new Date('2001-10-01');
-        const today = new Date();
+        return getYearsDiffernece(startDate);
+    }
 
-        let yearsDifference = today.getFullYear() - startDate.getFullYear();
+    function getExpirience(): string {
+        const startDate = new Date('2018-01-01');
+        return getYearsDiffernece(startDate);
+    }
+
+    function getYearsDiffernece(
+        dateFrom: Date,
+        dateTo: Date = new Date(),
+    ): string {
+        let yearsDifference = dateTo.getFullYear() - dateFrom.getFullYear();
 
         if (
-            today.getMonth() < startDate.getMonth() ||
-            (today.getMonth() === startDate.getMonth() &&
-                today.getDate() < startDate.getDate())
+            dateTo.getMonth() < dateFrom.getMonth() ||
+            (dateTo.getMonth() === dateFrom.getMonth() &&
+                dateTo.getDate() < dateFrom.getDate())
         ) {
             yearsDifference--;
         }
@@ -54,14 +78,16 @@ export default function Summary() {
         <section id="summary">
             <SectionTitle
                 title={{
-                    defaultColorText: 'About',
-                    primaryColorText: 'me',
+                    defaultColorText: texts.title.foregraund[0],
+                    primaryColorText: texts.title.foregraund[1],
                 }}
-                backgroundText="Resume"
+                backgroundText={texts.title.background}
             />
 
             <div className="personal-info" data-aos="fade-left">
-                <h4 className="personal-info_title">{texts.title}</h4>
+                <h4 className="personal-info_title">
+                    {texts.personalInfo.title}
+                </h4>
                 <div className="personal-info_row">
                     <div>
                         {infoItemsList.map(item => (
@@ -73,12 +99,12 @@ export default function Summary() {
                     </div>
 
                     <div>
-                        <h2>7</h2>
-                        <h6>years of expirience</h6>
+                        <h2>{getExpirience()}+</h2>
+                        <h6>{texts.personalInfo.expirience}</h6>
                     </div>
                 </div>
 
-                <h4 className="personal-info_title">Skills</h4>
+                <h4 className="personal-info_title">{texts.skills.title}</h4>
                 <Skills />
             </div>
         </section>

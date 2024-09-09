@@ -8,7 +8,10 @@ import { useContext, useMemo } from 'react';
 export default function Header() {
     const { contextTranslation } = useContext(TranslationContext);
 
-    const texts = useMemo(() => contextTranslation['Header'], [contextTranslation]);
+    const texts = useMemo(
+        () => contextTranslation.Portfolio.header,
+        [contextTranslation],
+    );
 
     return (
         <header className="row align-items-center justify-content-between home_header">

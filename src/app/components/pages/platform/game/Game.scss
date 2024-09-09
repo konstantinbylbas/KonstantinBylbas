@@ -1,8 +1,10 @@
 /** @format */
 
 .game {
-    &,
+    height: calc(100vh - 16px * 2);
+    padding: 40px 0;
+    
     .container {
-        height: calc(100vh - 16px * 2);
+        height: calc(100vh - (16px + 40px) * 2);
     }
 }

@@ -2,7 +2,14 @@
 
 import injectorService from '@app/services/injector.service';
 import './NaughtsAndCrosses.scss';
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import {
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import {
     CellType,
     DifficultyType,
@@ -13,6 +20,7 @@ import { NotificationContext } from '@app/contexts/notificationContext';
 import { NotificationType } from '@app/types/notification.type';
 import Button from '@app/components/controls/button/Button';
 import Select from '@app/components/controls/select/Select';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 interface iSettings {
     playersCount: PlayersCount;
@@ -20,6 +28,7 @@ interface iSettings {
 }
 
 export default function NaughtsAndCrosses() {
+    const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
@@ -28,11 +37,18 @@ export default function NaughtsAndCrosses() {
     const [isGameFinished, setIsGameFinished] = useState(false);
 
     const NaughtsAndCrossesService = injectorService.get('NaughtsAndCrosses');
-    
-    const playersCountList = Object.keys(PlayersCount);
-    const difficultsList = Object.keys(DifficultyType).filter(key =>
-        isNaN(Number(key)),
+
+    const texts = useMemo(
+        () => contextTranslation.Games.naughtsAndCrosses,
+        [contextTranslation],
     );
+
+    const playersCountList = Object.keys(PlayersCount).map(
+        value => texts.playersCount[value.toLowerCase()],
+    );
+    const difficultsList = Object.keys(DifficultyType)
+        .filter(key => isNaN(Number(key)))
+        .map(value => texts.difficulty[value.toLowerCase()]);
 
     const lsSettingsKey = 'Tic tac toe - settings';
     const minFilledCellsForEnd = 5;
@@ -156,9 +172,9 @@ export default function NaughtsAndCrosses() {
         setIsGameFinished(true);
 
         if (result.winner) {
-            message = `Winner: ${result.winner === CellType.CROSS ? 'X' : 'O'}`;
+            message = `${texts.winner}: ${result.winner === CellType.CROSS ? 'X' : 'O'}`;
         } else {
-            message = 'No winner';
+            message = texts.noWinner;
         }
 
         setContextNotification([
@@ -244,7 +260,7 @@ export default function NaughtsAndCrosses() {
                     )}
                 </div>
 
-                <Button label="Restart" handlerClick={restart} />
+                <Button label={texts.restart} handlerClick={restart} />
             </div>
 
             <div
