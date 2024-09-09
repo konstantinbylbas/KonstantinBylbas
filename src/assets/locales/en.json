@@ -1,37 +1,113 @@
 {
-    "Header": {
-        "title": [
-            "I'm Konstantin Bylbas",
-            "Full-stack developer"
-        ],
-        "description": "I am a Full-stack developer with a great enthusiasm for creating innovative and efficient web applications. I have extensive experience with a variety of technologies and tools and I am able to efficiently implement projects of any scale."
-    },
-    "Summary": {
-        "title": {
-            "foregraund": [
-                "About",
-                "me"
+    "Portfolio": {
+        "header": {
+            "title": [
+                "I'm Konstantin Bylbas",
+                "Full-stack developer"
             ],
-            "background": "Resume"
+            "description": "I am a Full-stack developer with a great enthusiasm for creating innovative and efficient web applications. I have extensive experience with a variety of technologies and tools and I am able to efficiently implement projects of any scale."
         },
-        "personalInfo": {
-            "title": "Personal info"
+        "summary": {
+            "title": {
+                "foregraund": [
+                    "About",
+                    "me"
+                ],
+                "background": "Resume"
+            },
+            "personalInfo": {
+                "title": "Personal info",
+                "fields": {
+                    "first name": "First name",
+                    "last name": "Last name",
+                    "age": "Age",
+                    "nationality": "Nationality",
+                    "address": "Address",
+                    "languages": "Languages",
+                    "projects": "Projects",
+                    "books read": "Books read"
+                },
+                "expirience": "years of expirience"
+            },
+            "skills": {
+                "title": "Skills"
+            }
         },
         "skills": {
-            "title": "Skills"
+            "open": "Open",
+            "close": "Close"
+        },
+        "examples": {
+            "title": {
+                "foregraund": [
+                    "My",
+                    "portfolio"
+                ],
+                "background": "Works"
+            }
+        },
+        "contacts": {
+            "title": {
+                "foregraund": [
+                    "Get in",
+                    "touch"
+                ],
+                "background": "Contact"
+            },
+            "form": {
+                "title": "Don't be shy",
+                "description": "Feel free to get in touch with me. I'm always open to discussing new projects.",
+                "fields": {
+                    "name": {
+                        "placeholder": "Your name",
+                        "error": "Incorrect name"
+                    },
+                    "email": {
+                        "placeholder": "Your email",
+                        "error": "Incorrect email"
+                    },
+                    "subject": {
+                        "placeholder": "Email subject",
+                        "error": "Incorrect message subject"
+                    },
+                    "message": {
+                        "placeholder": "Message",
+                        "error": "Incorrect message"
+                    }
+                },
+                "button": "Send message"
+            }
         }
     },
-    "Skills": {
-        "open": "Open",
-        "close": "Close"
+    "Generators": {
+        "string": {
+            "options": {
+                "allowSpecials": "Allow special symbols",
+                "allowNumbers": "Allow digits",
+                "allowUppercase": "Allow uppercase",
+                "excludeDuplication": "Exclude characters duplication"
+            },
+            "history": "History",
+            "error": "Not enough unique characters to generate the desired length",
+            "copy": "Copy",
+            "copied": "String copied to clipboard",
+            "button": "Generate"
+        }
     },
-    "Examples": {
-        "title": {
-            "foregraund": [
-                "My",
-                "portfolio"
-            ],
-            "background": "Works"
+    "Games": {
+        "naughtsAndCrosses": {
+            "playersCount": {
+                "one": "One",
+                "two": "Two"
+            },
+            "difficulty": {
+                "easy": "Easy",
+                "medium": "Medium",
+                "hard": "Hard"
+            },
+            "winner": "Winner",
+            "noWinner": "No winner",
+            "restart": "Restart"
         }
     }
 }

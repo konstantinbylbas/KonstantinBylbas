@@ -2,16 +2,17 @@
 
 import Input from '@app/components/controls/input/Input';
 import './StringGenerator.scss';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import Button from '@app/components/controls/button/Button';
 import Checkbox from '@app/components/controls/checkbox/Checkbox';
-import texts from './StringGenerator.text';
 import InputRange from '@app/components/controls/input-range/InputRange';
 import { NotificationType } from '@app/types/notification.type';
 import { NotificationContext } from '@app/contexts/notificationContext';
 import { ButtonSize } from '@app/types/button.type';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 export default function StringGenerator() {
+    const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
@@ -24,6 +25,11 @@ export default function StringGenerator() {
         allowUppercase: false,
         excludeDuplication: false,
     });
+
+    const texts = useMemo(
+        () => contextTranslation.Generators.string,
+        [contextTranslation],
+    );
 
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
@@ -100,7 +106,7 @@ export default function StringGenerator() {
 
         if (options.excludeDuplication) {
             if (characters.length < length) {
-                const message = 'Not enough unique characters to generate the desired length';
+                const message = texts.error;
                 setContextNotification([
                     ...contextNotification,
                     {
@@ -137,7 +143,7 @@ export default function StringGenerator() {
             ...contextNotification,
             {
                 type: NotificationType.INFO,
-                message: 'String copied to clipboard',
+                message: texts.copied,
             },
         ]);
     }
@@ -180,56 +186,58 @@ export default function StringGenerator() {
 
     return (
         <div className="stringGenerator">
-            <div className="container">
-                <div className="row">
-                    <Input
-                        isReadOnly={true}
-                        value={generatedString}
-                        onFocus={() => copyToClipboard(generatedString)}
-                    />
+            <div className="row row_controls">
+                <Input
+                    isReadOnly={true}
+                    value={generatedString}
+                    onFocus={() => copyToClipboard(generatedString)}
+                />
 
-                    <Button size={ButtonSize.SMALL} label="Generate" handlerClick={generate} />
+                <Button
+                    size={ButtonSize.SMALL}
+                    label={texts.button}
+                    handlerClick={generate}
+                />
+            </div>
+
+            <div className="row row_range">
+                <InputRange value={length} onChange={setLength} />
+
+                <span>{length}</span>
+            </div>
+
+            <div className="row row_filter-history">
+                <div className="filter column">
+                    {Object.keys(checkboxes).map((key, i) => (
+                        <Checkbox
+                            key={i}
+                            id={'stringGenerator checkbox ' + i}
+                            label={texts.options[key as keyof typeof texts]}
+                            isChecked={
+                                checkboxes[key as keyof typeof checkboxes]
+                            }
+                            onClick={handleCheckboxChange(key)}
+                        />
+                    ))}
                 </div>
 
-                <div className="row row_range">
-                    <InputRange value={length} onChange={setLength} />
-
-                    <span>{length}</span>
-                </div>
-
-                <div className="row row_filter-history">
-                    <div className="filter column">
-                        {Object.keys(checkboxes).map((key, i) => (
-                            <Checkbox
-                                key={i}
-                                id={'stringGenerator checkbox ' + i}
-                                label={texts[key as keyof typeof texts]}
-                                isChecked={
-                                    checkboxes[key as keyof typeof checkboxes]
-                                }
-                                onClick={handleCheckboxChange(key)}
-                            />
-                        ))}
-                    </div>
-
-                    <div className="history">
-                        {history.length ? (
-                            <>
-                                <h5>History</h5>
-                                {history.map((string, i) => (
-                                    <p
-                                        className="mt-2 history_row"
-                                        onClick={() => copyToClipboard(string)}
-                                        title={texts.copy}
-                                        key={i}>
-                                        {string}
-                                    </p>
-                                ))}
-                            </>
-                        ) : (
-                            ''
-                        )}
-                    </div>
+                <div className="history">
+                    {history.length ? (
+                        <>
+                            <h5>{texts.history}</h5>
+                            {history.map((string, i) => (
+                                <p
+                                    className="mt-2 history_row"
+                                    onClick={() => copyToClipboard(string)}
+                                    title={texts.copy}
+                                    key={i}>
+                                    {string}
+                                </p>
+                            ))}
+                        </>
+                    ) : (
+                        ''
+                    )}
                 </div>
             </div>
         </div>

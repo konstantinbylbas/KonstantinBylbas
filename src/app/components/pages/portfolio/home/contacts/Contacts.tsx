@@ -7,13 +7,15 @@ import Input from '@app/components/controls/input/Input';
 import Button from '@app/components/controls/button/Button';
 import { ButtonSize } from '@app/types/button.type';
 import injectorService from '@app/services/injector.service';
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import Textarea from '@app/components/controls/textarea/Textarea';
 import { NotificationContext } from '@app/contexts/notificationContext';
 import { NotificationType } from '@app/types/notification.type';
 import validator from 'validator';
+import { TranslationContext } from '@app/contexts/translationContext';
 
 export default function Contacts() {
+    const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
@@ -25,6 +27,11 @@ export default function Contacts() {
         subject: '',
         message: '',
     });
+
+    const texts = useMemo(
+        () => contextTranslation.Portfolio.contacts,
+        [contextTranslation],
+    );
 
     const nameMinLength = 5;
     const nameMaxLength = 50;
@@ -74,25 +81,25 @@ export default function Contacts() {
             name.trim().length < nameMinLength ||
             name.trim().length > nameMaxLength
         ) {
-            throw 'Incorrect name';
+            throw texts.form.fields.name.error;
         }
 
         if (!validator.isEmail(email)) {
-            throw 'Incorrect email';
+            throw texts.form.fields.email.error;
         }
 
         if (
             subject.trim().length < subjectMinLength ||
             subject.trim().length > subjectMaxLength
         ) {
-            throw 'Incorrect message subject';
+            throw texts.form.fields.subject.error;
         }
 
         if (
             message.trim().length < messageMinLength ||
             message.trim().length > messageMaxLength
         ) {
-            throw 'Incorrect message';
+            throw texts.form.fields.message.error;
         }
     }
 
@@ -120,21 +127,18 @@ ${message}
         <section id="contacts" className="contacts">
             <SectionTitle
                 title={{
-                    defaultColorText: 'Get in',
-                    primaryColorText: 'touch',
+                    defaultColorText: texts.title.foregraund[0],
+                    primaryColorText: texts.title.foregraund[1],
                 }}
-                backgroundText="Contact"
+                backgroundText={texts.title.background}
             />
 
             <div
                 className="contacts_row row justify-content-between"
                 data-aos="fade-left">
                 <div className="contacts_row_info">
-                    <h5>Don't be shy</h5>
-                    <p>
-                        Feel free to get in touch with me. I'm always open to
-                        discussing new projects.
-                    </p>
+                    <h5>{texts.form.title}</h5>
+                    <p>{texts.form.description}</p>
                     <SocialMediaLinks />
                 </div>
 
@@ -148,28 +152,28 @@ ${message}
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your name"
+                        placeholder={texts.form.fields.name.placeholder}
                     />
                     <Input
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="Your email"
+                        placeholder={texts.form.fields.email.placeholder}
                     />
                     <Input
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        placeholder="Email subject"
+                        placeholder={texts.form.fields.subject.placeholder}
                     />
                     <Textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Message"
+                        placeholder={texts.form.fields.message.placeholder}
                     />
 
-                    <Button size={ButtonSize.FULL} label="Send message" />
+                    <Button size={ButtonSize.FULL} label={texts.form.button} />
                 </form>
             </div>
         </section>

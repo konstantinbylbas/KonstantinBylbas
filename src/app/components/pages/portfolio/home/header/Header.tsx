@@ -9,7 +9,7 @@ export default function Header() {
     const { contextTranslation } = useContext(TranslationContext);
 
     const texts = useMemo(
-        () => contextTranslation['Header'],
+        () => contextTranslation.Portfolio.header,
         [contextTranslation],
     );
 

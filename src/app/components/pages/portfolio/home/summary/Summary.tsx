@@ -14,17 +14,17 @@ import { TranslationContext } from '@app/contexts/translationContext';
 export default function Summary() {
     const { contextTranslation } = useContext(TranslationContext);
 
-    const [infoItemsList, setInfoItemsList] = useState([
-        { title: 'First name', value: 'Konstantin' },
-        { title: 'Last name', value: 'Bylbas' },
-        { title: 'Age', value: getAge() },
-        { title: 'Nationality', value: 'Ukrainian' },
-    ]);
-
     const texts = useMemo(
-        () => contextTranslation['Summary'],
+        () => contextTranslation.Portfolio.summary,
         [contextTranslation],
     );
+
+    const [infoItemsList, setInfoItemsList] = useState([
+        { title: texts.personalInfo.fields['first name'], value: 'Konstantin' },
+        { title: texts.personalInfo.fields['last name'], value: 'Bylbas' },
+        { title: texts.personalInfo.fields['age'], value: getAge() },
+        { title: texts.personalInfo.fields['nationality'], value: 'Ukrainian' },
+    ]);
 
     const FirebaseService = injectorService.get('FirebaseService');
 
@@ -37,19 +37,36 @@ export default function Summary() {
             FirebaseCollection.PORTFOLIO,
             FirebaseTable.SUMMARY,
         );
+
+        data.forEach(
+            field =>
+                (field.title =
+                    texts.personalInfo.fields[field.title.toLowerCase()]),
+        );
+
         setInfoItemsList([...infoItemsList, ...data]);
     }
 
     function getAge(): string {
         const startDate = new Date('2001-10-01');
-        const today = new Date();
+        return getYearsDiffernece(startDate);
+    }
 
-        let yearsDifference = today.getFullYear() - startDate.getFullYear();
+    function getExpirience(): string {
+        const startDate = new Date('2018-01-01');
+        return getYearsDiffernece(startDate);
+    }
+
+    function getYearsDiffernece(
+        dateFrom: Date,
+        dateTo: Date = new Date(),
+    ): string {
+        let yearsDifference = dateTo.getFullYear() - dateFrom.getFullYear();
 
         if (
-            today.getMonth() < startDate.getMonth() ||
-            (today.getMonth() === startDate.getMonth() &&
-                today.getDate() < startDate.getDate())
+            dateTo.getMonth() < dateFrom.getMonth() ||
+            (dateTo.getMonth() === dateFrom.getMonth() &&
+                dateTo.getDate() < dateFrom.getDate())
         ) {
             yearsDifference--;
         }
@@ -82,8 +99,8 @@ export default function Summary() {
                     </div>
 
                     <div>
-                        <h2>7</h2>
-                        <h6>years of expirience</h6>
+                        <h2>{getExpirience()}+</h2>
+                        <h6>{texts.personalInfo.expirience}</h6>
                     </div>
                 </div>
 

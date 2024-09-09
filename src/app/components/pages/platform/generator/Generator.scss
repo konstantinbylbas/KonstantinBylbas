@@ -1,7 +1,10 @@
 /** @format */
 
 .generator {
+    height: calc(100vh - 16px * 2);
+    padding: 40px 0;
+
     .container {
-        margin-top: 24px;
+        height: calc(100vh - (16px + 40px) * 2);
     }
 }

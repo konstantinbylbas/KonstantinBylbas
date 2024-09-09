@@ -13,7 +13,7 @@ export default function Examples() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const texts = useMemo(
-        () => contextTranslation['Examples'],
+        () => contextTranslation.Portfolio.examples,
         [contextTranslation],
     );
 

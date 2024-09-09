@@ -1,11 +1,9 @@
 /** @format */
 
 .stringGenerator {
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 
     .row {
         gap: 16px;
@@ -44,10 +42,20 @@
     }
 
     .history {
+        padding-right: 32px;
         overflow: hidden;
 
         &_row {
             word-wrap: break-word;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .row {
+            &_controls {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     }
 }

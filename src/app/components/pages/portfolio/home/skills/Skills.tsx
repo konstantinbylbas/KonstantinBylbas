@@ -24,7 +24,7 @@ export default function Skills() {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     const texts = useMemo(
-        () => contextTranslation['Skills'],
+        () => contextTranslation.Portfolio.skills,
         [contextTranslation],
     );
 
