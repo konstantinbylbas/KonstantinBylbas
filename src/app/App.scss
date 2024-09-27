@@ -3,11 +3,39 @@
 @import './theme/index.scss';
 
 @font-face {
-    font-family: 'PP Object';
+    font-family: 'Kanit';
     src:
         local(''),
-        url('../assets/fonts/PP_Object_Sans/object.ttf') format('truetype');
+        url('../assets/fonts/Kanit/Kanit-Light.ttf') format('truetype');
     font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Kanit';
+    src:
+        local(''),
+        url('../assets/fonts/Kanit/Kanit-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Kanit';
+    src:
+        local(''),
+        url('../assets/fonts/Kanit/Kanit-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Kanit';
+    src:
+        local(''),
+        url('../assets/fonts/Kanit/Kanit-Black.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 900;
 }
 
 @font-face {

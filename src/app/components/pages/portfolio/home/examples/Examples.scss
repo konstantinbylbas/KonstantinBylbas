@@ -38,20 +38,77 @@
             padding: 8px 0;
             cursor: pointer;
 
-            &:hover figure {
-                box-shadow: 0 0 16px $secondary;
+            &:hover figure::after {
+                animation: afterAnimation calc($shortTransition * 2) ease-in-out
+                    forwards;
+            }
+
+            &:hover figure::before {
+                animation: beforeAnimation calc($shortTransition * 2)
+                    ease-in-out calc($shortTransition * 2) forwards;
             }
 
             figure {
                 width: 100%;
                 height: 200px;
                 background-color: $lightDark;
-                transition: $shortTransition;
+                position: relative;
+
+                &::after,
+                &::before {
+                    content: '';
+                    width: 0;
+                    height: $borderWidth;
+                    position: absolute;
+                    transition: $shortTransition;
+                    background-color: $primary;
+                    z-index: -1;
+                }
+
+                &::after {
+                    top: calc(0px - $borderWidth);
+                    left: 0;
+                }
+
+                &::before {
+                    right: calc(0px - $borderWidth);
+                    bottom: calc(0px - $borderWidth);
+                }
             }
 
             &_description {
                 margin-top: 8px;
             }
         }
+    }
+}
+
+@keyframes afterAnimation {
+    0% {
+        width: 0;
+        height: $borderWidth;
+    }
+    50% {
+        width: calc(100% + $borderWidth);
+        height: $borderWidth;
+    }
+    100% {
+        width: calc(100% + $borderWidth);
+        height: calc(100% + $borderWidth);
+    }
+}
+
+@keyframes beforeAnimation {
+    0% {
+        width: 0;
+        height: $borderWidth;
+    }
+    50% {
+        width: calc(100% + $borderWidth * 2);
+        height: $borderWidth;
+    }
+    100% {
+        width: calc(100% + $borderWidth * 2);
+        height: calc(100% + $borderWidth * 2);
     }
 }

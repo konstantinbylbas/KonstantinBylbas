@@ -33,6 +33,7 @@
         grid-template-rows: repeat(3, 1fr);
         border-radius: 16px;
         background-color: $lightDark;
+        overflow: hidden;
 
         &.finished {
             pointer-events: none;
