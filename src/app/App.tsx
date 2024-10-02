@@ -22,7 +22,7 @@ injectorService.register('TranslationService', TranslationService);
 
 export default function App() {
     useEffect(() => {
-        Aos.init();        
+        Aos.init();
     }, []);
 
     return (
@@ -32,8 +32,6 @@ export default function App() {
             </main>
 
             <Notifications />
-
-            <Footer />
         </div>
     );
 }

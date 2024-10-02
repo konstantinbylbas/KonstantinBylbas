@@ -6,6 +6,7 @@ import Generator from '@app/components/pages/platform/generator/Generator';
 import Nav from '@app/components/common/nav/Nav';
 import Game from '@app/components/pages/platform/game/Game';
 import { ScreenPlatformPath, ScreenType } from '@app/types/screen.type';
+import Footer from '@app/components/common/footer/Footer';
 
 export default function Router() {
     return (
@@ -19,6 +20,8 @@ export default function Router() {
 
                 <Route path={`/${ScreenType.PLATFORM}/${ScreenPlatformPath.GAME}/:id?`} element={<Game />} />
             </Routes>
+
+            <Footer />
         </HashRouter>
     );
 }
