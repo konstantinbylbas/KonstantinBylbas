@@ -1,18 +1,24 @@
 {
+    "Nav": {
+        "tabs": {
+            "games": {
+                "title": "Games",
+                "tic-tac-toe": "Tic-Tac-Toe"
+            },
+            "generators": {
+                "title": "Generators",
+                "string": "String generator"
+            }
+        }
+    },
     "Portfolio": {
         "header": {
-            "title": [
-                "I'm Konstantin Bylbas",
-                "Full-stack developer"
-            ],
+            "title": ["I'm Konstantin Bylbas", "Full-stack developer"],
             "description": "I am a Full-stack developer with a great enthusiasm for creating innovative and efficient web applications. I have extensive experience with a variety of technologies and tools and I am able to efficiently implement projects of any scale."
         },
         "summary": {
             "title": {
-                "foregraund": [
-                    "About",
-                    "me"
-                ],
+                "foregraund": ["About", "me"],
                 "background": "Resume"
             },
             "personalInfo": {
@@ -39,19 +45,13 @@
         },
         "examples": {
             "title": {
-                "foregraund": [
-                    "My",
-                    "portfolio"
-                ],
+                "foregraund": ["My", "portfolio"],
                 "background": "Works"
             }
         },
         "contacts": {
             "title": {
-                "foregraund": [
-                    "Get in",
-                    "touch"
-                ],
+                "foregraund": ["Get in", "touch"],
                 "background": "Contact"
             },
             "form": {
