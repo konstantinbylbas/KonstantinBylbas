@@ -42,13 +42,24 @@ export default function PortfolioNav() {
         <div className="portfolioNav">
             <LanguageSelector />
 
-            <div className="burger" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+            <div
+                className="burger"
+                onClick={() => setIsOpenMenu(!isOpenMenu)}
+                data-testid="burger">
                 <img src={ImageType.BURGER} alt="Burger menu button" />
             </div>
 
             <div className={`tabs column ${isOpenMenu ? 'active' : ''}`}>
                 {portfolioTabs.map((tab, i) => (
-                    <Link to={tab.link} className={tab.link.includes(ScreenType.PLATFORM) ? 'platform' : ''} key={`portfolio tab #${i}`}>
+                    <Link
+                        to={tab.link}
+                        className={
+                            tab.link.includes(ScreenType.PLATFORM)
+                                ? 'platform'
+                                : ''
+                        }
+                        data-testid={`portfolio-tab-${i}`}
+                        key={`portfolio tab #${i}`}>
                         <img src={tab.img} />
                     </Link>
                 ))}

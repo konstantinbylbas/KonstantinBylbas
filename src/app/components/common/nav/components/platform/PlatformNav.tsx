@@ -57,7 +57,10 @@ export default function PlatformNav() {
 
     return (
         <div className="platformNav">
-            <div className="burger" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+            <div
+                className="burger"
+                onClick={() => setIsOpenMenu(!isOpenMenu)}
+                data-testid="burger">
                 <img src={ImageType.BURGER} alt="Burger menu button" />
             </div>
 
@@ -65,10 +68,11 @@ export default function PlatformNav() {
                 className={`platformNav_container ${isOpenMenu ? 'open' : ''}`}>
                 <div className="platformNav_container_tabs">
                     {platformTabs.length
-                        ? platformTabs.map(tab => (
+                        ? platformTabs.map((tab, i) => (
                               <div
                                   className={`platformNav_container_tabs_tab ${activeTab && activeTab.title === tab.title ? 'open' : ''}`}
-                                  key={`platformNav tab ${tab.title}`}>
+                                  key={`platformNav tab ${tab.title}`}
+                                  data-testid={`platform-tab-${i}`}>
                                   <p
                                       className="platformNav_container_tabs_tab_title"
                                       onClick={() => handlerOpen(tab)}>
@@ -76,14 +80,15 @@ export default function PlatformNav() {
                                       <span className="arrow"></span>
                                   </p>
                                   <div className="platformNav_container_tabs_tab_body">
-                                      {tab.subTabs.map(subTab => (
+                                      {tab.subTabs.map((subTab, j) => (
                                           <Link
                                               to={subTab.link}
                                               className={`platformNav_container_tabs_tab_body_subTab ${location.pathname === subTab.link ? 'active' : ''}`}
                                               key={`platformNav tab ${tab.title} subTab ${subTab.title}`}
                                               onClick={() =>
                                                   setIsOpenMenu(false)
-                                              }>
+                                              }
+                                              data-testid={`platform-tab-${i}_subtab-${j}`}>
                                               {subTab.title}
                                           </Link>
                                       ))}
