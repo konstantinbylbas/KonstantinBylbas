@@ -1,8 +1,7 @@
 /** @format */
 
 import {
-    InjectorServiceProvider,
-    iInjectorServiceProvider,
+    iInjectorProvider,
 } from '@app/types/injector.type';
 import React, { useState } from 'react';
 
@@ -11,18 +10,18 @@ interface InjectorContextProviderProps {
 }
 
 interface InjectorContextType {
-    contextInjector: iInjectorServiceProvider;
+    contextInjector: iInjectorProvider;
 }
 
 export const InjectorContext = React.createContext<InjectorContextType>({
-    contextInjector: InjectorServiceProvider,
+    contextInjector: {} as any,
 });
 
 export default function InjectorContextProvider({
     children,
 }: InjectorContextProviderProps) {
-    const [contextInjector] = useState<iInjectorServiceProvider>(
-        InjectorServiceProvider,
+    const [contextInjector] = useState<iInjectorProvider>(
+        {} as any,
     );
 
     return (
