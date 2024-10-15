@@ -242,6 +242,7 @@ export default function NaughtsAndCrosses() {
                             ]
                         }
                         onChange={changePlayersCount}
+                        data-testid='players-count-list'
                     />
 
                     {NaughtsAndCrossesService.playersCount ===
@@ -254,6 +255,7 @@ export default function NaughtsAndCrosses() {
                                 ]
                             }
                             onChange={changeDifficulty}
+                            data-testid='difficulty-list'
                         />
                     ) : (
                         ''
@@ -264,7 +266,14 @@ export default function NaughtsAndCrosses() {
             </div>
 
             <div
-                className={`naughtsAndCrosses_board ${isGameFinished ? 'finished' : ''}`}>
+                className={`naughtsAndCrosses_board ${
+                    isGameFinished ||
+                    (isPreviousFirstPlayer &&
+                        NaughtsAndCrossesService.playersCount ===
+                            PlayersCount.ONE)
+                        ? 'disabled'
+                        : ''
+                }`}>
                 {board.map((cell, i) => (
                     <div
                         className={`naughtsAndCrosses_board_cell ${cell.value !== CellType.DEFAULT ? cell.value : ''}`}

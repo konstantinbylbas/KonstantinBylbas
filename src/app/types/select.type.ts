@@ -5,6 +5,7 @@ export interface SelectProps {
     itemsList: SelectItem[] | string[] | number[];
     selectedItem?: SelectItem | string | number;
     onChange?: Function;
+    args?: any[];
 }
 
 export interface SelectItem {

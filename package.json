@@ -1,7 +1,7 @@
 {
   "homepage": "https://konstantinbylbas.github.io/KonstantinBylbas/",
   "name": "konstantinbylbas",
-  "version": "1.4.59",
+  "version": "1.4.60",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",

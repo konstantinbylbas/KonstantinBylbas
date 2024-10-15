@@ -9,6 +9,7 @@ export default function Select({
     itemsList,
     selectedItem,
     onChange,
+    ...args
 }: SelectProps) {
     const [selectedValue, setSelectedValue] = useState(
         selectedItem || itemsList[0],
@@ -38,10 +39,13 @@ export default function Select({
         setIsOpen(false);
     }
 
+    console.log(args);
+    
     return (
         <div
             className={`select ${isOpen ? 'open' : ''} ${isDisabled ? 'disabled' : ''}`}
-            onClick={() => setIsOpen(!isOpen)}>
+            onClick={() => setIsOpen(!isOpen)}
+            {...args}>
             <div className="select_selected-option">
                 <span>{getOptionLabel(selectedValue)}</span>
                 <div className={`arrow ${isOpen ? 'open' : ''}`}></div>
