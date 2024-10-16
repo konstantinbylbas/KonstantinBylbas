@@ -242,7 +242,7 @@ export default function NaughtsAndCrosses() {
                             ]
                         }
                         onChange={changePlayersCount}
-                        data-testid='players-count-list'
+                        data-testid="players-count-list"
                     />
 
                     {NaughtsAndCrossesService.playersCount ===
@@ -255,14 +255,18 @@ export default function NaughtsAndCrosses() {
                                 ]
                             }
                             onChange={changeDifficulty}
-                            data-testid='difficulty-list'
+                            data-testid="difficulty-list"
                         />
                     ) : (
                         ''
                     )}
                 </div>
 
-                <Button label={texts.restart} handlerClick={restart} />
+                <Button
+                    label={texts.restart}
+                    handlerClick={restart}
+                    data-testid="restart"
+                />
             </div>
 
             <div
