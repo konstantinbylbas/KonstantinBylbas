@@ -8,9 +8,10 @@ export default function Button({
     size,
     isDisabled = false,
     handlerClick,
+    ...args
 }: ButtonProps) {
     return (
-        <div className={`button hoverable ${size ? size : ''}`}>
+        <div className={`button hoverable ${size ? size : ''}`} {...args}>
             <button disabled={isDisabled} onClick={handlerClick}>
                 {label}
             </button>

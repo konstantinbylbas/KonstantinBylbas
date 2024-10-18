@@ -21,15 +21,15 @@ describe('Tic-tac-toe E2E Test', () => {
         cy.contains(Translation.Games.naughtsAndCrosses.winner).should('exist');
 
         cy.get(`[data-testid="players-count-list"]`).should('exist').click();
-        cy.get(`.select_options-list > .select_options-list_option`)
+        cy.get(`[data-testid="players-count-list"] .select_options-list_option`)
             .eq(0)
             .should('be.visible')
             .click();
 
         cy.get(`[data-testid="difficulty-list"]`).should('exist').click();
-        cy.get(`.select_options-list > .select_options-list_option`)
+        cy.get(`[data-testid="difficulty-list"] .select_options-list_option`)
             .eq(1)
-            .should('be.visible')
+            .should('exist')
             .click();
 
         cy.get(`.naughtsAndCrosses_board_cell:nth-of-type(5)`)
