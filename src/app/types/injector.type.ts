@@ -17,7 +17,6 @@ export interface iInjectorProvider {
 }
 
 export interface iNaughtsAndCrosses {
-    playersCount: PlayersCount;
     dificulty: DifficultyType;
 
     init(): iCell[];

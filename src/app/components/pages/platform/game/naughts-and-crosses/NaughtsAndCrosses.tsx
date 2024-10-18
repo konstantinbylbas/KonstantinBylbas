@@ -32,6 +32,9 @@ export default function NaughtsAndCrosses() {
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
+    const [playersCount, setPlayersCount] = useState<PlayersCount>(
+        PlayersCount.ONE,
+    );
     const [board, setBoard] = useState<iCell[]>([]);
     const [isPreviousFirstPlayer, setIsPreviousFirstPlayer] = useState(false);
     const [isGameFinished, setIsGameFinished] = useState(false);
@@ -60,7 +63,7 @@ export default function NaughtsAndCrosses() {
         const settings = getSettingsFromLS();
 
         if (settings?.playersCount) {
-            NaughtsAndCrossesService.playersCount = settings.playersCount;
+            setPlayersCount(settings.playersCount);
         }
 
         if (settings?.difficulty) {
@@ -122,7 +125,7 @@ export default function NaughtsAndCrosses() {
             !isGameFinished &&
             getFilledCellsCount() > 0 &&
             isPreviousFirstPlayer &&
-            NaughtsAndCrossesService.playersCount === PlayersCount.ONE
+            playersCount === PlayersCount.ONE
         );
     }
 
@@ -203,10 +206,11 @@ export default function NaughtsAndCrosses() {
 
     const changePlayersCount = useCallback(
         (value: keyof typeof PlayersCount) => {
-            const playersCount = PlayersCount[value];
-            NaughtsAndCrossesService.playersCount = playersCount;
+            value = value.toUpperCase() as any;
+            const newPlayersCount = PlayersCount[value];
 
-            setSettingsToLS({ playersCount });
+            setPlayersCount(newPlayersCount);
+            setSettingsToLS({ playersCount: newPlayersCount });
 
             initGame();
         },
@@ -214,6 +218,7 @@ export default function NaughtsAndCrosses() {
     );
 
     const changeDifficulty = useCallback((value: keyof DifficultyType) => {
+        value = value.toUpperCase() as any;
         const difficulty = DifficultyType[value as keyof typeof DifficultyType];
 
         NaughtsAndCrossesService.dificulty = difficulty;
@@ -236,17 +241,12 @@ export default function NaughtsAndCrosses() {
                 <div className="column">
                     <Select
                         itemsList={playersCountList}
-                        selectedItem={
-                            playersCountList[
-                                +NaughtsAndCrossesService.playersCount - 1
-                            ]
-                        }
+                        selectedItem={playersCountList[+playersCount - 1]}
                         onChange={changePlayersCount}
                         data-testid="players-count-list"
                     />
 
-                    {NaughtsAndCrossesService.playersCount ===
-                    PlayersCount.ONE ? (
+                    {playersCount === PlayersCount.ONE ? (
                         <Select
                             itemsList={difficultsList}
                             selectedItem={
@@ -272,9 +272,7 @@ export default function NaughtsAndCrosses() {
             <div
                 className={`naughtsAndCrosses_board ${
                     isGameFinished ||
-                    (isPreviousFirstPlayer &&
-                        NaughtsAndCrossesService.playersCount ===
-                            PlayersCount.ONE)
+                    (isPreviousFirstPlayer && playersCount === PlayersCount.ONE)
                         ? 'disabled'
                         : ''
                 }`}>

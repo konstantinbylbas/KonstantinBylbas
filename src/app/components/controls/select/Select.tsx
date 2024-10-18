@@ -11,16 +11,7 @@ export default function Select({
     onChange,
     ...args
 }: SelectProps) {
-    const [selectedValue, setSelectedValue] = useState(
-        selectedItem || itemsList[0],
-    );
     const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        if (selectedItem !== undefined) {
-            setSelectedValue(selectedItem);
-        }
-    }, [selectedItem]);
 
     function getOptionLabel(option: SelectItem | string | number): string {
         if (typeof option === 'string' || typeof option === 'number') {
@@ -35,19 +26,16 @@ export default function Select({
             onChange(option);
         }
 
-        setSelectedValue(selectedItem || option);
         setIsOpen(false);
     }
 
-    console.log(args);
-    
     return (
         <div
             className={`select ${isOpen ? 'open' : ''} ${isDisabled ? 'disabled' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
             {...args}>
             <div className="select_selected-option">
-                <span>{getOptionLabel(selectedValue)}</span>
+                <span>{getOptionLabel(selectedItem)}</span>
                 <div className={`arrow ${isOpen ? 'open' : ''}`}></div>
             </div>
             <div className="select_options-list">
@@ -55,7 +43,7 @@ export default function Select({
                     itemsList.map((option, i) => (
                         <div
                             className={`select_options-list_option ${
-                                getOptionLabel(selectedValue) ===
+                                getOptionLabel(selectedItem) ===
                                 getOptionLabel(option)
                                     ? 'active'
                                     : ''
