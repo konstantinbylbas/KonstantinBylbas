@@ -2,9 +2,9 @@
 
 import Translation from '../../src/assets/locales/en.json';
 
-describe('Tic-tac-toe E2E Test', () => {
-    it('Tic-tac-toe', () => {
-        cy.visit('http://localhost:3001/#/platform/game/naughts-and-crosses');
+describe('Game: tic-tac-toe E2E Test', () => {
+    it('Game: tic-tac-toe', () => {
+        cy.visit('http://localhost:3000/#/platform/game/naughts-and-crosses');
 
         cy.get(`[data-testid="players-count-list"]`).should('exist').click();
         cy.get(`.select_options-list > .select_options-list_option`)
