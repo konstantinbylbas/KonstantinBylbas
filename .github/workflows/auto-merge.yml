@@ -1,11 +1,9 @@
-name: Auto Merge PR
-
 on:
   pull_request:
     types: [labeled, opened, synchronize]
 
 jobs:
-  auto-merge:
+  e2e-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,22 +13,29 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.20.4'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
 
       - name: Start server
-        run: npm run start
+        run: npm start
         env:
-          NODE_ENV: test
+          CI: true
 
       - name: Wait for server to be ready
         run: npx wait-on http://localhost:3000
 
       - name: Run Cypress tests
-        run: npm run cypress run
-        continue-on-error: false
+        run: npm run cypress:run
+
+  auto-merge:
+    needs: e2e-tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up GitHub CLI
         run: |
@@ -38,7 +43,6 @@ jobs:
           sudo apt-get install gh -y
 
       - name: Auto merge if checks pass
-        if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
