@@ -18,13 +18,14 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Start server
-        run: npm start
-        env:
-          CI: true
+      - name: Build project
+        run: npm run build
 
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3000
+      - name: Start server
+        run: |
+          npm install -g serve
+          serve -s build -l 3000 &
+          sleep 5  # Ожидание запуска сервера
 
       - name: Run Cypress tests
         run: npm run cypress:run
