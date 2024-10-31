@@ -60,7 +60,7 @@ export default function PortfolioNav() {
                         }
                         data-testid={`portfolio-tab-${i}`}
                         key={`portfolio tab #${i}`}>
-                        <img src={tab.img} />
+                        <img src={tab.img} alt={`portfolio tab #${i}`} />
                     </Link>
                 ))}
             </div>

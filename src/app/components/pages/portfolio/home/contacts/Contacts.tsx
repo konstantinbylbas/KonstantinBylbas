@@ -64,11 +64,13 @@ export default function Contacts() {
                 },
             ]);
         } catch (error: any) {
+            console.log(error);
+            
             setContextNotification([
                 ...contextNotification,
                 {
                     type: NotificationType.ERROR,
-                    message: error,
+                    message: error.message,
                 },
             ]);
         }
@@ -81,25 +83,25 @@ export default function Contacts() {
             name.trim().length < nameMinLength ||
             name.trim().length > nameMaxLength
         ) {
-            throw texts.form.fields.name.error;
+            throw new Error(texts.form.fields.name.error);
         }
 
         if (!validator.isEmail(email)) {
-            throw texts.form.fields.email.error;
+            throw new Error(texts.form.fields.email.error);
         }
 
         if (
             subject.trim().length < subjectMinLength ||
             subject.trim().length > subjectMaxLength
         ) {
-            throw texts.form.fields.subject.error;
+            throw new Error(texts.form.fields.subject.error);
         }
 
         if (
             message.trim().length < messageMinLength ||
             message.trim().length > messageMaxLength
         ) {
-            throw texts.form.fields.message.error;
+            throw new Error(texts.form.fields.message.error);
         }
     }
 

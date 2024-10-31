@@ -1,6 +1,6 @@
 /** @format */
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Select.scss';
 import { SelectItem, SelectProps } from '@app/types/select.type';
 
@@ -14,6 +14,11 @@ export default function Select({
     const [isOpen, setIsOpen] = useState(false);
 
     function getOptionLabel(option: SelectItem | string | number): string {
+        if (!option) {
+            console.error('Option is undefined');
+            return '';
+        }
+        
         if (typeof option === 'string' || typeof option === 'number') {
             return option.toString();
         } else {

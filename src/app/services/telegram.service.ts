@@ -30,9 +30,13 @@ export class TelegramService implements iTelegramService {
                 `source=${this.source}&method=${method}`,
                 formData,
             );
+
+            if (!success) {
+                throw 'Internal server error';
+            }
         } catch (error) {
             console.log('sendMessage error: ', error);
-            throw 'sendMessage error';
+            throw new Error('sendMessage error');
         }
     }
 }
