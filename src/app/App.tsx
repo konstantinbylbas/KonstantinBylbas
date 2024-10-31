@@ -1,7 +1,6 @@
 /** @format */
 
 import './App.scss';
-import Footer from './components/common/footer/Footer';
 import Notifications from './components/common/notifications/Notifications';
 import NaughtsAndCrosses from './services/game/naughtsAndCrosses.service';
 import injectorService from './services/injector.service';

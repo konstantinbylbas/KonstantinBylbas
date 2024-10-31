@@ -18,6 +18,8 @@
         }
 
         &_filter-history {
+            justify-content: space-between;
+            
             @media (max-width: 767px) {
                 flex-wrap: wrap;
                 gap: 24px;

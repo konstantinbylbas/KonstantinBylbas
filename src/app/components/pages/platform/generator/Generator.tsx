@@ -13,7 +13,7 @@ export default function Generator() {
         if (!id) {
             navigation('./string');
         }
-    }, [id]);
+    }, [navigation, id]);
 
     return (
         <div className="generator">

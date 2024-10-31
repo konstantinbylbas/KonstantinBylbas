@@ -46,12 +46,16 @@ export default function NaughtsAndCrosses() {
         [contextTranslation],
     );
 
-    const playersCountList = Object.keys(PlayersCount).map(
-        value => texts.playersCount[value.toLowerCase()],
-    );
+    const playersCountList = Object.keys(PlayersCount).map(value => ({
+        value,
+        name: texts.playersCount[value.toLowerCase()],
+    }));
     const difficultsList = Object.keys(DifficultyType)
         .filter(key => isNaN(Number(key)))
-        .map(value => texts.difficulty[value.toLowerCase()]);
+        .map(value => ({
+            value,
+            name: texts.difficulty[value.toLowerCase()],
+        }));
 
     const lsSettingsKey = 'Tic tac toe - settings';
     const minFilledCellsForEnd = 5;
@@ -205,7 +209,7 @@ export default function NaughtsAndCrosses() {
     }
 
     const changePlayersCount = useCallback(
-        (value: keyof typeof PlayersCount) => {
+        ({ value }: { value: keyof typeof PlayersCount }) => {
             value = value.toUpperCase() as any;
             const newPlayersCount = PlayersCount[value];
 
@@ -217,16 +221,20 @@ export default function NaughtsAndCrosses() {
         [],
     );
 
-    const changeDifficulty = useCallback((value: keyof DifficultyType) => {
-        value = value.toUpperCase() as any;
-        const difficulty = DifficultyType[value as keyof typeof DifficultyType];
+    const changeDifficulty = useCallback(
+        ({ value }: { value: keyof DifficultyType }) => {
+            value = value.toUpperCase() as any;
+            const difficulty =
+                DifficultyType[value as keyof typeof DifficultyType];
 
-        NaughtsAndCrossesService.dificulty = difficulty;
+            NaughtsAndCrossesService.dificulty = difficulty;
 
-        setSettingsToLS({ difficulty });
+            setSettingsToLS({ difficulty });
 
-        initGame();
-    }, []);
+            initGame();
+        },
+        [],
+    );
 
     function aiMove(): void {
         setTimeout(() => {
