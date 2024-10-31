@@ -10,21 +10,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.20.4'
-
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
+
+      - name: Build project
+        run: npm run build
 
       - name: Start server
-        run: npm start
-        env:
-          CI: true
-
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3000
+        run: |
+          npm install -g serve
+          serve -s build -l 3000 &
+        sleep 5
 
       - name: Run Cypress tests
         run: npm run cypress:run
