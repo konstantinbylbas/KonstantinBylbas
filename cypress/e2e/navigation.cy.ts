@@ -2,7 +2,7 @@
 
 describe('Navigation E2E Test', () => {
     it('Navigation', () => {
-        cy.visit('http://127.0.0.1:3000/');
+        cy.visit('http://localhost:3000/');
 
         new Array(5).fill(0).map((_, i) => {
             cy.get(`[data-testid="portfolio-tab-${i}"]`)
