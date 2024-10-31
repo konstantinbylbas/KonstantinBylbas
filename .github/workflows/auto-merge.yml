@@ -25,10 +25,12 @@ jobs:
         run: |
           npm install -g serve
           serve -s build -l 3000 &
-          sleep 5  # Ожидание запуска сервера
+          sleep 5
 
       - name: Run Cypress tests
-        run: npm run cypress:run
+        run: |
+          npm start &
+          npm run cypress:run
 
   auto-merge:
     needs: e2e-tests
