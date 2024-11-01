@@ -14,7 +14,7 @@ export default function Home() {
             <div className="container">
                 <Summary />
 
-                <Examples />
+                {/* <Examples /> */}
 
                 <Contacts />
             </div>
