@@ -1,12 +1,13 @@
 <!-- @format -->
 
 <script type="text/javascript">
+    const basePath = '/KonstantinBylbas';
     const redirectPath =
         window.location.pathname +
         window.location.search +
         window.location.hash;
 
-    if (window.location.pathname !== '/') {
-        window.location.replace('/' + redirectPath);
+    if (!window.location.pathname.startsWith(basePath)) {
+        window.location.replace(basePath + redirectPath);
     }
 </script>
