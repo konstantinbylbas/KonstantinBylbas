@@ -1,11 +1,12 @@
 <!-- @format -->
 
 <script type="text/javascript">
-    if (!window.location.pathname.includes('index.html')) {
-        const redirectPath =
-            window.location.pathname +
-            window.location.search +
-            window.location.hash;
+    const redirectPath =
+        window.location.pathname +
+        window.location.search +
+        window.location.hash;
+
+    if (window.location.pathname !== '/') {
         window.location.replace('/' + redirectPath);
     }
 </script>
