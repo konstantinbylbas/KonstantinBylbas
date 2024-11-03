@@ -1,8 +1,11 @@
 <!-- @format -->
 
 <script type="text/javascript">
-    const redirect = window.location.pathname.split('/').slice(1).join('/');
-    if (redirect) {
-        window.location.href = '/' + redirect;
+    if (!window.location.pathname.includes('index.html')) {
+        const redirectPath =
+            window.location.pathname +
+            window.location.search +
+            window.location.hash;
+        window.location.replace('/index.html' + redirectPath);
     }
 </script>
