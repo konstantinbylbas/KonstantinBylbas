@@ -1,8 +1,8 @@
 <!-- @format -->
 
 <script type="text/javascript">
-    const redirect = window.location.pathname.split('/').slice(1).join('/');
+    const redirect = window.location.pathname.split('%PUBLIC_URL%').slice(1);
     if (redirect) {
-        window.location.href = '/' + redirect;
+        window.location.href = '%PUBLIC_URL%' + redirect;
     }
 </script>
