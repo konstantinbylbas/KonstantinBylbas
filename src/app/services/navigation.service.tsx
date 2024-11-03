@@ -1,6 +1,6 @@
 /** @format */
 
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../components/pages/portfolio/home/Home';
 import Generator from '@app/components/pages/platform/generator/Generator';
 import Nav from '@app/components/common/nav/Nav';
@@ -10,7 +10,7 @@ import Footer from '@app/components/common/footer/Footer';
 
 export default function Router() {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <Nav />
 
             <Routes>
@@ -22,6 +22,6 @@ export default function Router() {
             </Routes>
 
             <Footer />
-        </HashRouter>
+        </BrowserRouter>
     );
 }

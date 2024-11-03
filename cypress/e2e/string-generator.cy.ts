@@ -4,7 +4,7 @@ import Translation from '../../src/assets/locales/en.json';
 
 describe('Generator: string E2E Test', () => {
     it('Generator: string', () => {
-        cy.visit('http://localhost:3000/#/platform/generator/string');
+        cy.visit('http://localhost:3000/platform/generator/string');
 
         cy.get('.filter .checkbox label').each($checkbox => {
             cy.wrap($checkbox).should('exist').click();
