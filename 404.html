@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found</title>
-    <script type="text/javascript">
-        function redirectToHome() {
-            window.location.href = '/KonstantinBylbas/';
-        }
+<!-- @format -->
 
-        // Проверяем, если URL не корневой, запоминаем путь
-        const currentPath = window.location.pathname + window.location.search + window.location.hash;
-        if (currentPath !== '/KonstantinBylbas/') {
-            // Перенаправляем на домашнюю страницу через 1 секунду
-            setTimeout(() => {
-                redirectToHome();
-
-                setT
-            }, 1000);
-        } else {
-            // Если находимся на домашней странице, сразу загружаем приложение
-            window.location.reload();
-        }
-    </script>
-</head>
-<body>
-    <h1>Page Not Found</h1>
-    <p>Redirecting to the homepage...</p>
-</body>
-</html>
+<script type="text/javascript">
+    const redirect = window.location.pathname.split('%PUBLIC_URL%').slice(1);
+    if (redirect) {
+        window.location.href = '%PUBLIC_URL%' + redirect;
+    }
+</script>
