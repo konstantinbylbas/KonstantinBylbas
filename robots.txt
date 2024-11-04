@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://konstantinbylbas.github.io/KonstantinBylbas/sitemap.xml
+Sitemap: https://konstantinbylbas.github.io/KonstantinBylbas/sitemap04.11v2.xml
