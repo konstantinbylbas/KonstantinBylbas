@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found</title>
     <script type="text/javascript">
-        // Функция перенаправления
         function redirectToHome() {
-            // Перенаправляем на домашнюю страницу
             window.location.href = '/KonstantinBylbas/';
         }
 
@@ -17,6 +15,8 @@
             // Перенаправляем на домашнюю страницу через 1 секунду
             setTimeout(() => {
                 redirectToHome();
+
+                setT
             }, 1000);
         } else {
             // Если находимся на домашней странице, сразу загружаем приложение
