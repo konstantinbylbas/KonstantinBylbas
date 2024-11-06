@@ -1,0 +1,21 @@
+{
+    "portfolio": {},
+    "platform": {
+        "title": "Konstantin Bylbas",
+        "description": "Konstantin Bylbas's portfolio platform with a variety of functionalities, created to showcase projects and professional skills.",
+        "chapters": {
+            "generators": {
+                "lines": {
+                    "title": "Random String Generator",
+                    "description": "You can create unique strings for your passwords."
+                }
+            },
+            "games": {
+                "night-and-crosses": {
+                    "title": "Tic Tac Toe",
+                    "description": "Play tic-tac-toe with friend or with AI on different difficulty levels"
+                }
+            }
+        }
+    }
+}
