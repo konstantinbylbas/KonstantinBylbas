@@ -1,0 +1,22 @@
+{
+    "portfolio": {
+        "title": "Konstantin Bylbas",
+        "description": "Konstantin Bylbas's portfolio platform with a variety of functionalities, created to showcase projects and professional skills."
+    },
+    "platform": {
+        "chapters": {
+            "generator": {
+                "string": {
+                    "title": "Random String Generator",
+                    "description": "Generate secure random strings or passwords with customizable options like special symbols, digits, uppercase letters, and unique characters. Choose your desired length and avoid duplicates. Save and access your generated strings anytime with a built-in history feature for easy reuse. Perfect for creating strong, personalized passwords."
+                }
+            },
+            "game": {
+                "naughts-and-crosses": {
+                    "title": "Tic Tac Toe",
+                    "description": "Play Tic-Tac-Toe online with a friend or challenge our AI with three difficulty levels: Easy, Medium, or Hard. Enjoy a fun, interactive experience with optimized gameplay for all skill levels. Perfect for quick games or mastering strategy!"
+                }
+            }
+        }
+    }
+}

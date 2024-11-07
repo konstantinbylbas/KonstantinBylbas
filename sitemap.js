@@ -6,9 +6,9 @@ const { resolve } = require('path');
 
 const baseUrl = 'https://konstantinbylbas.github.io';
 const pages = [
-    { url: '/KonstantinBylbas/#/', changefreq: 'daily', priority: 1.0 },
-    { url: '/KonstantinBylbas/#/platform/game/naughts-and-crosses', changefreq: 'weekly', priority: 0.8 },
-    { url: '/KonstantinBylbas/#/platform/generator/string', changefreq: 'weekly', priority: 0.8 },
+    { url: '/KonstantinBylbas/#!/', changefreq: 'daily', priority: 1.0 },
+    { url: '/KonstantinBylbas/#!/platform/game/naughts-and-crosses', changefreq: 'weekly', priority: 0.8 },
+    { url: '/KonstantinBylbas/#!/platform/generator/string', changefreq: 'weekly', priority: 0.8 },
 ];
 
 function generateSitemap() {
