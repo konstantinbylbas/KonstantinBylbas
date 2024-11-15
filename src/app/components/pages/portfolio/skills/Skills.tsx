@@ -24,7 +24,7 @@ export default function Skills() {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     const texts = useMemo(
-        () => contextTranslation.Portfolio.skills,
+        () => contextTranslation.Portfolio.summary.skills,
         [contextTranslation],
     );
 
@@ -75,28 +75,34 @@ export default function Skills() {
     }
 
     return (
-        <div className="skills">
-            <div className={`skills-line ${isOpenMenu ? 'open' : ''}`}>
-                {skills.length
-                    ? skills.map(skill => (
-                          <div className="skills-line_block" key={skill.title}>
-                              <ProgressBar value={skill.value} />
-                              <p>{skill.title}</p>
-                          </div>
-                      ))
-                    : ''}
-            </div>
+        <section id="skills">
+            <div className="skills">
+                <h4 className="skills_title">{texts.title}</h4>
 
-            {skills.length >= skillsToShowLength ? (
-                <div className="openSkillsMenuButton">
-                    <Button
-                        label={isOpenMenu ? texts.close : texts.open}
-                        handlerClick={toggleMenu}
-                    />
+                <div className={`skills-line ${isOpenMenu ? 'open' : ''}`}>
+                    {skills.length
+                        ? skills.map(skill => (
+                              <div
+                                  className="skills-line_block"
+                                  key={skill.title}>
+                                  <ProgressBar value={skill.value} />
+                                  <p>{skill.title}</p>
+                              </div>
+                          ))
+                        : ''}
                 </div>
-            ) : (
-                ''
-            )}
-        </div>
+
+                {skills.length >= skillsToShowLength ? (
+                    <div className="openSkillsMenuButton">
+                        <Button
+                            label={isOpenMenu ? texts.close : texts.open}
+                            handlerClick={toggleMenu}
+                        />
+                    </div>
+                ) : (
+                    ''
+                )}
+            </div>
+        </section>
     );
 }

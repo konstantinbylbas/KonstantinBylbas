@@ -103,9 +103,6 @@ export default function Summary() {
                         <h6>{texts.personalInfo.expirience}</h6>
                     </div>
                 </div>
-
-                <h4 className="personal-info_title">{texts.skills.title}</h4>
-                <Skills />
             </div>
         </section>
     );

@@ -1,7 +1,7 @@
 /** @format */
 
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import Home from '../components/pages/portfolio/home/Home';
+import Home from '../components/pages/portfolio/Home';
 import Generator from '@app/components/pages/platform/generator/Generator';
 import Nav from '@app/components/common/nav/Nav';
 import Game from '@app/components/pages/platform/game/Game';

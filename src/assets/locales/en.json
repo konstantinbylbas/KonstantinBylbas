@@ -36,12 +36,31 @@
                 "expirience": "years of expirience"
             },
             "skills": {
-                "title": "Skills"
+                "title": "Skills",
+                "open": "Open",
+                "close": "Close"
+            },
+            "services": {
+                "title": "Services",
+                "list": {
+                    "sitesDeveloping": {
+                        "title": "Website development",
+                        "description": "Turnkey development of websites of varying complexity"
+                    },
+                    "sitesDeploying": {
+                        "title": "Deploying websites",
+                        "description": "Deploy ready-made solutions on the server"
+                    },
+                    "sitesEditing": {
+                        "title": "Website editing",
+                        "description": "Making changes to finished projects / Fixing bugs"
+                    },
+                    "serverSetup": {
+                        "title": "Setting up the server",
+                        "description": "Setting up a server for a ready-made web project"
+                    }
+                }
             }
-        },
-        "skills": {
-            "open": "Open",
-            "close": "Close"
         },
         "examples": {
             "title": {
