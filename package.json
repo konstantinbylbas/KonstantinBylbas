@@ -1,7 +1,7 @@
 {
   "homepage": "https://konstantinbylbas.github.io/KonstantinBylbas/",
   "name": "konstantinbylbas",
-  "version": "1.4.88",
+  "version": "1.4.91",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
@@ -24,7 +24,7 @@
     "start": "craco start",
     "build": "craco build",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "test": "cypress run",
     "generate:sitemap": "node sitemap.js",
     "deploy": "npm run build && gh-pages -d build"
   },

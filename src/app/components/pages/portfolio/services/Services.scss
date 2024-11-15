@@ -1,0 +1,49 @@
+/** @format */
+
+@import '@app/theme/variables.scss';
+
+.services {
+    &_body {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 32px;
+
+        &_service {
+            flex: 1 1 calc(100% / 2 - 32px);
+            padding-bottom: 16px;
+            position: relative;
+            border-bottom: solid $borderWidth $primary;
+
+            &:hover {
+                &::after {
+                    height: 100%;
+                }
+            }
+
+            &::after {
+                content: '';
+                width: $borderWidth;
+                height: 0;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background-color: $primary;
+                transition: $longTransition;
+            }
+
+            h5 {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        &_body {
+            &_service {
+                flex: 1 1 100%;
+            }
+        }
+    }
+}
