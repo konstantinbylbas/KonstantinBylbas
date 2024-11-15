@@ -1,23 +1,27 @@
 /** @format */
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import './Game.scss';
 import { useLayoutEffect } from 'react';
 import NaughtsAndCrosses from './naughts-and-crosses/NaughtsAndCrosses';
+import { GamePages } from '@app/types/screen.type';
 
 export default function Game() {
-    const navigation = useNavigate();
-    const { id } = useParams();
+    const location = useLocation();
+    const history = useHistory();
+    const { id } = useParams<{ id?: string }>();
 
     useLayoutEffect(() => {
-        if (!id) {
-            navigation('./naughts-and-crosses');
+        if (!id && !location.pathname.includes(GamePages.NAUGHTS_AND_CROSSES)) {
+            history.push(`${location.pathname}/${GamePages.NAUGHTS_AND_CROSSES}`);
         }
-    }, [id]);
+    }, [history, id, location.pathname]);
 
-    return <div className="game">
-        <div className="container">
-            {id === 'naughts-and-crosses' ? <NaughtsAndCrosses /> : ''}
+    return (
+        <div className="game">
+            <div className="container">
+                {id === GamePages.NAUGHTS_AND_CROSSES ? <NaughtsAndCrosses /> : ''}
+            </div>
         </div>
-    </div>;
+    );
 }

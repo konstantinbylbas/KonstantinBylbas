@@ -1,6 +1,6 @@
 /** @format */
 
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from '../components/pages/portfolio/home/Home';
 import Generator from '@app/components/pages/platform/generator/Generator';
 import Nav from '@app/components/common/nav/Nav';
@@ -10,16 +10,16 @@ import Footer from '@app/components/common/footer/Footer';
 
 export default function Router() {
     return (
-        <HashRouter>
+        <HashRouter hashType="hashbang">
             <Nav />
 
-            <Routes>
-                <Route path={`/${ScreenType.PORTFOLIO}`} element={<Home />} />
+            <Switch>
+                <Route exact path={`/${ScreenType.PORTFOLIO}`} component={Home} />
 
-                <Route path={`/${ScreenType.PLATFORM}/${ScreenPlatformPath.GENERATOR}/:id?`} element={<Generator />} />
+                <Route path={`/${ScreenType.PLATFORM}/${ScreenPlatformPath.GENERATOR}/:id?`} component={Generator} />
 
-                <Route path={`/${ScreenType.PLATFORM}/${ScreenPlatformPath.GAME}/:id?`} element={<Game />} />
-            </Routes>
+                <Route path={`/${ScreenType.PLATFORM}/${ScreenPlatformPath.GAME}/:id?`} component={Game} />
+            </Switch>
 
             <Footer />
         </HashRouter>

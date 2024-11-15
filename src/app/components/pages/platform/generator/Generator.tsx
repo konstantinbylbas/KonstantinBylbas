@@ -1,25 +1,27 @@
 /** @format */
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import './Generator.scss';
 import StringGenerator from './string/StringGenerator';
 import { useLayoutEffect } from 'react';
+import { GeneratorPages } from '@app/types/screen.type';
 
 export default function Generator() {
-    const navigation = useNavigate();
-    const { id } = useParams();
+    const location = useLocation();
+    const history = useHistory();
+    const { id } = useParams<{ id?: string }>();
 
     useLayoutEffect(() => {
-        if (!id) {
-            navigation('./string');
+        if (!id && !location.pathname.includes(GeneratorPages.STRING)) {
+            history.push(`${location.pathname}/${GeneratorPages.STRING}`);
         }
-    }, [navigation, id]);
+    }, [history, id, location.pathname]);
 
     return (
         <div className="generator">
             {id ? (
                 <div className="container">
-                    {id === 'string' ? <StringGenerator /> : ''}
+                    {id === GeneratorPages.STRING ? <StringGenerator /> : ''}
                 </div>
             ) : (
                 ''
