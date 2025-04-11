@@ -8,7 +8,7 @@ I later joined the "Нова пошта" team as an admin where I learnt how to 
 At "Гросбі", I was heavily involved in the development of various projects using React.js and PHP, ensuring ease of use and attractive interface design.
 I currently work with Angular.js and Node.js, ensuring high quality and professionalism in every project.
 
-My English level is Intermediate, but I have recently resumed my studies.
+My English level is Intermediate, I've recently finished B1 exam.
 
 I strive for continuous growth and development in web development, ready for new challenges and opportunities. My skills, experience and education allow me to effectively turn the boldest ideas into reality, creating products that bring value and joy to users.
 
