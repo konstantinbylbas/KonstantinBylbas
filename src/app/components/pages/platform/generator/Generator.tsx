@@ -13,7 +13,7 @@ export default function Generator() {
 
     useLayoutEffect(() => {
         if (!id && !location.pathname.includes(GeneratorPages.STRING)) {
-            history.push(`${location.pathname}/${GeneratorPages.STRING}`);
+            history.replace(`${location.pathname}/${GeneratorPages.STRING}`);
         }
     }, [history, id, location.pathname]);
 

@@ -13,7 +13,7 @@ export default function Game() {
 
     useLayoutEffect(() => {
         if (!id && !location.pathname.includes(GamePages.NAUGHTS_AND_CROSSES)) {
-            history.push(`${location.pathname}/${GamePages.NAUGHTS_AND_CROSSES}`);
+            history.replace(`${location.pathname}/${GamePages.NAUGHTS_AND_CROSSES}`);
         }
     }, [history, id, location.pathname]);
 
