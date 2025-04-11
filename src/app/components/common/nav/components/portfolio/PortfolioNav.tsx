@@ -2,7 +2,7 @@
 
 import LanguageSelector from '@app/components/common/language-selector/LanguageSelector';
 import './PortfolioNav.scss';
-import { ImageType } from '@app/types/image.type';
+import { IconType } from '@app/types/image.type';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ScreenPlatformPath, ScreenType } from '@app/types/screen.type';
@@ -17,23 +17,23 @@ export default function PortfolioNav() {
 
     const portfolioTabs: iTab[] = [
         {
-            img: ImageType.HOME,
+            img: IconType.HOME,
             link: `/${ScreenType.PORTFOLIO}`,
         },
         {
-            img: ImageType.PERSON,
+            img: IconType.PERSON,
             link: `/${ScreenType.PORTFOLIO}#summary`,
         },
         {
-            img: ImageType.BRIEFCASE,
+            img: IconType.BRIEFCASE,
             link: `/${ScreenType.PORTFOLIO}#examples`,
         },
         {
-            img: ImageType.MAIL,
+            img: IconType.MAIL,
             link: `/${ScreenType.PORTFOLIO}#contacts`,
         },
         {
-            img: ImageType.PLATFORM,
+            img: IconType.PLATFORM,
             link: `/${ScreenType.PLATFORM}/${ScreenPlatformPath.GENERATOR}`,
         },
     ];
@@ -46,7 +46,7 @@ export default function PortfolioNav() {
                 className="burger"
                 onClick={() => setIsOpenMenu(!isOpenMenu)}
                 data-testid="burger">
-                <img src={ImageType.BURGER} alt="Burger menu button" />
+                <img src={IconType.BURGER} alt="Burger menu button" />
             </div>
 
             <div className={`tabs column ${isOpenMenu ? 'active' : ''}`}>

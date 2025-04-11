@@ -8,7 +8,6 @@ import Services from './services/Services';
 import Examples from './examples/Examples';
 import Contacts from './contacts/Contacts';
 
-
 export default function Home() {
     return (
         <div className="home">
@@ -19,9 +18,9 @@ export default function Home() {
 
                 <Skills />
 
-                {/* <Examples /> */}
-
                 <Services />
+
+                <Examples />
 
                 <Contacts />
             </div>

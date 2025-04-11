@@ -74,6 +74,10 @@
                     right: calc(0px - $borderWidth);
                     bottom: calc(0px - $borderWidth);
                 }
+
+                img {
+                    object-fit: cover;
+                }
             }
 
             &_description {

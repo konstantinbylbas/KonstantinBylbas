@@ -5,7 +5,7 @@ import './PlatformNav.scss';
 import { useContext, useMemo, useState } from 'react';
 import { TranslationContext } from '@app/contexts/translationContext';
 import { ScreenPlatformPath, ScreenType } from '@app/types/screen.type';
-import { ImageType } from '@app/types/image.type';
+import { IconType } from '@app/types/image.type';
 import { LanguageListAlign } from '@app/types/language.type';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -61,7 +61,7 @@ export default function PlatformNav() {
                 className="burger"
                 onClick={() => setIsOpenMenu(!isOpenMenu)}
                 data-testid="burger">
-                <img src={ImageType.BURGER} alt="Burger menu button" />
+                <img src={IconType.BURGER} alt="Burger menu button" />
             </div>
 
             <div

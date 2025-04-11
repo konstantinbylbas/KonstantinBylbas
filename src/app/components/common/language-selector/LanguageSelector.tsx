@@ -1,6 +1,6 @@
 /** @format */
 
-import { ImageType } from '@app/types/image.type';
+import { IconType } from '@app/types/image.type';
 import './LanguageSelector.scss';
 import { useContext, useState } from 'react';
 import injectorService from '@app/services/injector.service';
@@ -34,7 +34,7 @@ export default function LanguageSelector({ align = LanguageListAlign.DEFAULT }: 
             onClick={() => setIsOpenLanguageSelector(!isOpenLanguageSelector)}>
             <figure>
                 <img
-                    src={ImageType.LANGUAGE}
+                    src={IconType.LANGUAGE}
                     alt="language selector"
                     title="Language selector"
                 />

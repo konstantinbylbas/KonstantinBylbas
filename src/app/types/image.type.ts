@@ -12,9 +12,7 @@ import ARROW_LEFT from '../../assets/images/left.svg';
 import ARROW_RIGHT from '../../assets/images/right.svg';
 import LANGUAGE from '../../assets/images/language.svg';
 
-const ImageType: { [key: string]: string } = {
-    LOGO: require('../../assets/images/logo.webp'),
-    AUTHOR: require('../../assets/images/author.webp'),
+const IconType: { [key: string]: string } = {
     HOME,
     PERSON,
     BRIEFCASE,
@@ -28,4 +26,10 @@ const ImageType: { [key: string]: string } = {
     LANGUAGE,
 };
 
-export { ImageType };
+const ImageType: { [key: string]: string } = {
+    LOGO: require('../../assets/images/logo.webp'),
+    AUTHOR: require('../../assets/images/author.webp'),
+    BRAND_BEAUTY: require('../../assets/images/portfolio/brandBeauty.webp'),
+};
+
+export { IconType, ImageType };

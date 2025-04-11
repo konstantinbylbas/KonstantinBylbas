@@ -4,7 +4,7 @@ import SectionTitle from '@app/components/common/section-title/SectionTitle';
 import './Examples.scss';
 import Slider from 'react-slick';
 import { useContext, useMemo, useRef, useState } from 'react';
-import { ImageType } from '@app/types/image.type';
+import { IconType, ImageType } from '@app/types/image.type';
 import { TranslationContext } from '@app/contexts/translationContext';
 
 export default function Examples() {
@@ -19,26 +19,31 @@ export default function Examples() {
 
     const sliderRef = useRef<Slider>(null);
 
-    const examples: { img: any; description: string }[] = [
+    const examples: { img: any; description: string; url: string }[] = [
         {
-            img: '',
-            description: 'Example 1',
+            img: ImageType.BRAND_BEAUTY,
+            description: 'Brand Beauty by YY',
+            url: 'https://brand-beauty.com/',
         },
         {
             img: '',
-            description: 'Example 2',
+            description: '',
+            url: '#',
         },
         {
             img: '',
-            description: 'Example 3',
+            description: '',
+            url: '#',
         },
         {
             img: '',
-            description: 'Example 4',
+            description: '',
+            url: '#',
         },
         {
             img: '',
-            description: 'Example 5',
+            description: '',
+            url: '#',
         },
     ];
 
@@ -118,14 +123,14 @@ export default function Examples() {
             <div className="examples_slider" data-aos="fade-left">
                 <div className="examples_slider_controls">
                     <img
-                        src={ImageType.ARROW_LEFT}
+                        src={IconType.ARROW_LEFT}
                         alt="portfolio slider arrow left"
                         title="Go previous"
                         className={isPrevDisabled ? 'disabled' : ''}
                         onClick={prevSlide}
                     />
                     <img
-                        src={ImageType.ARROW_RIGHT}
+                        src={IconType.ARROW_RIGHT}
                         alt="portfolio slider arrow right"
                         title="Go next"
                         className={isNextDisabled ? 'disabled' : ''}
@@ -135,14 +140,25 @@ export default function Examples() {
 
                 <Slider {...settings} ref={sliderRef}>
                     {examples.map((example, i) => (
-                        <div
+                        <a
+                            href={example.url}
+                            target="_blank"
                             className="examples_slider_block"
                             key={`example #${i}`}>
-                            <figure></figure>
+                            <figure>
+                                {example.img ? (
+                                    <img
+                                        src={example.img}
+                                        alt={example.description}
+                                    />
+                                ) : (
+                                    ''
+                                )}
+                            </figure>
                             <div className="examples_slider_block_description">
                                 {example.description}
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </Slider>
             </div>
