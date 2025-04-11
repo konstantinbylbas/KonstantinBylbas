@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/KonstantinBylbas/static/css/main.fb1da7e3.css",
-    "main.js": "/KonstantinBylbas/static/js/main.4bd285c0.js",
+    "main.css": "/KonstantinBylbas/static/css/main.a1b987cd.css",
+    "main.js": "/KonstantinBylbas/static/js/main.7a317ca1.js",
     "static/media/author.webp": "/KonstantinBylbas/static/media/author.48e8eb2dfbf3daa1f1a1.webp",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/KonstantinBylbas/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
@@ -10,6 +10,7 @@
     "static/media/Kanit-Bold.ttf": "/KonstantinBylbas/static/media/Kanit-Bold.46cd98a815b9874526ad.ttf",
     "static/media/Kanit-Medium.ttf": "/KonstantinBylbas/static/media/Kanit-Medium.786fd6bb96ce0cf5c5b2.ttf",
     "static/media/Kanit-Light.ttf": "/KonstantinBylbas/static/media/Kanit-Light.7b6b95563f4c5697d973.ttf",
+    "static/media/brandBeauty.webp": "/KonstantinBylbas/static/media/brandBeauty.0719ef03050d5f8e4d9a.webp",
     "workbox-e033a2e2.js": "/KonstantinBylbas/workbox-e033a2e2.js",
     "static/media/logo.webp": "/KonstantinBylbas/static/media/logo.64d5d2e9a3134978794a.webp",
     "static/media/platform.svg": "/KonstantinBylbas/static/media/platform.718740edb5e33c50f021cd9aa56ae98d.svg",
@@ -30,11 +31,11 @@
     "static/media/mail.svg": "/KonstantinBylbas/static/media/mail.7f9003840545704ac0e527d502bcacdf.svg",
     "static/media/right.svg": "/KonstantinBylbas/static/media/right.d9736fd471acea3fcbeb5daaac74eb8b.svg",
     "static/media/left.svg": "/KonstantinBylbas/static/media/left.73b34308dc1fb37827e6d55eeea620e8.svg",
-    "main.fb1da7e3.css.map": "/KonstantinBylbas/static/css/main.fb1da7e3.css.map",
-    "main.4bd285c0.js.map": "/KonstantinBylbas/static/js/main.4bd285c0.js.map"
+    "main.a1b987cd.css.map": "/KonstantinBylbas/static/css/main.a1b987cd.css.map",
+    "main.7a317ca1.js.map": "/KonstantinBylbas/static/js/main.7a317ca1.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb1da7e3.css",
-    "static/js/main.4bd285c0.js"
+    "static/css/main.a1b987cd.css",
+    "static/js/main.7a317ca1.js"
   ]
 }
