@@ -1,0 +1,144 @@
+/** @format */
+
+@import '/src/theme/index.scss';
+
+$burgerWidth: 32px;
+$burgerMargin: 24px;
+
+.platformNav {
+    height: 100%;
+
+    .burger {
+        width: $burgerWidth;
+        margin: $burgerMargin;
+        position: absolute;
+        cursor: pointer;
+        transition: $longTransition;
+        transform: scaleX(-1);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &_container {
+        width: 300px;
+        height: 100%;
+        margin-left: -300px;
+        padding-top: calc($burgerWidth + $burgerMargin * 2);
+        padding-bottom: $burgerMargin;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $lightDark;
+        border-right: $borderWidth solid $primary;
+        overflow: hidden;
+        transition: $longTransition;
+
+        &.open {
+            margin-left: 0;
+            padding-right: $burgerMargin;
+            padding-left: $burgerMargin;
+        }
+
+        &_tabs {
+            width: 100%;
+            flex: auto;
+
+            &_tab {
+                margin: 8px 0;
+
+                &.open {
+                    .platformNav_container_tabs_tab_title {
+                        .arrow {
+                            &::before {
+                                transform: rotate(-45deg);
+                            }
+
+                            &::after {
+                                transform: rotate(45deg);
+                            }
+                        }
+                    }
+
+                    .platformNav_container_tabs_tab_body {
+                        max-height: unset;
+                    }
+                }
+
+                &_title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 8px;
+                    cursor: pointer;
+
+                    .arrow {
+                        width: 14px;
+                        height: 14px;
+                        position: relative;
+                        background: transparent;
+
+                        &::before,
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 10px;
+                            height: $borderWidth;
+                            top: calc(50% - $borderWidth);
+                            background-color: $light;
+                            transition: all 0.3s ease;
+                        }
+
+                        &::before {
+                            transform: rotate(45deg);
+                            left: -$borderWidth;
+                        }
+
+                        &::after {
+                            transform: rotate(-45deg);
+                            left: 4px;
+                        }
+                    }
+                }
+
+                &_body {
+                    max-height: 0;
+                    padding: 8px 0 8px 8px;
+                    transition: $longTransition;
+                    overflow: hidden;
+
+                    &_subTab {
+                        padding: 8px;
+                        display: block;
+                        position: relative;
+                        transition: $shortTransition;
+
+                        &.active {
+                            pointer-events: none;
+                        }
+
+                        &:hover,
+                        &.active {
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+
+                        &::after {
+                            content: '';
+                            width: 0;
+                            height: $borderWidth;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            background-color: $primary;
+                            transition: $longTransition;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

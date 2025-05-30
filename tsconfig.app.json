@@ -1,7 +1,0 @@
-{
-  "exclude": [
-    "node_modules",
-    "public",
-    ".prettierrc.js"
-  ],
-}
