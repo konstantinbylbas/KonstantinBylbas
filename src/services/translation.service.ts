@@ -1,9 +1,8 @@
 /** @format */
 
-import { iTranslationService } from '@_types/injector.type';
 import { LanguageType } from '@_types/language.type';
 
-export class TranslationService implements iTranslationService {
+export class translationService {
     private readonly storageKey = 'lang';
     private currentLanguage: LanguageType = LanguageType.EN;
     private languagePack: { [key: string]: {} } = {};
@@ -40,3 +39,5 @@ export class TranslationService implements iTranslationService {
         return this.languagePack;
     }
 }
+
+export const TranslationService = new translationService();

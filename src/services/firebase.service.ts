@@ -1,11 +1,10 @@
 /** @format */
 
-import { iFirebaseService } from '@_types/injector.type';
 import { FirebaseCollection, FirebaseTable } from '@_types/portfolio/data.type';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 
-export class FirebaseService implements iFirebaseService {
+export class firebaseService {
     public async getTableData(
         collection: FirebaseCollection,
         table: FirebaseTable,
@@ -32,3 +31,5 @@ export class FirebaseService implements iFirebaseService {
         }
     }
 }
+
+export const FirebaseService = new firebaseService();

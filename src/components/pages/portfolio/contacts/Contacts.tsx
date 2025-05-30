@@ -4,19 +4,17 @@ import { SectionTitle, SocialMediaLinks } from '@components/common';
 import { Input, Button, Textarea } from '@components/controls';
 import './Contacts.scss';
 import { ButtonSize } from '@_types/button.type';
-import injectorService from '@services/injector.service';
 import { useContext, useMemo, useState } from 'react';
 import { NotificationContext } from '@contexts/notificationContext';
 import { NotificationType } from '@_types/notification.type';
 import validator from 'validator';
 import { TranslationContext } from '@contexts/translationContext';
+import { TelegramService } from '@services/telegram.service';
 
 export default function Contacts() {
     const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
-
-    const TelegramService = injectorService.get('TelegramService');
 
     const [formData, setFormData] = useState({
         name: '',

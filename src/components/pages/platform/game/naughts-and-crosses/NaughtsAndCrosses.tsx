@@ -1,6 +1,5 @@
 /** @format */
 
-import injectorService from '@services/injector.service';
 import './NaughtsAndCrosses.scss';
 import {
     useCallback,
@@ -20,6 +19,7 @@ import { NotificationContext } from '@contexts/notificationContext';
 import { NotificationType } from '@_types/notification.type';
 import { TranslationContext } from '@contexts/translationContext';
 import { Button, Select } from '@components/controls';
+import { NaughtsAndCrossesService } from '@services/game/naughtsAndCrosses.service';
 
 interface iSettings {
     playersCount: PlayersCount;
@@ -37,8 +37,6 @@ export default function NaughtsAndCrosses() {
     const [board, setBoard] = useState<iCell[]>([]);
     const [isPreviousFirstPlayer, setIsPreviousFirstPlayer] = useState(false);
     const [isGameFinished, setIsGameFinished] = useState(false);
-
-    const NaughtsAndCrossesService = injectorService.get('NaughtsAndCrosses');
 
     const texts = useMemo(
         () => contextTranslation.Games.naughtsAndCrosses,

@@ -1,6 +1,6 @@
 /** @format */
 
-import injectorService from '@services/injector.service';
+import { TranslationService } from '@services/translation.service';
 import React, { useState } from 'react';
 
 interface TranslationContextProviderProps {
@@ -20,8 +20,6 @@ export const TranslationContext = React.createContext<TranslationContextType>({
 export default function TranslationContextProvider({
     children,
 }: TranslationContextProviderProps) {
-    const TranslationService = injectorService.get('TranslationService');
-
     const [contextTranslation, setContextTranslation] = useState<{}>(
         TranslationService.translation,
     );

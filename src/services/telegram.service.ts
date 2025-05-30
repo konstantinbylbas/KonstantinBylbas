@@ -2,10 +2,9 @@
 
 import sendRequest from '@api/baseAPI';
 import { iWebConfig } from '@_types/environment.type';
-import { iTelegramService } from '@_types/injector.type';
 import { Environment } from '@environments/environment';
 
-export class TelegramService implements iTelegramService {
+export class telegramService {
     private config: iWebConfig;
     private source: string;
     private url: string;
@@ -40,3 +39,5 @@ export class TelegramService implements iTelegramService {
         }
     }
 }
+
+export const TelegramService = new telegramService();

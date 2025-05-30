@@ -2,6 +2,8 @@
 
 const CracoAlias = require('craco-alias');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 module.exports = {
     env: {
@@ -19,6 +21,11 @@ module.exports = {
             },
         },
     ],
+    style: {
+        postcss: {
+            plugins: [autoprefixer(), cssnano({ preset: 'default' })],
+        },
+    },
     webpack: {
         plugins: {
             add: [

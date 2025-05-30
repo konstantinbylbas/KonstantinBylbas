@@ -3,13 +3,13 @@
 import { IconType } from '@_types/image.type';
 import './LanguageSelector.scss';
 import { useContext, useState } from 'react';
-import injectorService from '@services/injector.service';
 import {
     LanguageSelectorProps,
     LanguageListAlign,
     LanguageType,
 } from '@_types/language.type';
 import { TranslationContext } from '@contexts/translationContext';
+import { TranslationService } from '@services/translation.service';
 
 export function LanguageSelector({
     align = LanguageListAlign.DEFAULT,
@@ -17,8 +17,6 @@ export function LanguageSelector({
     const { setContextTranslation } = useContext(TranslationContext);
 
     const [isOpenLanguageSelector, setIsOpenLanguageSelector] = useState(false);
-
-    const TranslationService = injectorService.get('TranslationService');
 
     const languages = Object.values(LanguageType).filter(
         value => typeof value === 'string',
