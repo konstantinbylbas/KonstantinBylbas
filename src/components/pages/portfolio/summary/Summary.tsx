@@ -2,27 +2,33 @@
 
 import './Summary.scss';
 import { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import injectorService from '@services/injector.service';
 import { FirebaseCollection, FirebaseTable } from '@_types/portfolio/data.type';
 import { TranslationContext } from '@contexts/translationContext';
 import { SectionTitle } from '@components/common';
+import { FirebaseService } from '@services/firebase.service';
 
 export default function Summary() {
     const { contextTranslation } = useContext(TranslationContext);
+
+    const [summary, setSummary] = useState([
+        { title: 'first name', value: 'Konstantin' },
+        { title: 'last name', value: 'Bylbas' },
+        { title: 'age', value: getAge() },
+        { title: 'nationality', value: 'Ukrainian' },
+    ]);
 
     const texts = useMemo(
         () => contextTranslation.Portfolio.summary,
         [contextTranslation],
     );
-
-    const [infoItemsList, setInfoItemsList] = useState([
-        { title: texts.personalInfo.fields['first name'], value: 'Konstantin' },
-        { title: texts.personalInfo.fields['last name'], value: 'Bylbas' },
-        { title: texts.personalInfo.fields['age'], value: getAge() },
-        { title: texts.personalInfo.fields['nationality'], value: 'Ukrainian' },
-    ]);
-
-    const FirebaseService = injectorService.get('FirebaseService');
+    const infoItemsList = useMemo(
+        () =>
+            summary.map(row => ({
+                ...row,
+                title: texts.personalInfo.fields[row.title.toLowerCase()],
+            })),
+        [texts, summary],
+    );
 
     useLayoutEffect(() => {
         fetchSummary();
@@ -34,13 +40,7 @@ export default function Summary() {
             FirebaseTable.SUMMARY,
         );
 
-        data.forEach(
-            field =>
-                (field.title =
-                    texts.personalInfo.fields[field.title.toLowerCase()]),
-        );
-
-        setInfoItemsList([...infoItemsList, ...data]);
+        setSummary([...infoItemsList, ...data]);
     }
 
     function getAge(): string {
@@ -86,10 +86,10 @@ export default function Summary() {
                 </h4>
                 <div className="personal-info_row">
                     <div>
-                        {infoItemsList.map(item => (
-                            <p key={item.title}>
-                                <span className="title">{item.title}: </span>
-                                <span className="value">{item.value}</span>
+                        {infoItemsList.map((row, i) => (
+                            <p key={`summary row#${i}`}>
+                                <span className="title">{row.title}: </span>
+                                <span className="value">{row.value}</span>
                             </p>
                         ))}
                     </div>

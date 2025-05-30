@@ -2,10 +2,10 @@
 
 import './Skills.scss';
 import { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import injectorService from '@services/injector.service';
 import { FirebaseCollection, FirebaseTable } from '@_types/portfolio/data.type';
 import { TranslationContext } from '@contexts/translationContext';
 import { Button, ProgressBar } from '@components/controls';
+import { FirebaseService } from '@services/firebase.service';
 
 interface iSkill {
     title: string;
@@ -23,8 +23,6 @@ export default function Skills() {
         () => contextTranslation.Portfolio.summary.skills,
         [contextTranslation],
     );
-
-    const FirebaseService = injectorService.get('FirebaseService');
 
     const skillsToShowLength = window.innerWidth > 550 ? 8 : 4;
 

@@ -6,9 +6,8 @@ import {
     iCell,
     iCheckIsGameEndedResult,
 } from '@_types/game/naughts-and-crosses.type';
-import { iNaughtsAndCrosses } from '@_types/injector.type';
 
-export default class NaughtsAndCrossesService implements iNaughtsAndCrosses {
+export class naughtsAndCrossesService {
     public dificulty: DifficultyType = DifficultyType.EASY;
 
     private readonly boardInstance = new Board();
@@ -193,3 +192,5 @@ class Cell {
         };
     }
 }
+
+export const NaughtsAndCrossesService = new naughtsAndCrossesService();
