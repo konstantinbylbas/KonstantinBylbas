@@ -1,0 +1,14 @@
+@import '/src/theme/variables.scss';
+@import '/src/theme/mixins.scss';
+
+.notFound {
+    width: 95vw;
+    height: 95vh;
+    margin: 2.5vh 2.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+}

@@ -1,9 +1,8 @@
 {
     "path-intellisense.mappings": {
-        "@app": "${workspaceFolder}/src/app",
-        "@components": "${workspaceFolder}/src/app/components",
-        "@services": "${workspaceFolder}/src/app/services",
-        "@types": "${workspaceFolder}/src/app/types"
+        "@components": "${workspaceFolder}@components",
+        "@services": "${workspaceFolder}@services",
+        "@types": "${workspaceFolder}@_types"
     },
     "path-intellisense.extensionOnImport": true
 }

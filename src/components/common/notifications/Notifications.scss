@@ -1,0 +1,39 @@
+/** @format */
+
+@import '/src/theme/index.scss';
+
+.notifications {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: fixed;
+    right: 8px;
+    bottom: 8px;
+    overflow-y: auto;
+    z-index: 10;
+
+    &_message {
+        max-height: 160px;
+        padding: 16px;
+        background-color: $dark;
+    }
+
+    &_type- {
+        &info {
+            border: $borderWidth solid $primary;
+        }
+
+        &success {
+            border: $borderWidth solid $success;
+        }
+
+        &warning {
+            border: $borderWidth solid $warning;
+        }
+
+        &error {
+            border: $borderWidth solid $danger;
+        }
+    }
+}

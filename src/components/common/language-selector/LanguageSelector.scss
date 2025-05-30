@@ -1,0 +1,75 @@
+/** @format */
+
+@import '/src/theme/index.scss';
+
+.languageSelector {
+    padding: 4px;
+    position: relative;
+    border: solid $borderWidth transparent;
+    border-radius: 4px;
+
+    figure {
+        width: 36px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    &:has(.languageSelector_list.default.active) {
+        background-color: $dark;
+        border-top-color: $lightDark;
+        border-right-color: $lightDark;
+        border-left-color: $lightDark;
+    }
+
+    &:has(.languageSelector_list.top.active) {
+        background-color: $dark;
+        border-top-color: $dark;
+        border-right-color: $dark;
+        border-left-color: $dark;
+    }
+
+    &_list.default,
+    &_list.top {
+        width: calc(100% + $borderWidth * 2);
+        position: absolute;
+        left: calc(0px - $borderWidth);
+        text-align: center;
+        border: solid $borderWidth transparent;
+        overflow: hidden;
+        transition: $shortTransition;
+
+        p {
+            padding: 4px;
+            transition: $shortTransition;
+
+            &.active,
+            &:hover {
+                background-color: $lightDark;
+            }
+        }
+    }
+
+    &_list.default {
+        max-height: 0;
+
+        &.active {
+            max-height: unset;
+            padding: 8px 0 0 0;
+            background-color: $dark;
+            border-right-color: $lightDark;
+            border-bottom-color: $lightDark;
+            border-left-color: $lightDark;
+        }
+    }
+
+    &_list.top {
+        max-height: 0;
+        bottom: calc(100%);
+
+        &.active {
+            max-height: unset;
+            padding: 0 0 8px 0;
+            background-color: $dark;
+        }
+    }
+}

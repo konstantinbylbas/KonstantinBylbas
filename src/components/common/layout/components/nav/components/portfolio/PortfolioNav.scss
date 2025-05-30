@@ -1,0 +1,91 @@
+/** @format */
+
+@import '/src/theme/index.scss';
+
+.portfolioNav {
+    height: 100%;
+    padding: 24px 0 calc(24px + 30px) 0;
+
+    .burger {
+        margin-left: auto;
+        display: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .tabs {
+        height: 100%;
+        padding-bottom: 30px;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        a {
+            width: 36px;
+            height: 36px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            background-color: $lightDark;
+            transition: $shortTransition;
+
+            &:not(.platform):hover {
+                background-color: $primary;
+            }
+
+            &.platform:hover {
+                background-color: rgba($color: $light, $alpha: 0.3);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .languageSelector {
+            margin: 0 0 12px 0;
+
+            &,
+            &_list {
+                background-color: $lightDark;
+                box-shadow: 0 0 8px $lightDark;
+            }
+        }
+
+        .burger,
+        .tabs {
+            width: 40px;
+        }
+
+        .burger {
+            height: 40px;
+            padding: 8px;
+            background-color: $lightDark;
+            box-shadow: 0 0 8px $lightDark;
+            display: block;
+        }
+
+        .tabs {
+            height: unset;
+            max-height: 0;
+            margin-top: 0;
+            margin-left: auto;
+            align-items: center;
+            justify-content: start;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transition: $shortTransition;
+
+            &.active {
+                max-height: unset;
+                margin-top: 24px;
+                opacity: 1;
+                pointer-events: unset;
+
+                a {
+                    box-shadow: 0 0 8px rgba($color: $light, $alpha: 0.3);
+                }
+            }
+        }
+    }
+}

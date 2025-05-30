@@ -1,0 +1,75 @@
+/** @format */
+
+@import '/src/theme/index.scss';
+
+.checkbox {
+    display: flex;
+    align-items: center;
+
+    input[type='checkbox'] {
+        display: none;
+
+        & + .styledCheckbox {
+            width: 16px;
+            height: 16px;
+            display: block;
+            position: relative;
+            border: 2px solid $primary;
+
+            &::before,
+            &::after {
+                content: '';
+                width: 0;
+                height: 2px;
+                display: block;
+                position: absolute;
+                background-color: $primary;
+                transform-origin: left;
+            }
+
+            &::before {
+                top: 3px;
+                left: 4px;
+                transition: $shortTransition;
+                transform: rotate(45deg);
+                z-index: 1;
+            }
+
+            &::after {
+                top: 6px;
+                left: 8px;
+                box-shadow: 0 0 0 2px $dark;
+                transition: $longTransition $shortTransition;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:checked + .styledCheckbox {
+            &::before {
+                width: 6px;
+            }
+
+            &::after {
+                width: 16px;
+            }
+        }
+
+        &:not(:checked) + .styledCheckbox {
+            &::after {
+                transition-delay: 0s;
+            }
+
+            &::before {
+                transition-delay: $longTransition;
+            }
+        }
+    }
+
+    label {
+        margin: 0 0 0 -16px;
+        padding: 0 0 0 32px;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+    }
+}
