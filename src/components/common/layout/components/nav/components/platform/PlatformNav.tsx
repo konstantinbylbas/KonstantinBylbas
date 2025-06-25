@@ -1,13 +1,14 @@
 /** @format */
 
 import './PlatformNav.scss';
-import { useContext, useMemo, useState } from 'react';
-import { TranslationContext } from '@contexts/translationContext';
+import { useMemo, useState } from 'react';
 import { ScreenPlatformPath, ScreenType } from '@_types/screen.type';
 import { IconType } from '@_types/image.type';
 import { LanguageListAlign } from '@_types/language.type';
 import { Link, useLocation } from 'react-router-dom';
 import { LanguageSelector } from '@components/common/language-selector/LanguageSelector';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 export interface iTab {
     title: string;
@@ -15,15 +16,14 @@ export interface iTab {
 }
 
 export default function PlatformNav() {
-    const { contextTranslation } = useContext(TranslationContext);
-
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [activeTab, setActiveTab] = useState<iTab | undefined>();
 
-    const texts = useMemo(
-        () => contextTranslation.Nav.tabs,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Nav.tabs, [translation]);
 
     const location = useLocation();
 

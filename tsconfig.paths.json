@@ -9,6 +9,7 @@
       "@environments/*": ["src/environments/*"],
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
+      "@store/*": ["src/store/*"],
       "@_types/*": ["src/types/*"]
     }
   }

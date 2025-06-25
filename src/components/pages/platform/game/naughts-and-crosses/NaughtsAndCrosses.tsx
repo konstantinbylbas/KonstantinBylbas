@@ -17,9 +17,10 @@ import {
 } from '@_types/game/naughts-and-crosses.type';
 import { NotificationContext } from '@contexts/notificationContext';
 import { NotificationType } from '@_types/notification.type';
-import { TranslationContext } from '@contexts/translationContext';
 import { Button, Select } from '@components/controls';
 import { NaughtsAndCrossesService } from '@services/game/naughtsAndCrosses.service';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 interface iSettings {
     playersCount: PlayersCount;
@@ -27,7 +28,6 @@ interface iSettings {
 }
 
 export default function NaughtsAndCrosses() {
-    const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
@@ -38,10 +38,11 @@ export default function NaughtsAndCrosses() {
     const [isPreviousFirstPlayer, setIsPreviousFirstPlayer] = useState(false);
     const [isGameFinished, setIsGameFinished] = useState(false);
 
-    const texts = useMemo(
-        () => contextTranslation.Games.naughtsAndCrosses,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Games.naughtsAndCrosses, [translation]);
 
     const playersCountList = Object.keys(PlayersCount).map(value => ({
         value,

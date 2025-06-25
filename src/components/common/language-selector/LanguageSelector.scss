@@ -41,6 +41,7 @@
         p {
             padding: 4px;
             transition: $shortTransition;
+            cursor: pointer;
 
             &.active,
             &:hover {
@@ -56,6 +57,7 @@
             max-height: unset;
             padding: 8px 0 0 0;
             background-color: $dark;
+            border-top: 0px;
             border-right-color: $lightDark;
             border-bottom-color: $lightDark;
             border-left-color: $lightDark;

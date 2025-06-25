@@ -1,8 +1,9 @@
 /** @format */
 
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import './Services.scss';
-import { TranslationContext } from '@contexts/translationContext';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 interface Service {
     title: string;
@@ -10,11 +11,13 @@ interface Service {
 }
 
 export default function Services() {
-    const { contextTranslation } = useContext(TranslationContext);
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
+    );
 
     const texts = useMemo(
-        () => contextTranslation.Portfolio.summary.services,
-        [contextTranslation],
+        () => translation.Portfolio.summary.services,
+        [translation],
     );
 
     const services: Service[] = useMemo(

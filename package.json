@@ -1,9 +1,10 @@
 {
   "homepage": "https://konstantinbylbas.github.io/KonstantinBylbas/",
   "name": "konstantinbylbas",
-  "version": "1.4.96",
+  "version": "1.4.97",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -12,6 +13,7 @@
     "firebase": "^10.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",

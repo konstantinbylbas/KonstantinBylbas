@@ -1,11 +1,12 @@
 /** @format */
 
 import './Skills.scss';
-import { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import { FirebaseCollection, FirebaseTable } from '@_types/portfolio/data.type';
-import { TranslationContext } from '@contexts/translationContext';
 import { Button, ProgressBar } from '@components/controls';
 import { FirebaseService } from '@services/firebase.service';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 interface iSkill {
     title: string;
@@ -13,16 +14,15 @@ interface iSkill {
 }
 
 export default function Skills() {
-    const { contextTranslation } = useContext(TranslationContext);
-
     const [dbData, setDbData] = useState<iSkill[]>([]);
     const [skills, setSkills] = useState<iSkill[]>([]);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-    const texts = useMemo(
-        () => contextTranslation.Portfolio.summary.skills,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Portfolio.summary.skills, [translation]);
 
     const skillsToShowLength = window.innerWidth > 550 ? 8 : 4;
 

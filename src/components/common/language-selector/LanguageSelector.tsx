@@ -2,35 +2,33 @@
 
 import { IconType } from '@_types/image.type';
 import './LanguageSelector.scss';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import {
     LanguageSelectorProps,
     LanguageListAlign,
     LanguageType,
 } from '@_types/language.type';
-import { TranslationContext } from '@contexts/translationContext';
-import { TranslationService } from '@services/translation.service';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLanguage } from '@store/slices/translationSlice';
+import { RootState } from '@store/index';
 
 export function LanguageSelector({
     align = LanguageListAlign.DEFAULT,
 }: LanguageSelectorProps) {
-    const { setContextTranslation } = useContext(TranslationContext);
-
     const [isOpenLanguageSelector, setIsOpenLanguageSelector] = useState(false);
 
     const languages = Object.values(LanguageType).filter(
         value => typeof value === 'string',
     );
 
-    function changeLanguage(value: keyof LanguageType): void {
-        TranslationService.language =
-            LanguageType[value as keyof typeof LanguageType];
-        updateLanguageContext();
-    }
+    const dispatch = useDispatch();
+    const currentLanguage = useSelector(
+        (state: RootState) => state.translation.language,
+    );
 
-    function updateLanguageContext(): void {
-        setContextTranslation(TranslationService.translation);
-    }
+    const changeLanguage = (langKey: keyof typeof LanguageType) => {
+        dispatch(setLanguage(LanguageType[langKey]));
+    };
 
     return (
         <div
@@ -49,8 +47,7 @@ export function LanguageSelector({
                     <p
                         key={listItem}
                         className={
-                            listItem ===
-                            LanguageType[TranslationService.language]
+                            listItem === LanguageType[currentLanguage]
                                 ? 'active'
                                 : ''
                         }

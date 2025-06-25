@@ -6,10 +6,10 @@ import { Button, Input, InputRange, Checkbox } from '@components/controls';
 import { NotificationType } from '@_types/notification.type';
 import { NotificationContext } from '@contexts/notificationContext';
 import { ButtonSize } from '@_types/button.type';
-import { TranslationContext } from '@contexts/translationContext';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 export default function StringGenerator() {
-    const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
@@ -23,10 +23,11 @@ export default function StringGenerator() {
         excludeDuplication: false,
     });
 
-    const texts = useMemo(
-        () => contextTranslation.Generators.string,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Generators.string, [translation]);
 
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
