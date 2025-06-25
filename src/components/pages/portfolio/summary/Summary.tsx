@@ -1,15 +1,14 @@
 /** @format */
 
 import './Summary.scss';
-import { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import { FirebaseCollection, FirebaseTable } from '@_types/portfolio/data.type';
-import { TranslationContext } from '@contexts/translationContext';
 import { SectionTitle } from '@components/common';
 import { FirebaseService } from '@services/firebase.service';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 export default function Summary() {
-    const { contextTranslation } = useContext(TranslationContext);
-
     const [summary, setSummary] = useState([
         { title: 'first name', value: 'Konstantin' },
         { title: 'last name', value: 'Bylbas' },
@@ -17,14 +16,15 @@ export default function Summary() {
         { title: 'nationality', value: 'Ukrainian' },
     ]);
 
-    const texts = useMemo(
-        () => contextTranslation.Portfolio.summary,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Portfolio.summary, [translation]);
     const infoItemsList = useMemo(
         () =>
             summary.map(row => ({
-                ...row,
+                value: row.value,
                 title: texts.personalInfo.fields[row.title.toLowerCase()],
             })),
         [texts, summary],
@@ -40,7 +40,7 @@ export default function Summary() {
             FirebaseTable.SUMMARY,
         );
 
-        setSummary([...infoItemsList, ...data]);
+        setSummary([...summary, ...data]);
     }
 
     function getAge(): string {

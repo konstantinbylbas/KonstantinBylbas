@@ -2,20 +2,20 @@
 
 import './Examples.scss';
 import Slider from 'react-slick';
-import { useContext, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { IconType, ImageType } from '@_types/image.type';
-import { TranslationContext } from '@contexts/translationContext';
 import { SectionTitle } from '@components/common';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 export default function Examples() {
-    const { contextTranslation } = useContext(TranslationContext);
-
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    const texts = useMemo(
-        () => contextTranslation.Portfolio.examples,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Portfolio.examples, [translation]);
 
     const sliderRef = useRef<Slider>(null);
 

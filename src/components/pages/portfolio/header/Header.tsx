@@ -2,16 +2,16 @@
 
 import { ImageType } from '@_types/image.type';
 import './Header.scss';
-import { TranslationContext } from '@contexts/translationContext';
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 export default function Header() {
-    const { contextTranslation } = useContext(TranslationContext);
-
-    const texts = useMemo(
-        () => contextTranslation.Portfolio.header,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Portfolio.header, [translation]);
 
     return (
         <header className="row align-items-center justify-content-between home_header">

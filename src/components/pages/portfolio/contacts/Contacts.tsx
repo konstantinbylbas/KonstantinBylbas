@@ -8,11 +8,11 @@ import { useContext, useMemo, useState } from 'react';
 import { NotificationContext } from '@contexts/notificationContext';
 import { NotificationType } from '@_types/notification.type';
 import validator from 'validator';
-import { TranslationContext } from '@contexts/translationContext';
 import { TelegramService } from '@services/telegram.service';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
 
 export default function Contacts() {
-    const { contextTranslation } = useContext(TranslationContext);
     const { contextNotification, setContextNotification } =
         useContext(NotificationContext);
 
@@ -23,10 +23,11 @@ export default function Contacts() {
         message: '',
     });
 
-    const texts = useMemo(
-        () => contextTranslation.Portfolio.contacts,
-        [contextTranslation],
+    const translation = useSelector(
+        (state: RootState) => state.translation.translation,
     );
+
+    const texts = useMemo(() => translation.Portfolio.contacts, [translation]);
 
     const nameMinLength = 5;
     const nameMaxLength = 50;
