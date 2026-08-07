@@ -1,59 +1,7 @@
-I am a Full-stack developer with a great enthusiasm for creating innovative and efficient web applications. I have extensive experience with a variety of technologies and tools and am able to efficiently implement projects of any scale.
+I am a Full-Stack Developer with several years of commercial experience in web and mobile application development, working across both frontend and backend technologies. I am comfortable working on projects at different stages of development, from analysing technical documentation and translating business requirements into technical solutions to implementing features, testing, debugging, configuring environments, deploying applications and supporting them after release.
+My main focus is on developing reliable, maintainable and scalable software with a clear separation of responsibilities between frontend, backend and infrastructure components. I have experience building applications using modern component-based frontend frameworks and libraries, developing REST-based backend services, integrating databases and external services, and working with different development and deployment environments. I am particularly interested in solving practical engineering problems, improving existing systems and finding ways to automate repetitive processes.
+Testing and software quality are also important parts of my development workflow. I have experience with Jest, Cypress and Detox and understand the value of combining different types of automated testing. I have worked with frontend and end-to-end testing, debugging failed test scenarios and validating application behaviour after changes. I also consider code review an important part of maintaining software quality. I am able to review code, identify potential problems and suggest improvements related to readability, maintainability, correctness and architecture.
 
-My academic foundations were laid at Pavlograd College of the Dnipro National Technical University "Dnipro Polytechnic", then I received a Bachelor's degree in Computer Science from Dnipro National University and a Master's degree in Computer Engineering from Dnipro Technical University "Dnipro Polytechnic".
-In addition, I additionally studied at ITSTEP Computer Academy, specialising in the development and promotion of web projects.
-
-My professional journey started with working in ZEBRA image studio, where I developed web applications using ASP.NET MVC and JavaScript, providing full functionality and user-friendliness.
-I later joined the "Нова пошта" team as an admin where I learnt how to communicate effectively with customers. 
-At "Гросбі", I was heavily involved in the development of various projects using React.js and PHP, ensuring ease of use and attractive interface design.
-I currently work with Angular.js and Node.js, ensuring high quality and professionalism in every project.
-
-My English level is Intermediate, I've recently finished B1 exam.
-
-I strive for continuous growth and development in web development, ready for new challenges and opportunities. My skills, experience and education allow me to effectively turn the boldest ideas into reality, creating products that bring value and joy to users.
-
-<hr/>
-
-<h2>
-🛠️ Skills
-</h2>
-
-<h3>
- Front-End Development 
-</h3>
-
-![ANGULAR](https://img.shields.io/badge/angular-0d1117?style=for-the-badge&logo=angular&label=&logoColor=red&labelColor=black)
-&nbsp;&nbsp;
-![REACT](https://img.shields.io/badge/react-0d1117?style=for-the-badge&logo=react&label=&logoColor=blue&labelColor=black)
-&nbsp;&nbsp;
-![TS](https://img.shields.io/badge/typescript-0d1117?style=for-the-badge&logo=typescript&label=&logoColor=blue&labelColor=black)
-&nbsp;&nbsp;
-![JS](https://img.shields.io/badge/javascript-0d1317?style=for-the-badge&logo=javascript&label=&logoColor=yellow&labelColor=black)
-&nbsp;&nbsp;
-![SCSS](https://img.shields.io/badge/scss-0d1117?style=for-the-badge&logo=css3&label=&logoColor=blue&labelColor=black)
-&nbsp;&nbsp;
-![HTML](https://img.shields.io/badge/html-0d1117?style=for-the-badge&logo=html5&label=&labelColor=black)
-
-<h3>
- Back-End Development 
-</h3>
-
-![NODE](https://img.shields.io/badge/node.js-0d1117?style=for-the-badge&logo=node.js&label=&labelColor=black)
-&nbsp;&nbsp;
-![PHP](https://img.shields.io/badge/php-0d1117?style=for-the-badge&logo=php&label=&labelColor=black)
-&nbsp;&nbsp;
-![.NET](https://img.shields.io/badge/.net-0d1117?style=for-the-badge&logo=.net&label=&labelColor=black)
-&nbsp;&nbsp;
-
-<h3>
- Design Tools
-</h3>
-
-![Figma](https://img.shields.io/badge/figma-0d1117?style=for-the-badge&logo=figma&label=&labelColor=black)
-&nbsp;&nbsp;
-![Photoshop](https://img.shields.io/badge/photoshop-0d1117?style=for-the-badge&logo=adobe-photoshop&label=&labelColor=black)
-&nbsp;&nbsp;
-![Illustrator](https://img.shields.io/badge/illustrator-0d1117?style=for-the-badge&logo=adobe-illustrator&label=&labelColor=black)
 
 <h2>
 🔗 Links
